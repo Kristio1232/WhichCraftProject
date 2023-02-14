@@ -5,7 +5,52 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/WhichCraftDemo_ClickCombine.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/WhichCraft_MainMenu.unity
+    guid: f2f38e1f5c5e42543b593443846909fe
+  - enabled: 1
+    path: Assets/Scenes/WhichCraftDemo.unity
+    guid: a61e88d86cc73b849be08fd2cf2abc43
+  - enabled: 1
+    path: Assets/Scenes/Blue1.unity
+    guid: dcec1991c834939418b62f238b1a6f5d
+  - enabled: 1
+    path: Assets/Scenes/Blue1Red2.unity
+    guid: 4a73ed5879c5e0e49a1782ca58e8f7ed
+  - enabled: 1
+    path: Assets/Scenes/CreatedGreen.unity
+    guid: bec1dc78c6733f74f85603def6e0c1ad
+  - enabled: 1
+    path: Assets/Scenes/Red1.unity
+    guid: 388cc05da9942b64f859c09e6c390e8a
+  - enabled: 1
+    path: Assets/Scenes/Yellow1.unity
+    guid: ea8751605af18f243ad5c7a8d221203d
+  - enabled: 1
+    path: Assets/Scenes/CreatedOrange.unity
+    guid: 6f0c6735eb4641643b871b6b0932b7c2
+  - enabled: 1
+    path: Assets/Scenes/Blue1Yellow2.unity
+    guid: feaae5c782c4f5c4f88b1133e49fe575
+  - enabled: 1
+    path: Assets/Scenes/Red1Blue2.unity
+    guid: be12da1437b28354ba92d6147f818c0c
+  - enabled: 1
+    path: Assets/Scenes/CreatedPurple.unity
+    guid: 56cba46b759bad14bb2c0835cb238f37
+  - enabled: 1
+    path: Assets/Scenes/Red1Yellow2.unity
+    guid: 11f5b5fdd77088147b60cf7a2095ae13
+  - enabled: 1
+    path: Assets/Scenes/Yellow1Blue2.unity
+    guid: 52dc4832b32aafc4fac90f8d98de0833
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Yellow1Red2.unity
+    guid: 5c17f33620784244bb667f6987de7aa6
   m_configObjects: {}
