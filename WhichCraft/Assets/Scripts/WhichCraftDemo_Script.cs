@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
-using UnityEngine.UI;
+
+
 public class WhichCraftDemo_Script : MonoBehaviour
 {
     void Update()
@@ -14,6 +14,10 @@ public class WhichCraftDemo_Script : MonoBehaviour
         }
     }
 
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("EndlessRunner"); //this will have the name of your main game scene
+    }
     public void ClickBlue()
     {
         SceneManager.LoadScene("Blue1");
