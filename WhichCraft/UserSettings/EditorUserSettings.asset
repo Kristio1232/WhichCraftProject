@@ -6,34 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 5501560400575c5a5a0a587315770a44424f1e727e2c7e637c7d1c60b7b4636f
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 575500540107510a0b5b097548275d4445161d7e752a7633292f4a36b0b16c6e
-      flags: 0
-    RecentlyUsedSceneGuid-2:
       value: 5206560353565f5e5d595521467706444f4e4d2e297f73327c7e1c63b0b5313e
       flags: 0
-    RecentlyUsedSceneGuid-3:
+    RecentlyUsedSceneGuid-1:
       value: 53060d0452505f085c5e0f7b112609441515412c2d7b20352e2c4966b3b9643d
       flags: 0
-    RecentlyUsedSceneGuid-4:
+    RecentlyUsedSceneGuid-2:
       value: 5752015401505f0c580c5826457b5d4447154b7a282d246728784836e6e36269
       flags: 0
-    RecentlyUsedSceneGuid-5:
-      value: 5750025700515b020f08597b437109444f164129747125637a2b1c62b7e5606d
-      flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-3:
       value: 020350005d54580f5d5b5872407506441315407c7e7e75667e7b4432bae5666c
       flags: 0
-    RecentlyUsedSceneGuid-7:
-      value: 0255500250055c595b59597316275c441016402b297e206974704a67e1b5326d
+    RecentlyUsedSceneGuid-4:
+      value: 01065752500c0b0959565c7712725b4415164f7f2e7827617d784e62bab0356a
       flags: 0
-    RecentlyUsedSceneGuid-8:
+    RecentlyUsedSceneGuid-5:
       value: 0650030750070a5f090b5a73167a0b4414161a2e7f2b25367a794e60b3e26261
       flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5101555f5d01080b580a5b7742210e444f4e1b2f782d2360297f4d36b4e3623a
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 5750025700515b020f08597b437109444f164129747125637a2b1c62b7e5606d
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 575500540107510a0b5b097548275d4445161d7e752a7633292f4a36b0b16c6e
+      flags: 0
     RecentlyUsedSceneGuid-9:
-      value: 01065752500c0b0959565c7712725b4415164f7f2e7827617d784e62bab0356a
+      value: 0255500250055c595b59597316275c441016402b297e206974704a67e1b5326d
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
