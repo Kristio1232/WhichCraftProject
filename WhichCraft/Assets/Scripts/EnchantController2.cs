@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
-public class EnchantController : MonoBehaviour
+public class EnchantController2 : MonoBehaviour
 {
     public Image bar;
     public float fillAmount = 0.02f;
@@ -14,8 +14,10 @@ public class EnchantController : MonoBehaviour
     public float timeLeft;
     public bool timerOn = false;
     public AudioSource buttonSound;
-
     public TMP_Text timeText;
+
+    public int posX , posY;
+    public Button potionButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,20 +28,20 @@ public class EnchantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+
         if (timerOn)
         {
-      
-            if(timeLeft > 0)
+
+            if (timeLeft > 0)
             {
                 timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
 
-                if(bar.fillAmount == 1)
+                if (bar.fillAmount == 1)
                 {
                     SceneManager.LoadScene("MiniGame1_enchant_WinMenu");
                     bar.fillAmount = 0;
-                    
+
                 }
             }
             else
@@ -53,10 +55,11 @@ public class EnchantController : MonoBehaviour
         }
     }
 
-    public void EnchantButtonClick ()
+    public void EnchantButtonClick()
     {
         bar.fillAmount += fillAmount;
         buttonSound.Play();
+        changePosition(potionButton);
     }
 
     public void updateTimer(float currentTime)
@@ -68,8 +71,17 @@ public class EnchantController : MonoBehaviour
         timeText.text = timeLeft.ToString("0.#");
     }
 
+    public void changePosition(Button buttonToMove)
+    {
+        posX = Random.Range(75, 600);
+        posY = Random.Range(100, 250);
+        buttonToMove.transform.position = new Vector2(posX, posY);
+    }
+
     public void decrementBar(float amount)
     {
         bar.fillAmount = bar.fillAmount - amount;
+        
+    
     }
 }
