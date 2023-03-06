@@ -13,6 +13,7 @@ public class EnchantController : MonoBehaviour
 
     public float timeLeft;
     public bool timerOn = false;
+    public AudioSource buttonSound;
 
     public TMP_Text timeText;
     // Start is called before the first frame update
@@ -25,8 +26,10 @@ public class EnchantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+ 
         if (timerOn)
         {
+      
             if(timeLeft > 0)
             {
                 timeLeft -= Time.deltaTime;
@@ -51,6 +54,7 @@ public class EnchantController : MonoBehaviour
     public void EnchantButtonClick ()
     {
         bar.fillAmount += fillAmount;
+        buttonSound.Play();
     }
 
     public void updateTimer(float currentTime)
@@ -60,5 +64,10 @@ public class EnchantController : MonoBehaviour
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
         timeText.text = timeLeft.ToString("0.#");
+    }
+
+    public void decrementBar(float amount)
+    {
+        bar.fillAmount = bar.fillAmount - amount;
     }
 }
