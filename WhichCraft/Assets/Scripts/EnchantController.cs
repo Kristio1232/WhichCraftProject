@@ -10,12 +10,13 @@ public class EnchantController : MonoBehaviour
 {
     public Image bar;
     public float fillAmount = 0.02f;
-
     public float timeLeft;
     public bool timerOn = false;
     public AudioSource buttonSound;
-
     public TMP_Text timeText;
+
+    private const float TICK_BAR_AMOUNT = 0.002f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +64,7 @@ public class EnchantController : MonoBehaviour
     {
         currentTime += 1;
 
-        float seconds = Mathf.FloorToInt(currentTime % 60);
+       // float seconds = Mathf.FloorToInt(currentTime % 60);
 
         timeText.text = timeLeft.ToString("0.#");
     }
@@ -71,5 +72,13 @@ public class EnchantController : MonoBehaviour
     public void decrementBar(float amount)
     {
         bar.fillAmount = bar.fillAmount - amount;
+    }
+
+    public void updateBar(float currentBarAmount)
+    {
+        if (currentBarAmount > 0)
+        {
+            currentBarAmount -= 0.005f;
+        }
     }
 }
