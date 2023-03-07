@@ -37,7 +37,7 @@ public class Stats
             }
             
         }
-        public String getPotion()
+        public string getPotion()
         {
             return potionType;
         }
