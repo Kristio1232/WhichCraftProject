@@ -35,6 +35,11 @@ public class Stats
                     potionType = "Stam";
                     break;
             }
+            
+        }
+        public String getPotion()
+        {
+            return potionType;
         }
     }
 }
