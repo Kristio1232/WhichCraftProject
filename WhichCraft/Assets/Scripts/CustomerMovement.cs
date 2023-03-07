@@ -6,34 +6,87 @@ public class CustomerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Animator anim;
     public float moveSpeed;
-    public bool canMove;
-    public static bool interact = false;
-    public static bool allowInteract = false;
-    public Transform target;
-
-    private CharacterController controller;
-    private Vector3 moveDirection;
-    private int current;
+    Animator anim;
+    private Vector3 directionVector;
+    private Transform myTransform;
+    private Rigidbody2D myRigidbody;
+    public Collider2D bounds;
+   
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
-        canMove = false;
-    }
-
-    public void walk()
-    {
-        canMove = true;
+        anim = GetComponent<Animator>();
+        myTransform = GetComponent<Transform>();
+        myRigidbody = GetComponent<Rigidbody2D>();
+        goLeftDirection();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
-        {
 
+     //   if (!playerInRange)
+      //  {
+            Move();
+      //  }
+        
+    }
+
+    private void Move()
+    {
+
+        Vector3 temp = myTransform.position + directionVector * moveSpeed * Time.deltaTime;
+        if (bounds.bounds.Contains(temp)) { 
+        myRigidbody.MovePosition(temp);
+         }
+        else
+        {
+            //Stay Idle
+            goLeftDirection();
+        }
+    }
+
+    void goLeftDirection()
+    {
+        directionVector = Vector3.left;
+        UpdateAnimation();
+    }
+    void goRightDirection()
+    {
+        directionVector = Vector3.right;
+        UpdateAnimation();
+    }
+
+    void goDownDirection()
+    {
+        directionVector = Vector3.down;
+        UpdateAnimation();
+    }
+
+    void goUpDirection()
+    {
+        directionVector = Vector3.up;
+        UpdateAnimation();
+    }
+    
+    void UpdateAnimation()
+    {
+        anim.SetFloat("MoveX", directionVector.x);
+        anim.SetFloat("MoveY", directionVector.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Vector3 temp = directionVector;
+        //Stay Idle Code
+        goLeftDirection();
+        int i = 0;
+        while(temp == directionVector && i == 100)
+        {
+            i++;
+            //Stay Idle Code
+            goLeftDirection();
         }
     }
 }
