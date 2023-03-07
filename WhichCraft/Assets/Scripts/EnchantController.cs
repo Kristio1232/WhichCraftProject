@@ -10,7 +10,7 @@ public class EnchantController : MonoBehaviour
 {
     public Image bar;
     public float fillAmount = 0.02f;
-    public float timeLeft;
+    public float timeLeft = 10f;
     public bool timerOn = false;
     public AudioSource buttonSound;
     public TMP_Text timeText;
@@ -20,7 +20,8 @@ public class EnchantController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bar.fillAmount = 0f;
+        
+        bar.fillAmount = bar.fillAmount;
         timerOn = true;
     }
 
@@ -30,6 +31,7 @@ public class EnchantController : MonoBehaviour
  
         if (timerOn)
         {
+           
       
             if(timeLeft > 0)
             {
