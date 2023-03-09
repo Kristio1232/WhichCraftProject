@@ -2762,11 +2762,14 @@ MonoBehaviour:
   anim: {fileID: 1506095809}
   player: {fileID: 831419167}
   customer: {fileID: 1506095801}
+  customerStopsHere: {fileID: 2089110161}
   sprite: {fileID: 1506095815}
-  customerOnCounter: 0
+  customerLeaving: 0
   waypoints:
   - {fileID: 449717300}
   moveSpeed: 2
+  timerOn: 1
+  timeLeft: 10
 --- !u!61 &1506095814
 BoxCollider2D:
   m_ObjectHideFlags: 0
