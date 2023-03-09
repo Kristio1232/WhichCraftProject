@@ -6,16 +6,18 @@ public class Customer_Collision : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator anim;
+    public GameObject player;
+    public GameObject customer;
     // Start is called before the first frame update
     void Start()
     {
-
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), customer.GetComponent<Collider2D>(), true);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
 
