@@ -34,6 +34,11 @@ public class Customer_Collision : MonoBehaviour
         if (other.CompareTag("CustomerStops"))
         {
             Debug.Log("Customer Stops Here");
+            anim.SetBool("Idle", true);
+        }
+        else
+        {
+            anim.SetBool("Idle", false);
         }
     }
 
