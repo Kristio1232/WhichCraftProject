@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowThePath : MonoBehaviour
+public class CustomerMovement : MonoBehaviour
 {
-
     // Array of waypoints to walk from one to the next one
     [SerializeField]
     private Transform[] waypoints;

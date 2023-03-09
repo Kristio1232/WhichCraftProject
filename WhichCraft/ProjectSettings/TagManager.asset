@@ -6,6 +6,9 @@ TagManager:
   tags:
   - bottle
   - ingredient
+  - Customer
+  - CustomerStops
+  - Exit
   layers:
   - Default
   - TransparentFX
