@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Customer_Collision : MonoBehaviour
+public class Customer_Collision_Copy : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator anim;
@@ -10,9 +10,10 @@ public class Customer_Collision : MonoBehaviour
     public GameObject customer;
     public GameObject customerStopsHere;
     public SpriteRenderer sprite;
+    public bool customerLeaving;
 
     [SerializeField]
-    private Transform[] exitWayPoints;
+    private Transform[] waypoints;
 
     [SerializeField]
     private float moveSpeed = 2f;
@@ -40,6 +41,7 @@ public class Customer_Collision : MonoBehaviour
             }
             else
             {
+                timeLeft = 0;
                 customerStopsHere.SetActive(false);
                 MoveToExit();
             }
@@ -47,13 +49,12 @@ public class Customer_Collision : MonoBehaviour
 
     }
 
-
     private void MoveToExit()
     {
-        if (waypointIndex <= exitWayPoints.Length - 1)
+        if (waypointIndex <= waypoints.Length - 1)
         {
             transform.position = Vector2.MoveTowards(transform.position,
-               exitWayPoints[waypointIndex].transform.position,
+               waypoints[waypointIndex].transform.position,
                moveSpeed * Time.deltaTime);
         }
     }
@@ -63,21 +64,9 @@ public class Customer_Collision : MonoBehaviour
         if (other.CompareTag("Exit"))
         {
             Debug.Log("Customer Gone!");
-
-            Vector2 position = new Vector2(transform.position.x, transform.position.y);
-
-            if(timeLeft <= 0)
-            {
-                timeLeft = 30f;
-                Instantiate(customer, position, Quaternion.identity);
-
-
-            }
-          
             Destroy(gameObject);
-
             customerStopsHere.SetActive(true);
-            
+            timeLeft = 30f;
         }
 
         if (other.CompareTag("CustomerStops"))
@@ -85,6 +74,11 @@ public class Customer_Collision : MonoBehaviour
             Debug.Log("Customer Stops Here");
             anim.SetBool("Idle", true);
         }
+
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
 
     }
 
