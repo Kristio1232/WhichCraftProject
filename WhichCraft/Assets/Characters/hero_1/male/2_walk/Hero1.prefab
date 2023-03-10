@@ -172,6 +172,7 @@ MonoBehaviour:
   player: {fileID: 0}
   customer: {fileID: 1766336811618289596}
   customerStopsHere: {fileID: 0}
+  customerLeavesHere: {fileID: 0}
   sprite: {fileID: 5714830325466079736}
   exitWayPoints:
   - {fileID: 0}

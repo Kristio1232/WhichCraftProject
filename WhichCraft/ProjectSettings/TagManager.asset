@@ -9,6 +9,8 @@ TagManager:
   - Customer
   - CustomerStops
   - Exit
+  - CustomerGoesIn
+  - CustomerGoesOut
   layers:
   - Default
   - TransparentFX

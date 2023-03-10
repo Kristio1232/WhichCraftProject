@@ -9,14 +9,20 @@ public class Customer_Collision : MonoBehaviour
     public GameObject player;
     public GameObject customer;
     public GameObject customerStopsHere;
+    public GameObject customerLeavesHere;
+    public GameObject customerEnteringHere;
     public SpriteRenderer sprite;
 
     [SerializeField]
     private Transform[] exitWayPoints;
 
     [SerializeField]
+    private Transform[] goToCounterWayPoint;
+
+    [SerializeField]
     private float moveSpeed = 2f;
     private int waypointIndex = 0;
+    private int waypointIndex2 = 0;
 
     public bool timerOn;
     public float timeLeft = 40f;
@@ -37,23 +43,34 @@ public class Customer_Collision : MonoBehaviour
             {
                 timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
+                MoveToShopCounter();
             }
             else
             {
                 customerStopsHere.SetActive(false);
+                customerLeavesHere.SetActive(true);
                 MoveToExit();
             }
         }
 
     }
 
+    private void MoveToShopCounter()
+    {
+        if (waypointIndex <= goToCounterWayPoint.Length - 1)
+        {
+            transform.position = Vector2.MoveTowards(transform.position,
+               goToCounterWayPoint[waypointIndex].transform.position,
+               moveSpeed * Time.deltaTime);
+        }
+    }
 
     private void MoveToExit()
     {
-        if (waypointIndex <= exitWayPoints.Length - 1)
+        if (waypointIndex2 <= exitWayPoints.Length - 1)
         {
             transform.position = Vector2.MoveTowards(transform.position,
-               exitWayPoints[waypointIndex].transform.position,
+               exitWayPoints[waypointIndex2].transform.position,
                moveSpeed * Time.deltaTime);
         }
     }
@@ -74,27 +91,44 @@ public class Customer_Collision : MonoBehaviour
 
             }
           
-            Destroy(gameObject);
+            Destroy(customer, 10f);
 
             customerStopsHere.SetActive(true);
+            customerLeavesHere.SetActive(false);
             
+        }
+
+        if (other.CompareTag("CustomerGoesIn"))
+        {
+            Debug.Log("Customer Comes In!");
+            anim.SetBool("WalkIn", true);
+            sprite.flipX = true;
         }
 
         if (other.CompareTag("CustomerStops"))
         {
             Debug.Log("Customer Stops Here");
             anim.SetBool("Idle", true);
+            anim.SetBool("WalkIn", false);
+        }
+
+        if (other.CompareTag("CustomerGoesOut"))
+        {
+            Debug.Log("Customer is Leaving");
+            anim.SetBool("Idle", false);
+            anim.SetBool("WalkOut", true);
+            sprite.flipX = false;
         }
 
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+/*    private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Customer is Leaving");
         anim.SetBool("Idle", false);
         anim.SetBool("WalkOut", true);
         sprite.flipX = false;
-    }
+    }*/
 
     public void updateTimer(float currentTime)
     {
