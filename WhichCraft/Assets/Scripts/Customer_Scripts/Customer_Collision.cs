@@ -27,6 +27,13 @@ public class Customer_Collision : MonoBehaviour
     public bool timerOn;
     public float timeLeft = 40f;
 
+/////////////My work///////////////////
+    public static int beakerCode;
+    public static int ingrideientCode;
+    public static int potionCode;
+    public static string code;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,7 +114,17 @@ public class Customer_Collision : MonoBehaviour
 
         if (other.CompareTag("CustomerStops"))
         {
+            beakerCode = Random.Range(1, 3);
+            ingrideientCode = Random.Range(3, 6);
+            code = beakerCode.ToString() + ingrideientCode.ToString();
+            potionCode = int.Parse(code);
+          
             Debug.Log("Customer Stops Here");
+            Debug.Log("BEAKER CODE "  + beakerCode);
+            Debug.Log("iNGRIDIENT CODE "  + ingrideientCode);
+            Debug.Log("CODE IN INT "  + potionCode);
+
+           
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
         }

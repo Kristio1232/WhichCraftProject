@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public GameObject ingredientFrame;
 
     private bool panelOn = false;
+ ///////////////////////////////////////////////////////////////////////////
+   
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +33,7 @@ public class Player : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector2(moveX, moveY).normalized;
-
-        
+        moveDirection = new Vector2(moveX, moveY).normalized;  
        
     }
     
@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("BottleStay");
         }
+
         if (collision.tag == "ingredient")
         {
             if (Input.GetKey("e"))
@@ -94,6 +95,10 @@ public class Player : MonoBehaviour
             Debug.Log("ingredientLeave");
         }
 
-
     }
+
+
+
+
+
 }
