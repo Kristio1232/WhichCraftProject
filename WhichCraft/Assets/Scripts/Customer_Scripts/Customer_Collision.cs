@@ -28,12 +28,18 @@ public class Customer_Collision : MonoBehaviour
     public bool timerOn;
     public float timeLeft = 40f;
 
-/////////////My work///////////////////
+
+    //Potion Code pattern 
+    // 2 beakers = code numbers 1, 2
+    // 3 ingredients = code numbers 3, 4, 5 
+
     public static int beakerCode;
-    public static int ingrideientCode;
+    public static int ingrideient1Code;
+    public static int ingrideient2Code;
     public static int potionCode;
     public static string code;
 
+      
 
     // Start is called before the first frame update
     void Start()
@@ -115,14 +121,13 @@ public class Customer_Collision : MonoBehaviour
 
         if (other.CompareTag("CustomerStops"))
         {
-            beakerCode = Random.Range(1, 3);
-            ingrideientCode = Random.Range(3, 6);
-            code = beakerCode.ToString() + ingrideientCode.ToString();
+            beakerCode = Random.Range(1, 1);
+            ingrideient1Code = Random.Range(3, 3);
+            ingrideient2Code = Random.Range(4, 4);
+            code = beakerCode.ToString() + ingrideient1Code.ToString() + ingrideient2Code.ToString();
             potionCode = int.Parse(code);
           
             Debug.Log("Customer Stops Here");
-            Debug.Log("BEAKER CODE "  + beakerCode);
-            Debug.Log("iNGRIDIENT CODE "  + ingrideientCode);
             Debug.Log("CODE IN INT "  + potionCode);
 
            
