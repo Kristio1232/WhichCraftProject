@@ -26,6 +26,6 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("MiniGame1_enchant");
+        SceneManager.LoadScene("PotionStore");
     }
 }
