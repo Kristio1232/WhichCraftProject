@@ -11,6 +11,7 @@ public class Customer_Collision : MonoBehaviour
     public GameObject customerStopsHere;
     public GameObject customerLeavesHere;
     public GameObject customerEnteringHere;
+    public GameObject thoughtBubble_HeatPotion;
     public SpriteRenderer sprite;
 
     [SerializeField]
@@ -127,6 +128,7 @@ public class Customer_Collision : MonoBehaviour
            
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
+            StartCoroutine(WaitToDisplay(1f));
         }
 
         if (other.CompareTag("CustomerGoesOut"))
@@ -135,21 +137,21 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("Idle", false);
             anim.SetBool("WalkOut", true);
             sprite.flipX = false;
+            thoughtBubble_HeatPotion.SetActive(false);
         }
 
     }
-
-/*    private void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("Customer is Leaving");
-        anim.SetBool("Idle", false);
-        anim.SetBool("WalkOut", true);
-        sprite.flipX = false;
-    }*/
 
     public void updateTimer(float currentTime)
     {
         currentTime += 1;
         float seconds = Mathf.FloorToInt(currentTime % 60);
+    }
+
+
+    IEnumerator WaitToDisplay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        thoughtBubble_HeatPotion.SetActive(true);
     }
 }
