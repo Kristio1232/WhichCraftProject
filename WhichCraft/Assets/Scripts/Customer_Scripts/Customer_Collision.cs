@@ -68,10 +68,13 @@ public class Customer_Collision : MonoBehaviour
                 MoveToExit();
             }
         }
-        if (bubble == true) 
-        { 
-            if ( Input.GetKeyDown("space") )
+        
+        if ( Input.GetKeyDown("space") )
            {
+        
+            if (bubble == true) 
+             { 
+           
                 thoughtBubble_HeatPotion.SetActive(true);
                 Player.pcode = potionCode; 
                 Debug.Log("PLAYER CODE" + Player.pcode);
