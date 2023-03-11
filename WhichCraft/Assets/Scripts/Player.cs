@@ -19,8 +19,7 @@ public class Player : MonoBehaviour
     public GameObject ingredientFrame;
 
     private bool panelOn = false;
- ///////////////////////////////////////////////////////////////////////////
-    public static int code;
+    public static int pcode;
 
     // Start is called before the first frame update
     void Start()
@@ -34,15 +33,10 @@ public class Player : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;  
-       
+
+  
     }
-    ///////////////
-    public void PotionCode()
-    {
-        code = Customer_Collision.potionCode;
-        Debug.Log("CODE IN PLAYER SCRIPT"  + code);
-    }
-///////////////////////
+
     void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);

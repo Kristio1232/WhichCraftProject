@@ -39,6 +39,8 @@ public class Customer_Collision : MonoBehaviour
     public static int potionCode;
     public static string code;
 
+    public bool bubble;
+
       
 
     // Start is called before the first frame update
@@ -66,6 +68,22 @@ public class Customer_Collision : MonoBehaviour
                 MoveToExit();
             }
         }
+        if (bubble == true) 
+        { 
+            if ( Input.GetKeyDown("space") )
+           {
+                thoughtBubble_HeatPotion.SetActive(true);
+                Player.pcode = potionCode; 
+                Debug.Log("PLAYER CODE" + Player.pcode);
+                
+           }
+        }
+        else if (bubble == false)
+        {
+            thoughtBubble_HeatPotion.SetActive(false);
+            
+        }
+        
 
     }
 
@@ -117,6 +135,7 @@ public class Customer_Collision : MonoBehaviour
             Debug.Log("Customer Comes In!");
             anim.SetBool("WalkIn", true);
             sprite.flipX = true;
+            bubble = false;
         }
 
         if (other.CompareTag("CustomerStops"))
@@ -130,10 +149,11 @@ public class Customer_Collision : MonoBehaviour
             Debug.Log("Customer Stops Here");
             Debug.Log("CODE IN INT "  + potionCode);
 
-           
+            bubble = true; //thought bubble will only pop up when the customer is waiting
+
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
-            StartCoroutine(WaitToDisplay(1f));
+        //    StartCoroutine(WaitToDisplay(1f));
         }
 
         if (other.CompareTag("CustomerGoesOut"))
@@ -142,6 +162,7 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("Idle", false);
             anim.SetBool("WalkOut", true);
             sprite.flipX = false;
+            bubble = false;
             thoughtBubble_HeatPotion.SetActive(false);
         }
 
@@ -154,9 +175,9 @@ public class Customer_Collision : MonoBehaviour
     }
 
 
-    IEnumerator WaitToDisplay(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        thoughtBubble_HeatPotion.SetActive(true);
-    }
+    //IEnumerator WaitToDisplay(float seconds)
+   // {
+    //    yield return new WaitForSeconds(seconds);
+    //    thoughtBubble_HeatPotion.SetActive(true);
+    //}
 }
