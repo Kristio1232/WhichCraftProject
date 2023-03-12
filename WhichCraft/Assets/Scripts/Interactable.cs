@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+    public GameObject autoCloseObject;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,30 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isInRange)
+        {
+            if (Input.GetKeyDown(interactKey))
+            {
+                interactAction.Invoke();
+            }
+        }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInRange = true;
+            Debug.Log("Player in Cookbook Range");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isInRange = false;
+        Debug.Log("Player in Cookbook Range");
+        autoCloseObject.SetActive(false);
+    }
+
+
 }
