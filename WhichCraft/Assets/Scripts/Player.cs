@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public GameObject bottle;
 
     public GameObject bottleFrame;
-    public GameObject ingredientFrame;
+    public GameObject ingredientFrame;     
 
     private bool panelOn = false;
    
