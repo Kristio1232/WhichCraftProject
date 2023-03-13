@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     public static int pcode;
     public static string SelectedItems = "";
 
+    private static bool f = true;
+    private static bool r = true;
+    private static bool y = true;
+    private static bool b = true;
+
 
 
     // Start is called before the first frame update
@@ -115,27 +120,48 @@ public class Player : MonoBehaviour
 
     public static void getBeaker()
     {
-        SelectedItems = SelectedItems + 1;
+        if (f == true)
+        { 
+            SelectedItems = SelectedItems + 1; 
+            f = false;
+        }
         Debug.Log("ingredient code" + SelectedItems);
     }
 
     public static void RedIngredient()
     {
+        if (r == true)
+        { 
         SelectedItems = SelectedItems + 3;
+        r = false;
+        }
         Debug.Log("ingredient code" + SelectedItems);
     }
 
      public static void YellowIngredient()
     {
+        if (y == true)
+        { 
         SelectedItems = SelectedItems + 4;
+        y = false;
+        }
         Debug.Log("ingredient code" + SelectedItems);
     }
 
      public static void BlueIngridient()
     {
+         if (b == true)
+        { 
         SelectedItems = SelectedItems + 5;
+        b = false;
+        }
         Debug.Log("ingredient code" + SelectedItems);
     }
+
+//need to reset all varaibles to true 
+//need to set the match system 
+//need to set the appear system
+
 
 
 }
