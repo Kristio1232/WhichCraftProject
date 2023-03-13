@@ -18,8 +18,15 @@ public class Player : MonoBehaviour
     public GameObject bottlePanel;
     public GameObject bottle;
 
+
+    
     public GameObject bottleFrame;
     public GameObject ingredientFrame;     
+    //inventory  Objects
+    public GameObject red;
+    public GameObject yellow;
+    public GameObject blue;
+    public GameObject bottleSprite;
 
     private bool panelOn = false;
    
@@ -30,6 +37,7 @@ public class Player : MonoBehaviour
     private static bool r = true;
     private static bool y = true;
     private static bool b = true;
+    private static int numberOfIngredient;
 
     public static bool match = true;
     public static string Items = "";
@@ -37,7 +45,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        numberOfIngredient = 0;
     }
     // Update is called once per frame
     void Update()
@@ -45,8 +53,27 @@ public class Player : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;  
-
-  
+        if (!r)
+        {
+            red.SetActive(true);
+        }else
+        {
+            red.SetActive(false);
+        }
+        if (!y)
+        {
+            yellow.SetActive(true);
+        }else
+        {
+            yellow.SetActive(false);
+        }
+        if (!f)
+        {
+            bottleSprite.SetActive(true);
+        }else
+        {
+            bottleSprite.SetActive(false);
+        }
     }
 
     void FixedUpdate()
@@ -131,30 +158,33 @@ public class Player : MonoBehaviour
 
     public static void RedIngredient()
     {
-        if (r == true)
+        if (r == true && numberOfIngredient<2)
         { 
         SelectedItems = SelectedItems + 3;
         r = false;
+        numberOfIngredient++;
         }
         Debug.Log("Red code" + SelectedItems);
     }
 
      public static void YellowIngredient()
     {
-        if (y == true)
+        if (y == true && numberOfIngredient<2)
         { 
         SelectedItems = SelectedItems + 4;
         y = false;
+        numberOfIngredient++;
         }
         Debug.Log("Yellow code" + SelectedItems);
     }
 
      public static void BlueIngridient()
     {
-         if (b == true)
+         if (b == true && numberOfIngredient<2)
         { 
         SelectedItems = SelectedItems + 5;
         b = false;
+        numberOfIngredient++;
         }
         Debug.Log("Blue code" + SelectedItems);
     }
