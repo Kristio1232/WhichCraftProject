@@ -15,10 +15,14 @@ public class Player : MonoBehaviour
     public GameObject ingredient2;
     public GameObject ingredient3;
 
+    public GameObject bottlePanel;
+    public GameObject bottle;
+
     public GameObject bottleFrame;
     public GameObject ingredientFrame;
 
     private bool panelOn = false;
+   
     public static int pcode;
 
     // Start is called before the first frame update
@@ -64,7 +68,15 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "bottle")
         {
-            Debug.Log("BottleStay");
+            if (collision.tag == "bottle")
+            {
+                if (Input.GetKey("e"))
+                {
+                    panelOn = true;
+                    bottlePanel.SetActive(panelOn);
+                }
+                Debug.Log("BottleStay");
+            }
         }
 
         if (collision.tag == "ingredient")
@@ -84,6 +96,8 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "bottle")
         {
+            panelOn = false;
+            bottlePanel.SetActive(panelOn);
             bottleFrame.SetActive(false);
             Debug.Log("BottleLeave");
         }
