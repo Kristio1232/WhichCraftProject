@@ -65,7 +65,7 @@ public class Customer_Collision : MonoBehaviour
                 MoveToShopCounter();
 
 
-                //Timer Added when the Mini-Game screen is active
+                //Timer Added to the customer time when the Mini-Game screen is active (Note: It does not exactly give 10 seconds)
                 if (MiniGame1.activeSelf)
                 {
                     Debug.Log("Timer added over time when Mini-game is being played.");

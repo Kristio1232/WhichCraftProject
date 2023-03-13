@@ -27,6 +27,11 @@ public class Cauldron_Interactable : MonoBehaviour
                 interactAction.Invoke();
             }
         }
+
+        if (Input.GetKeyDown(interactKey))
+        {
+            interactAction.Invoke();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

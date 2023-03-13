@@ -60,7 +60,7 @@ public class EnchantController2 : MonoBehaviour
                 timerOn = false;
                 MiniGame.SetActive(false);
                 bar.fillAmount = 0;
-                timeLeft = 10;
+                resetTime();
             }
         }
     }

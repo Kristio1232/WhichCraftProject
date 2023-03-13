@@ -28,6 +28,11 @@ public class Interactable : MonoBehaviour
                 interactAction.Invoke();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            autoCloseObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
