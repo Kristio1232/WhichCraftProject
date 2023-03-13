@@ -166,20 +166,30 @@ public class Player : MonoBehaviour
      public static void CheckMatch()
  {
    
-    //   f = true;
-    //   r = true;
-    //   y = true;
-    //   b = true;
+       f = true;
+       r = true;
+       y = true;
+       b = true;
 
-    //   Debug.log("running check match");
+       Debug.Log("running check match");
 
-   // for(int i = 0; i < SelectedItems.Length; i++)
-    //   {
-    //    char c = SelectedItems[i];
-    //         for(int k = 0; k < pcode.Length; k++)
-    //           {
+    for(int i = 0; i < SelectedItems.Length; i++)
+       {
+        char c = SelectedItems[i];
+        match = pcode.Contains(c);
+        
+        if (match == true) 
+        {
+            Debug.Log("It is a match");
+            }
+        else {
+            Debug.Log("Not a match");
+            }
+
+     //        for(int k = 0; k < pcode.Length; k++)
+     //          {
     //            char m = pcode[k];
-    //            if (c == m )
+    //            if (c.equals(m))
     //            {
      //               match = true;
      //               Debug.Log("It is a match");
@@ -193,7 +203,7 @@ public class Player : MonoBehaviour
         
     //}
 
-   // }
+    }
    
 }
 }
