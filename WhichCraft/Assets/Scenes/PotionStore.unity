@@ -2207,8 +2207,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoCloseObject: {fileID: 0}
-  showNotification: {fileID: 0}
+  autoCloseObject: {fileID: 940831781}
+  showNotification: {fileID: 1760754538}
 --- !u!70 &715393530
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
