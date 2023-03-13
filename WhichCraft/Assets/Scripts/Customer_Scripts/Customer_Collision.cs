@@ -69,7 +69,7 @@ public class Customer_Collision : MonoBehaviour
                 if (MiniGame1.activeSelf)
                 {
                     Debug.Log("Timer added over time when Mini-game is being played.");
-                    timeLeft += 0.0020f; 
+                    timeLeft += 0.0018f; 
                 }
 
             }
