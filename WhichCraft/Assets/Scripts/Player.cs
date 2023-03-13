@@ -24,13 +24,15 @@ public class Player : MonoBehaviour
     private bool panelOn = false;
    
     public static int pcode;
+    public static string SelectedItems = "";
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -111,7 +113,29 @@ public class Player : MonoBehaviour
 
     }
 
+    public static void getBeaker()
+    {
+        SelectedItems = SelectedItems + 1;
+        Debug.Log("ingredient code" + SelectedItems);
+    }
 
+    public static void RedIngredient()
+    {
+        SelectedItems = SelectedItems + 3;
+        Debug.Log("ingredient code" + SelectedItems);
+    }
+
+     public static void YellowIngredient()
+    {
+        SelectedItems = SelectedItems + 4;
+        Debug.Log("ingredient code" + SelectedItems);
+    }
+
+     public static void BlueIngridient()
+    {
+        SelectedItems = SelectedItems + 5;
+        Debug.Log("ingredient code" + SelectedItems);
+    }
 
 
 }
