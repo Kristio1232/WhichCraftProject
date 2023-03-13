@@ -60,14 +60,14 @@ public class Player : MonoBehaviour
         if (collision.tag == "bottle") 
         { 
             bottleFrame.SetActive(true);
-            Debug.Log("Bottle"); 
+            //Debug.Log("Bottle"); 
         }
 
         if (collision.tag == "ingredient")
         {
 
             ingredientFrame.SetActive(true);
-            Debug.Log("ingredient");
+            //Debug.Log("ingredient");
         }
 
 
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
                     panelOn = true;
                     bottlePanel.SetActive(panelOn);
                 }
-                Debug.Log("BottleStay");
+                //Debug.Log("BottleStay");
             }
         }
 
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
                 ingredientPanel.SetActive(panelOn);
             }
            
-            Debug.Log("ingredientStay");
+            //Debug.Log("ingredientStay");
         }
 
 
@@ -107,14 +107,14 @@ public class Player : MonoBehaviour
             panelOn = false;
             bottlePanel.SetActive(panelOn);
             bottleFrame.SetActive(false);
-            Debug.Log("BottleLeave");
+            //Debug.Log("BottleLeave");
         }
         if (collision.tag == "ingredient")
         {
             panelOn = false;
             ingredientPanel.SetActive(panelOn);
             ingredientFrame.SetActive(false);
-            Debug.Log("ingredientLeave");
+            //Debug.Log("ingredientLeave");
         }
 
     }
