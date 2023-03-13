@@ -16,13 +16,10 @@ public class CauldronController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("E"))
-        {
-            miniGame.SetActive(false);
-        }
+
     }
 
-    public void OpenCookbook()
+    public void OpenCauldron()
     {
         isOpen = true;
         Debug.Log("Open Cookbook menu.");
