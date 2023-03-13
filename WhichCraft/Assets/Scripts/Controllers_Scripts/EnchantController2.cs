@@ -18,6 +18,7 @@ public class EnchantController2 : MonoBehaviour
 
     public int posX , posY;
     public Button potionButton;
+    public GameObject MiniGame;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,8 @@ public class EnchantController2 : MonoBehaviour
 
                 if (bar.fillAmount == 1)
                 {
-                    SceneManager.LoadScene("MiniGame1_enchant_WinMenu");
+                    // SceneManager.LoadScene("MiniGame1_enchant_WinMenu");
+                    MiniGame.SetActive(false);
                     bar.fillAmount = 0;
 
                 }
@@ -49,7 +51,8 @@ public class EnchantController2 : MonoBehaviour
                 Debug.Log("Time is Up!");
                 timerOn = false;
                 timeLeft = 0;
-                SceneManager.LoadScene("MiniGame1_enchant_LoseMenu");
+                // SceneManager.LoadScene("MiniGame1_enchant_LoseMenu");
+                MiniGame.SetActive(false);
                 bar.fillAmount = 0;
             }
         }
