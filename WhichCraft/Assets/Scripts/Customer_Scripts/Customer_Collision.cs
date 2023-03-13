@@ -28,6 +28,8 @@ public class Customer_Collision : MonoBehaviour
     public bool timerOn;
     public float timeLeft = 40f;
 
+    public GameObject MiniGame1;
+
 
     //Potion Code pattern 
     // 2 beakers = code numbers 1, 2
@@ -48,6 +50,7 @@ public class Customer_Collision : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), customer.GetComponent<Collider2D>(), true);
+
     }
 
     // Update is called once per frame
@@ -60,6 +63,15 @@ public class Customer_Collision : MonoBehaviour
                 timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
                 MoveToShopCounter();
+
+
+                //Timer Added when the Mini-Game screen is active
+                if (MiniGame1.activeSelf)
+                {
+                    Debug.Log("Timer added over time when Mini-game is being played.");
+                    timeLeft += 0.0020f; 
+                }
+
             }
             else
             {
@@ -159,7 +171,7 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
             StartCoroutine(WaitToDisplay(1f));
-                
+
         }
 
         if (other.CompareTag("CustomerGoesOut"))
@@ -185,5 +197,6 @@ public class Customer_Collision : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         thoughtBubble_HeatPotion.SetActive(true);
+
     }
 }

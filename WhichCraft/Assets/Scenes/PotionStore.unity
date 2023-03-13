@@ -1149,7 +1149,7 @@ RectTransform:
   m_Children:
   - {fileID: 781235203}
   m_Father: {fileID: 841713272}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3346,7 +3346,7 @@ RectTransform:
   - {fileID: 5633648586242824322}
   - {fileID: 1149555792}
   m_Father: {fileID: 841713272}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3422,7 +3422,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 841713272}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3561,11 +3561,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1270302739}
-  - {fileID: 1256635913}
   - {fileID: 837286555}
   - {fileID: 1089928487}
   - {fileID: 232812491}
   - {fileID: 836269907}
+  - {fileID: 1256635913}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4593,7 +4593,7 @@ RectTransform:
   m_Children:
   - {fileID: 123784232}
   m_Father: {fileID: 841713272}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4955,7 +4955,7 @@ RectTransform:
   - {fileID: 1397926535}
   - {fileID: 1952167478}
   m_Father: {fileID: 841713272}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8789,6 +8789,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 831419167}
+    - target: {fileID: 1506095813, guid: 4d4e0b9a392abba4a8aaa03d86b0af8e, type: 3}
+      propertyPath: timeLeft
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506095813, guid: 4d4e0b9a392abba4a8aaa03d86b0af8e, type: 3}
+      propertyPath: MiniGame1
+      value: 
+      objectReference: {fileID: 836269906}
     - target: {fileID: 1506095813, guid: 4d4e0b9a392abba4a8aaa03d86b0af8e, type: 3}
       propertyPath: customer2
       value: 
