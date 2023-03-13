@@ -11,7 +11,6 @@ public class EnchantController2 : MonoBehaviour
     public Image bar;
     public float fillAmount = 0.02f;
 
-    public GameObject MiniGameUI;
     public float timeLeft;
     public bool timerOn = false;
     public AudioSource buttonSound;
@@ -24,17 +23,12 @@ public class EnchantController2 : MonoBehaviour
     {
         bar.fillAmount = 0f;
         timerOn = true;
- 
-        Pause();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (MiniGameUI.activeSelf)
-        {
-            Debug.Log("MiniGame is Active!");
-        }
+
         if (timerOn)
         {
 
@@ -59,7 +53,6 @@ public class EnchantController2 : MonoBehaviour
                 bar.fillAmount = 0;
             }
         }
-
     }
 
     public void EnchantButtonClick()
@@ -90,10 +83,5 @@ public class EnchantController2 : MonoBehaviour
         bar.fillAmount = bar.fillAmount - amount;
         
     
-    }
-
-    public void Pause()
-    {
-        Time.timeScale = 0f;
     }
 }
