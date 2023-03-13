@@ -69,24 +69,24 @@ public class Customer_Collision : MonoBehaviour
             }
         }
         
-        if ( Input.GetKeyDown("space") )
-           {
+     //   if ( Input.GetKeyDown("space") )
+     //      {
         
-            if (bubble == true) 
-             { 
+     //       if (bubble == true) 
+    //         { 
            
-                thoughtBubble_HeatPotion.SetActive(true);
-                Player.pcode = potionCode; 
-                Debug.Log("PLAYER CODE" + Player.pcode);
+    //            thoughtBubble_HeatPotion.SetActive(true);
+    //            Player.pcode = code; 
+    //            Debug.Log("PLAYER CODE" + Player.pcode);
                 
-           }
-        }
-        else if (bubble == false)
-        {
-            thoughtBubble_HeatPotion.SetActive(false);
+    //       }
+    //    }
+    //    else if (bubble == false)
+    //    {
+    //        thoughtBubble_HeatPotion.SetActive(false);
             
-        }
-        
+     //   }
+      
 
     }
 
@@ -149,6 +149,8 @@ public class Customer_Collision : MonoBehaviour
             code = beakerCode.ToString() + ingrideient1Code.ToString() + ingrideient2Code.ToString();
             potionCode = int.Parse(code);
           
+            Player.pcode = code;
+            
             Debug.Log("Customer Stops Here");
             Debug.Log("CODE IN INT "  + potionCode);
 
@@ -156,7 +158,9 @@ public class Customer_Collision : MonoBehaviour
 
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
-        //    StartCoroutine(WaitToDisplay(1f));
+            StartCoroutine(WaitToDisplay(1f));
+            thoughtBubble_HeatPotion.SetActive(true);
+                
         }
 
         if (other.CompareTag("CustomerGoesOut"))
@@ -178,9 +182,9 @@ public class Customer_Collision : MonoBehaviour
     }
 
 
-    //IEnumerator WaitToDisplay(float seconds)
-   // {
-    //    yield return new WaitForSeconds(seconds);
-    //    thoughtBubble_HeatPotion.SetActive(true);
-    //}
+    IEnumerator WaitToDisplay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        thoughtBubble_HeatPotion.SetActive(true);
+    }
 }

@@ -23,15 +23,16 @@ public class Player : MonoBehaviour
 
     private bool panelOn = false;
    
-    public static int pcode;
-    public static string SelectedItems = "";
+    public static string pcode;
+    public static string SelectedItems;
 
     private static bool f = true;
     private static bool r = true;
     private static bool y = true;
     private static bool b = true;
 
-
+    public static bool match = true;
+    public static string Items = "";
 
     // Start is called before the first frame update
     void Start()
@@ -125,7 +126,7 @@ public class Player : MonoBehaviour
             SelectedItems = SelectedItems + 1; 
             f = false;
         }
-        Debug.Log("ingredient code" + SelectedItems);
+        Debug.Log("beaker code " + SelectedItems);
     }
 
     public static void RedIngredient()
@@ -135,7 +136,7 @@ public class Player : MonoBehaviour
         SelectedItems = SelectedItems + 3;
         r = false;
         }
-        Debug.Log("ingredient code" + SelectedItems);
+        Debug.Log("Red code" + SelectedItems);
     }
 
      public static void YellowIngredient()
@@ -145,7 +146,7 @@ public class Player : MonoBehaviour
         SelectedItems = SelectedItems + 4;
         y = false;
         }
-        Debug.Log("ingredient code" + SelectedItems);
+        Debug.Log("Yellow code" + SelectedItems);
     }
 
      public static void BlueIngridient()
@@ -155,13 +156,45 @@ public class Player : MonoBehaviour
         SelectedItems = SelectedItems + 5;
         b = false;
         }
-        Debug.Log("ingredient code" + SelectedItems);
+        Debug.Log("Blue code" + SelectedItems);
     }
 
 //need to reset all varaibles to true 
 //need to set the match system 
 //need to set the appear system
 
+     public static void CheckMatch()
+ {
+   
+    //   f = true;
+    //   r = true;
+    //   y = true;
+    //   b = true;
 
+    //   Debug.log("running check match");
 
+   // for(int i = 0; i < SelectedItems.Length; i++)
+    //   {
+    //    char c = SelectedItems[i];
+    //         for(int k = 0; k < pcode.Length; k++)
+    //           {
+    //            char m = pcode[k];
+    //            if (c == m )
+    //            {
+     //               match = true;
+     //               Debug.Log("It is a match");
+     //           }
+     //           else
+      ///          {
+       //             match = false;
+       //             Debug.Log("Not a match");
+       //         }
+        //    }
+        
+    //}
+
+   // }
+   
 }
+}
+

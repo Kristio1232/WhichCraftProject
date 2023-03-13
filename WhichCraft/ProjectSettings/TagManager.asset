@@ -12,6 +12,8 @@ TagManager:
   - CustomerGoesIn
   - CustomerGoesOut
   - ThoughtBubble_HeatPotion
+  - Red
+  - cauldron
   layers:
   - Default
   - TransparentFX
