@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class Interactable : MonoBehaviour
 {
     public bool isInRange;
@@ -43,7 +42,6 @@ public class Interactable : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         isInRange = false;
-        Debug.Log("Player in Cookbook Range");
         showNotification.SetActive(false);
         autoCloseObject.SetActive(false);
     }

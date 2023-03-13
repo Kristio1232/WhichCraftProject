@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CookbookController : MonoBehaviour
+public class CauldronController : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isOpen;
-    public GameObject cookBook;
-    
+    public GameObject miniGame;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,11 +20,11 @@ public class CookbookController : MonoBehaviour
 
     }
 
-    public void OpenCookbook()
+    public void OpenMiniGame()
     {
         isOpen = true;
-        Debug.Log("Open Cookbook menu.");
-        cookBook.SetActive(true);
+        Debug.Log("Open Minigame.");
+        miniGame.SetActive(true);
 
     }
 }
