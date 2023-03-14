@@ -19,7 +19,11 @@ public class Player : MonoBehaviour
     public GameObject bottle;
 
     public GameObject bottleFrame;
-    public GameObject ingredientFrame;     
+    public GameObject ingredientFrame;  
+
+    public GameObject testtube;
+    public GameObject Red;
+    public GameObject Yellow;   
 
     private bool panelOn = false;
    
@@ -37,6 +41,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         
     }
     // Update is called once per frame
@@ -120,7 +125,8 @@ public class Player : MonoBehaviour
     }
 
     public static void getBeaker()
-    {
+    {  
+        //testtube.SetActive(true);
         if (f == true)
         { 
             SelectedItems = SelectedItems + 1; 
@@ -131,6 +137,7 @@ public class Player : MonoBehaviour
 
     public static void RedIngredient()
     {
+      //   Red.SetActive(true);
         if (r == true)
         { 
         SelectedItems = SelectedItems + 3;
@@ -141,6 +148,7 @@ public class Player : MonoBehaviour
 
      public static void YellowIngredient()
     {
+       // Yellow.SetActive(true);
         if (y == true)
         { 
         SelectedItems = SelectedItems + 4;
