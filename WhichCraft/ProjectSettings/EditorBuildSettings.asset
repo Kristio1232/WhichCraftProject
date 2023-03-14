@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4d42d281f5e78db43ae49b0cdf7e2186
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame1_enchant.unity
     guid: addd505b6751fdc4fa8ae6f99974c5f5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame1_enchant_WinMenu.unity
     guid: a2df8a1405400694eb862636329a8e24
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame1_enchant_LoseMenu.unity
     guid: 4a61ed29bf5932649a9c89c37ba15e45
   - enabled: 1
