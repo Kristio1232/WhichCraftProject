@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
     public GameObject blue;
     public GameObject bottleSprite;
 
+    public GameObject obstacleTemplate;
+    public Transform spawnPoints;
+    public GameObject potionMade;
+
     private bool panelOn = false;
 
     public static string pcode;
@@ -55,7 +59,13 @@ public class Player : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
-        if (!r)
+        if (potionDone && potionMade == null)
+        {
+            Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+            potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+        }
+
+        if (!r && potionMade == null)
         {
             red.SetActive(true);
         }
@@ -63,7 +73,7 @@ public class Player : MonoBehaviour
         {
             red.SetActive(false);
         }
-        if (!y)
+        if (!y && potionMade == null)
         {
             yellow.SetActive(true);
         }
@@ -71,7 +81,7 @@ public class Player : MonoBehaviour
         {
             yellow.SetActive(false);
         }
-        if (!f)
+        if (!f && potionMade == null)
         {
             bottleSprite.SetActive(true);
         }
@@ -80,7 +90,7 @@ public class Player : MonoBehaviour
             bottleSprite.SetActive(false);
         }
 
-        if(MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf)
+        if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf)
         {
             movementSpeed = 0;
         }
@@ -99,6 +109,7 @@ public class Player : MonoBehaviour
     {
         return numberOfIngredient;
     }
+
     public bool getPotionDone()
     {
         return potionDone;
@@ -108,6 +119,7 @@ public class Player : MonoBehaviour
     {
         return SelectedItems;
     }
+
     public void setPotionDone(bool value)
     {
         potionDone = value;
@@ -126,7 +138,6 @@ public class Player : MonoBehaviour
             ingredientFrame.SetActive(true);
             //Debug.Log("ingredient");
         }
-
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -154,7 +165,6 @@ public class Player : MonoBehaviour
 
             //Debug.Log("ingredientStay");
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -227,10 +237,15 @@ public class Player : MonoBehaviour
         SelectedItems = "";
         numberOfIngredient = 0;
         potionDone = false;
+        
     }
+
     public void emptyInvetoryOut()
     {
         emptyInvetory();
+        if (potionMade != null){
+            Destroy(potionMade);
+        }
     }
     //need to reset all varaibles to true 
     //need to set the match system 

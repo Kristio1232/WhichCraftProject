@@ -21,7 +21,7 @@ public class CauldronController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<Player>().getNumberOfIngredient() == 2 && EmptyVial.activeSelf)
+        if (player.GetComponent<Player>().getNumberOfIngredient() == 2 && EmptyVial.activeSelf && !player.GetComponent<Player>().getPotionDone())
         {
             cauldronFull.SetActive(true);
         }
@@ -35,7 +35,7 @@ public class CauldronController : MonoBehaviour
     public void OpenCauldron()
     {
         int num = player.GetComponent<Player>().getNumberOfIngredient();
-        if (num == 2)
+        if (num == 2 && !player.GetComponent<Player>().getPotionDone())
         {
             isOpen = true;
             Debug.Log("Open Caukdron menu.");

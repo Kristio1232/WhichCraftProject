@@ -11,8 +11,6 @@ public class Game_Info : MonoBehaviour
     public GameObject player;
     public int points = 0;
     public TMP_Text scoreDispaly;
-    public GameObject obstacleTemplate;
-    public Transform spawnPoints;
     
     public void addCustomer()
     {
@@ -28,9 +26,7 @@ public class Game_Info : MonoBehaviour
             Debug.Log("works");
             string playerCode = player.GetComponent<Player>().getSelectedItems();
             double satisfaction = 1;
-            Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
-            Destroy(Instantiate(obstacleTemplate, position, Quaternion.identity), 3);
-            
+            Destroy(player.GetComponent<Player>().potionMade, 3);
             for (int i = 0; i < playerCode.Length; i++)
             {
                 if (!playerCode[i].Equals(customers[0].potionCode[i])){

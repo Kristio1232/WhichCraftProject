@@ -4045,6 +4045,9 @@ MonoBehaviour:
   yellow: {fileID: 1727111206}
   blue: {fileID: 0}
   bottleSprite: {fileID: 1933038334}
+  obstacleTemplate: {fileID: 5275493274894372982, guid: 40bb5477b092a0645814656ffb2db0d4, type: 3}
+  spawnPoints: {fileID: 1519208986}
+  potionMade: {fileID: 0}
 --- !u!61 &831419172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7414,6 +7417,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   showNotification: {fileID: 1760754538}
+--- !u!4 &1519208986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8937464128281835800, guid: 800802dcdc0c48c46bd48afc56382936, type: 3}
+  m_PrefabInstance: {fileID: 902911015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1603022445
 GameObject:
   m_ObjectHideFlags: 0
