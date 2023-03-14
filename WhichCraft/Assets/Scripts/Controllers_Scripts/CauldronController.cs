@@ -7,6 +7,10 @@ public class CauldronController : MonoBehaviour
     // Start is called before the first frame update
     public bool isOpen;
     public GameObject miniGame;
+    public GameObject RedIngredient;
+    public GameObject YellowIngredient;
+    public GameObject EmptyVial;
+    public GameObject cauldronFull;
 
     void Start()
     {
@@ -16,14 +20,25 @@ public class CauldronController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (RedIngredient.activeSelf && YellowIngredient.activeSelf && EmptyVial.activeSelf)
+        {
+            cauldronFull.SetActive(true);
+        }
+        else
+        {
+            cauldronFull.SetActive(false);
+        }
+       
     }
 
     public void OpenCauldron()
     {
-        isOpen = true;
-        Debug.Log("Open Cookbook menu.");
-        miniGame.SetActive(true);
-
+        if (RedIngredient.activeSelf && YellowIngredient.activeSelf && EmptyVial.activeSelf)
+        {
+            isOpen = true;
+            Debug.Log("Open Cauldron.");
+            miniGame.SetActive(true);
+            
+        }
     }
 }

@@ -1696,6 +1696,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 0
   miniGame: {fileID: 836269906}
+  RedIngredient: {fileID: 612609660}
+  YellowIngredient: {fileID: 1727111206}
+  EmptyVial: {fileID: 1933038334}
+  cauldronFull: {fileID: 1825505310}
 --- !u!1 &286673258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,6 +2216,9 @@ MonoBehaviour:
       m_Calls: []
   autoCloseObject: {fileID: 836269906}
   showNotification: {fileID: 1760754538}
+  RedIngredient: {fileID: 612609660}
+  YellowIngredient: {fileID: 1727111206}
+  EmptyVial: {fileID: 1933038334}
 --- !u!61 &451493285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3130,6 +3137,9 @@ MonoBehaviour:
         m_CallState: 2
   autoCloseObject: {fileID: 836269906}
   showNotification: {fileID: 1760754538}
+  RedIngredient: {fileID: 612609660}
+  YellowIngredient: {fileID: 1727111206}
+  EmptyVial: {fileID: 1933038334}
 --- !u!70 &715393530
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4317,6 +4327,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1256635910}
+  MiniGame: {fileID: 836269906}
+  MiniGameWinMenu: {fileID: 1221290474}
+  MiniGameLoseMenu: {fileID: 687597097}
 --- !u!1 &880448167
 GameObject:
   m_ObjectHideFlags: 0
@@ -8503,6 +8516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825505311}
   - component: {fileID: 1825505312}
+  - component: {fileID: 1825505313}
   m_Layer: 0
   m_Name: CauldronFull
   m_TagString: Untagged
@@ -8577,6 +8591,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1825505313
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825505310}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000047683716, y: 0.00000023841858}
+  serializedVersion: 2
+  m_Radius: 0.885
 --- !u!1 &1854103717
 GameObject:
   m_ObjectHideFlags: 0
@@ -8846,7 +8876,7 @@ GameObject:
   - component: {fileID: 1933038335}
   - component: {fileID: 1933038336}
   m_Layer: 0
-  m_Name: OrangePotion
+  m_Name: EmptyVial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
