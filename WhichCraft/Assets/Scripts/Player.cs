@@ -228,6 +228,10 @@ public class Player : MonoBehaviour
         numberOfIngredient = 0;
         potionDone = false;
     }
+    public void emptyInvetoryOut()
+    {
+        emptyInvetory();
+    }
     //need to reset all varaibles to true 
     //need to set the match system 
     //need to set the appear system

@@ -35,6 +35,7 @@ public class Game_Info : MonoBehaviour
             }
             points += (int) (customers[0].money * satisfaction);
             scoreDispaly.text = points.ToString();
+             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
         }
     }

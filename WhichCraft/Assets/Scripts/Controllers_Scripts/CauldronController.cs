@@ -21,7 +21,7 @@ public class CauldronController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RedIngredient.activeSelf && YellowIngredient.activeSelf && EmptyVial.activeSelf)
+        if (player.GetComponent<Player>().getNumberOfIngredient() == 2 && EmptyVial.activeSelf)
         {
             cauldronFull.SetActive(true);
         }
