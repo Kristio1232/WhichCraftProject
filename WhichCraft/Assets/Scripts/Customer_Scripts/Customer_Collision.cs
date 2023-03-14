@@ -135,7 +135,6 @@ public class Customer_Collision : MonoBehaviour
                 timeLeft = 30f;
                 Instantiate(customer, position, Quaternion.identity);
 
-
             }
           
             Destroy(customer, 5f);

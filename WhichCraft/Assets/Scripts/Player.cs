@@ -18,8 +18,10 @@ public class Player : MonoBehaviour
     public GameObject bottlePanel;
     public GameObject bottle;
 
+    public GameObject MiniGame;
+    public GameObject MiniGameWinMenu;
+    public GameObject MiniGameLoseMenu;
 
-    
     public GameObject bottleFrame;
     public GameObject ingredientFrame;     
     //inventory  Objects
@@ -73,6 +75,15 @@ public class Player : MonoBehaviour
         }else
         {
             bottleSprite.SetActive(false);
+        }
+
+        if(MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf)
+        {
+            movementSpeed = 0;
+        }
+        else
+        {
+            movementSpeed = 5;
         }
     }
 

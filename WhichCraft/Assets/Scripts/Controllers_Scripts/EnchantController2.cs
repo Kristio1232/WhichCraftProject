@@ -27,6 +27,7 @@ public class EnchantController2 : MonoBehaviour
     {
         bar.fillAmount = 0f;
         timerOn = true;
+     
     }
 
     // Update is called once per frame
@@ -68,6 +69,11 @@ public class EnchantController2 : MonoBehaviour
                 resetTime();
             }
         }
+    }
+
+    public void FixedUpdate()
+    {
+
     }
 
     public void resetTime()
