@@ -10,6 +10,9 @@ public class Cauldron_Interactable : MonoBehaviour
     public UnityEvent interactAction;
     public GameObject autoCloseObject;
     public GameObject showNotification;
+    public GameObject RedIngredient;
+    public GameObject YellowIngredient;
+    public GameObject EmptyVial;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,7 @@ public class Cauldron_Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (RedIngredient.activeSelf && YellowIngredient.activeSelf && EmptyVial.activeSelf && collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
             showNotification.SetActive(true);

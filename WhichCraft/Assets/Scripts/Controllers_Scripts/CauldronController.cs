@@ -8,6 +8,10 @@ public class CauldronController : MonoBehaviour
     public bool isOpen;
     public GameObject player;
     public GameObject miniGame;
+    public GameObject RedIngredient;
+    public GameObject YellowIngredient;
+    public GameObject EmptyVial;
+    public GameObject cauldronFull;
 
     void Start()
     {
@@ -17,7 +21,15 @@ public class CauldronController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (RedIngredient.activeSelf && YellowIngredient.activeSelf && EmptyVial.activeSelf)
+        {
+            cauldronFull.SetActive(true);
+        }
+        else
+        {
+            cauldronFull.SetActive(false);
+        }
+       
     }
 
     public void OpenCauldron()

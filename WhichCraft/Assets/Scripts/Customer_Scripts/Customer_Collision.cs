@@ -136,7 +136,6 @@ public class Customer_Collision : MonoBehaviour
                 timeLeft = 30f;
                 Debug.Log("Creates Customer");
                 Instantiate(customer, position, Quaternion.identity);
-                
 
             }
           

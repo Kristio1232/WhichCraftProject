@@ -8,6 +8,10 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject MiniGame;
+    public GameObject MiniGameWinMenu;
+    public GameObject MiniGameLoseMenu;
+
     void Start()
     {
         GameIsPaused = false;
@@ -19,14 +23,23 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf)
             {
-                Resume();
+                MiniGame.SetActive(false);
+                MiniGameWinMenu.SetActive(false);
+                MiniGameLoseMenu.SetActive(false);
             }
             else
             {
-                Pause();
-            }
+                if (GameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
+            }        
         }
     }
 
