@@ -271,21 +271,6 @@ public class Player : MonoBehaviour
                 Debug.Log("Not a match");
             }
 
-            //        for(int k = 0; k < pcode.Length; k++)
-            //          {
-            //            char m = pcode[k];
-            //            if (c.equals(m))
-            //            {
-            //               match = true;
-            //               Debug.Log("It is a match");
-            //           }
-            //           else
-            ///          {
-            //             match = false;
-            //             Debug.Log("Not a match");
-            //         }
-            //    }
-            //}
         }
     }
 }

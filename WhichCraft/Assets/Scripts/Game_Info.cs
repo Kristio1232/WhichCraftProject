@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 
 public class Game_Info : MonoBehaviour
 {
     private static List<Customer> customers = new List<Customer>();
     private int size = 0;
     public GameObject player;
+    public GameObject ThoughtBubble_Smile;
+    public GameObject ThoughtBubble_Angry;
+    public GameObject thoughtBubble_HeatPotion;
     public int points = 0;
     public TMP_Text scoreDispaly;
-    
+    public static bool match = false;
+ 
     public void addCustomer()
     {
         customers.Add(new Customer());
@@ -23,7 +27,7 @@ public class Game_Info : MonoBehaviour
     {
         if (size > 0 && player.GetComponent<Player>().getPotionDone() )
         {
-            Debug.Log("works");
+            
             string playerCode = player.GetComponent<Player>().getSelectedItems();
             double satisfaction = 1;
             Destroy(player.GetComponent<Player>().potionMade, 3);
@@ -33,13 +37,21 @@ public class Game_Info : MonoBehaviour
                     satisfaction -= 0.3;
                 }
             }
+            Customer_Collision.sat =  satisfaction;
+            Debug.Log("printing satisfaction " + satisfaction);
             points += (int) (customers[0].money * satisfaction);
             scoreDispaly.text = points.ToString();
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
-        }
-    }
 
+ 
+        
+        }
+  
+        
+    }
+     
+    
     public void removeFirst()
     {
         customers.RemoveAt(0);

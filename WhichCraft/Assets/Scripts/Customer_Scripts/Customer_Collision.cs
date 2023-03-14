@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customer_Collision : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class Customer_Collision : MonoBehaviour
     public GameObject customerLeavesHere;
     public GameObject customerEnteringHere;
     public GameObject thoughtBubble_HeatPotion;
+    public GameObject thoughtBubble_Smile;
+    public GameObject ThoughtBubble_Angry;
     public GameObject EventSystem;
     public SpriteRenderer sprite;
+    
 
     [SerializeField]
     private Transform[] exitWayPoints;
@@ -31,6 +35,8 @@ public class Customer_Collision : MonoBehaviour
 
     public GameObject MiniGame1;
 
+    public static double sat; 
+    
 
     //Potion Code pattern 
     // 2 beakers = code numbers 1, 2
@@ -174,6 +180,17 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("WalkIn", false);
             StartCoroutine(WaitToDisplay(1f));
 
+            if (sat == 1) //just need to confirm the stat system adjust the stat number acordingly
+              {
+              //  thoughtBubble_HeatPotion.SetActive(false);
+              //  ThoughtBubble_Smile.SetActive(true);
+               }
+            else 
+            {
+            //   thoughtBubble_HeatPotion.SetActive(false);
+             //   ThoughtBubble_Angry.SetActive(true);
+           }
+
         }
 
         if (other.CompareTag("CustomerGoesOut"))
@@ -184,6 +201,7 @@ public class Customer_Collision : MonoBehaviour
             sprite.flipX = false;
            // bubble = false;
             thoughtBubble_HeatPotion.SetActive(false);
+         //   thoughtBubble_Smile.SetActive(true);
         }
 
     }
