@@ -4111,7 +4111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &836269907
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9155,6 +9155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 831419167}
+  ThoughtBubble_Smile: {fileID: 0}
+  ThoughtBubble_Angry: {fileID: 0}
+  thoughtBubble_HeatPotion: {fileID: 0}
   points: 0
   scoreDispaly: {fileID: 219303276}
 --- !u!1 &1897714732
