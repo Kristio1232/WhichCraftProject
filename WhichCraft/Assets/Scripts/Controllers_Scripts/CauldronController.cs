@@ -6,6 +6,7 @@ public class CauldronController : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isOpen;
+    public GameObject player;
     public GameObject miniGame;
 
     void Start()
@@ -21,9 +22,12 @@ public class CauldronController : MonoBehaviour
 
     public void OpenCauldron()
     {
-        isOpen = true;
-        Debug.Log("Open Cookbook menu.");
-        miniGame.SetActive(true);
-
+        int num = player.GetComponent<Player>().getNumberOfIngredient();
+        if (num == 2)
+        {
+            isOpen = true;
+            Debug.Log("Open Caukdron menu.");
+            miniGame.SetActive(true);
+        }
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
     public int movementSpeed = 5;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -18,10 +17,8 @@ public class Player : MonoBehaviour
     public GameObject bottlePanel;
     public GameObject bottle;
 
-
-    
     public GameObject bottleFrame;
-    public GameObject ingredientFrame;     
+    public GameObject ingredientFrame;
     //inventory  Objects
     public GameObject red;
     public GameObject yellow;
@@ -29,15 +26,16 @@ public class Player : MonoBehaviour
     public GameObject bottleSprite;
 
     private bool panelOn = false;
-   
+
     public static string pcode;
-    public static string SelectedItems;
+    private static string SelectedItems;
 
     private static bool f = true;
     private static bool r = true;
     private static bool y = true;
     private static bool b = true;
-    private static int numberOfIngredient;
+    private static bool potionDone = false;
+    private static int numberOfIngredient = 0;
 
     public static bool match = true;
     public static string Items = "";
@@ -45,32 +43,35 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numberOfIngredient = 0;
+        emptyInvetory();
     }
     // Update is called once per frame
     void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector2(moveX, moveY).normalized;  
+        moveDirection = new Vector2(moveX, moveY).normalized;
         if (!r)
         {
             red.SetActive(true);
-        }else
+        }
+        else
         {
             red.SetActive(false);
         }
         if (!y)
         {
             yellow.SetActive(true);
-        }else
+        }
+        else
         {
             yellow.SetActive(false);
         }
         if (!f)
         {
             bottleSprite.SetActive(true);
-        }else
+        }
+        else
         {
             bottleSprite.SetActive(false);
         }
@@ -81,24 +82,40 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
     }
 
+    public int getNumberOfIngredient()
+    {
+        return numberOfIngredient;
+    }
+    public bool getPotionDone()
+    {
+        return potionDone;
+    }
+
+    public string getSelectedItems()
+    {
+        return SelectedItems;
+    }
+    public void setPotionDone(bool value)
+    {
+        potionDone = value;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (collision.tag == "bottle") 
-        { 
+        if (collision.tag == "bottle")
+        {
             bottleFrame.SetActive(true);
             //Debug.Log("Bottle"); 
         }
 
         if (collision.tag == "ingredient")
         {
-
             ingredientFrame.SetActive(true);
             //Debug.Log("ingredient");
         }
 
-
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "bottle")
@@ -121,12 +138,12 @@ public class Player : MonoBehaviour
                 panelOn = true;
                 ingredientPanel.SetActive(panelOn);
             }
-           
+
             //Debug.Log("ingredientStay");
         }
 
-
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "bottle")
@@ -143,14 +160,13 @@ public class Player : MonoBehaviour
             ingredientFrame.SetActive(false);
             //Debug.Log("ingredientLeave");
         }
-
     }
 
     public static void getBeaker()
     {
         if (f == true)
-        { 
-            SelectedItems = SelectedItems + 1; 
+        {
+            SelectedItems = SelectedItems + 1;
             f = false;
         }
         Debug.Log("beaker code " + SelectedItems);
@@ -158,83 +174,85 @@ public class Player : MonoBehaviour
 
     public static void RedIngredient()
     {
-        if (r == true && numberOfIngredient<2)
-        { 
-        SelectedItems = SelectedItems + 3;
-        r = false;
-        numberOfIngredient++;
+        if (r == true && numberOfIngredient < 2 && !f)
+        {
+            SelectedItems = SelectedItems + 3;
+            r = false;
+            numberOfIngredient++;
         }
         Debug.Log("Red code" + SelectedItems);
     }
 
-     public static void YellowIngredient()
+    public static void YellowIngredient()
     {
-        if (y == true && numberOfIngredient<2)
-        { 
-        SelectedItems = SelectedItems + 4;
-        y = false;
-        numberOfIngredient++;
+        if (y == true && numberOfIngredient < 2 && !f)
+        {
+            SelectedItems = SelectedItems + 4;
+            y = false;
+            numberOfIngredient++;
         }
         Debug.Log("Yellow code" + SelectedItems);
     }
 
-     public static void BlueIngridient()
+    public static void BlueIngridient()
     {
-         if (b == true && numberOfIngredient<2)
-        { 
-        SelectedItems = SelectedItems + 5;
-        b = false;
-        numberOfIngredient++;
+        if (b == true && numberOfIngredient < 2 && !f)
+        {
+            SelectedItems = SelectedItems + 5;
+            b = false;
+            numberOfIngredient++;
         }
         Debug.Log("Blue code" + SelectedItems);
     }
 
-//need to reset all varaibles to true 
-//need to set the match system 
-//need to set the appear system
-
-     public static void CheckMatch()
- {
-   
-       f = true;
-       r = true;
-       y = true;
-       b = true;
-
-       Debug.Log("running check match");
-
-    for(int i = 0; i < SelectedItems.Length; i++)
-       {
-        char c = SelectedItems[i];
-        match = pcode.Contains(c);
-        
-        if (match == true) 
-        {
-            Debug.Log("It is a match");
-            }
-        else {
-            Debug.Log("Not a match");
-            }
-
-     //        for(int k = 0; k < pcode.Length; k++)
-     //          {
-    //            char m = pcode[k];
-    //            if (c.equals(m))
-    //            {
-     //               match = true;
-     //               Debug.Log("It is a match");
-     //           }
-     //           else
-      ///          {
-       //             match = false;
-       //             Debug.Log("Not a match");
-       //         }
-        //    }
-        
-    //}
-
+    public static void emptyInvetory()
+    {
+        f = true;
+        r = true;
+        y = true;
+        b = true;
+        SelectedItems = "";
+        numberOfIngredient = 0;
+        potionDone = false;
     }
-   
-}
-}
+    //need to reset all varaibles to true 
+    //need to set the match system 
+    //need to set the appear system
+    public static void CheckMatch(string customerOrder)
+    {
+        emptyInvetory();
 
+        Debug.Log("running check match");
+
+        for (int i = 0; i < SelectedItems.Length; i++)
+        {
+            char c = SelectedItems[i];
+            match = pcode.Contains(c);
+
+            if (match == true)
+            {
+                Debug.Log("It is a match");
+            }
+            else
+            {
+                Debug.Log("Not a match");
+            }
+
+            //        for(int k = 0; k < pcode.Length; k++)
+            //          {
+            //            char m = pcode[k];
+            //            if (c.equals(m))
+            //            {
+            //               match = true;
+            //               Debug.Log("It is a match");
+            //           }
+            //           else
+            ///          {
+            //             match = false;
+            //             Debug.Log("Not a match");
+            //         }
+            //    }
+            //}
+        }
+    }
+}

@@ -12,6 +12,7 @@ public class Customer_Collision : MonoBehaviour
     public GameObject customerLeavesHere;
     public GameObject customerEnteringHere;
     public GameObject thoughtBubble_HeatPotion;
+    public GameObject EventSystem;
     public SpriteRenderer sprite;
 
     [SerializeField]
@@ -50,7 +51,7 @@ public class Customer_Collision : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), customer.GetComponent<Collider2D>(), true);
-
+        EventSystem = GameObject.Find("EventSystem");
     }
 
     // Update is called once per frame
@@ -133,8 +134,9 @@ public class Customer_Collision : MonoBehaviour
             if(timeLeft <= 0)
             {
                 timeLeft = 30f;
+                Debug.Log("Creates Customer");
                 Instantiate(customer, position, Quaternion.identity);
-
+                
 
             }
           
@@ -150,6 +152,7 @@ public class Customer_Collision : MonoBehaviour
             Debug.Log("Customer Comes In!");
             anim.SetBool("WalkIn", true);
             sprite.flipX = true;
+            EventSystem.GetComponent<Game_Info>().addCustomer();
             //bubble = false;
         }
 
