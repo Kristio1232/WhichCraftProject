@@ -2016,6 +2016,7 @@ MonoBehaviour:
   MiniGameWinMenu: {fileID: 1221290474}
   MiniGame: {fileID: 836269906}
   MiniGameLoseMenu: {fileID: 687597097}
+  player: {fileID: 831419167}
 --- !u!1 &324160381
 GameObject:
   m_ObjectHideFlags: 0
@@ -7242,6 +7243,7 @@ MonoBehaviour:
   MiniGameWinMenu: {fileID: 1221290474}
   MiniGame: {fileID: 836269906}
   MiniGameLoseMenu: {fileID: 687597097}
+  player: {fileID: 831419167}
 --- !u!1 &1512155637
 GameObject:
   m_ObjectHideFlags: 0
