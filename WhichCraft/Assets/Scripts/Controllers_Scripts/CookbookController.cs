@@ -16,10 +16,7 @@ public class CookbookController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("E"))
-        {
-            cookBook.SetActive(false);
-        }
+
     }
 
     public void OpenCookbook()

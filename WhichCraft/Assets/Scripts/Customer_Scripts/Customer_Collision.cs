@@ -12,6 +12,7 @@ public class Customer_Collision : MonoBehaviour
     public GameObject customerLeavesHere;
     public GameObject customerEnteringHere;
     public GameObject thoughtBubble_HeatPotion;
+    public GameObject EventSystem;
     public SpriteRenderer sprite;
 
     [SerializeField]
@@ -28,6 +29,8 @@ public class Customer_Collision : MonoBehaviour
     public bool timerOn;
     public float timeLeft = 40f;
 
+    public GameObject MiniGame1;
+
 
     //Potion Code pattern 
     // 2 beakers = code numbers 1, 2
@@ -39,7 +42,7 @@ public class Customer_Collision : MonoBehaviour
     public static int potionCode;
     public static string code;
 
-    public bool bubble;
+    // public bool bubble;
 
       
 
@@ -48,6 +51,7 @@ public class Customer_Collision : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), customer.GetComponent<Collider2D>(), true);
+        EventSystem = GameObject.Find("EventSystem");
     }
 
     // Update is called once per frame
@@ -60,6 +64,15 @@ public class Customer_Collision : MonoBehaviour
                 timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
                 MoveToShopCounter();
+
+
+                //Timer Added to the customer time when the Mini-Game screen is active (Note: It does not exactly give 10 seconds)
+                if (MiniGame1.activeSelf)
+                {
+                    Debug.Log("Timer added over time when Mini-game is being played.");
+                    timeLeft += 0.0018f; 
+                }
+
             }
             else
             {
@@ -121,12 +134,12 @@ public class Customer_Collision : MonoBehaviour
             if(timeLeft <= 0)
             {
                 timeLeft = 30f;
+                Debug.Log("Creates Customer");
                 Instantiate(customer, position, Quaternion.identity);
-
 
             }
           
-            Destroy(customer, 10f);
+            Destroy(customer, 5f);
 
             customerStopsHere.SetActive(true);
             customerLeavesHere.SetActive(false);
@@ -138,7 +151,8 @@ public class Customer_Collision : MonoBehaviour
             Debug.Log("Customer Comes In!");
             anim.SetBool("WalkIn", true);
             sprite.flipX = true;
-            bubble = false;
+            EventSystem.GetComponent<Game_Info>().addCustomer();
+            //bubble = false;
         }
 
         if (other.CompareTag("CustomerStops"))
@@ -154,13 +168,12 @@ public class Customer_Collision : MonoBehaviour
             Debug.Log("Customer Stops Here");
             Debug.Log("CODE IN INT "  + potionCode);
 
-            bubble = true; //thought bubble will only pop up when the customer is waiting
+            // bubble = true; //thought bubble will only pop up when the customer is waiting
 
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
             StartCoroutine(WaitToDisplay(1f));
-            thoughtBubble_HeatPotion.SetActive(true);
-                
+
         }
 
         if (other.CompareTag("CustomerGoesOut"))
@@ -169,7 +182,7 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("Idle", false);
             anim.SetBool("WalkOut", true);
             sprite.flipX = false;
-            bubble = false;
+           // bubble = false;
             thoughtBubble_HeatPotion.SetActive(false);
         }
 
@@ -186,5 +199,6 @@ public class Customer_Collision : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         thoughtBubble_HeatPotion.SetActive(true);
+
     }
 }

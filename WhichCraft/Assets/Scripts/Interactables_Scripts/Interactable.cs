@@ -28,6 +28,11 @@ public class Interactable : MonoBehaviour
                 interactAction.Invoke();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            autoCloseObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +48,6 @@ public class Interactable : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         isInRange = false;
-        Debug.Log("Player in Cookbook Range");
         showNotification.SetActive(false);
         autoCloseObject.SetActive(false);
     }
