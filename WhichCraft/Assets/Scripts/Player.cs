@@ -186,7 +186,8 @@ public class Player : MonoBehaviour
     }
 
     public static void getBeaker()
-    {
+    {  
+        //testtube.SetActive(true);
         if (f == true)
         {
             SelectedItems = SelectedItems + 1;
