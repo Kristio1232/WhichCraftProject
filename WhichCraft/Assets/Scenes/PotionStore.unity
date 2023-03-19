@@ -7403,6 +7403,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 831419167}
     - target: {fileID: 1506095813, guid: 4d4e0b9a392abba4a8aaa03d86b0af8e, type: 3}
+<<<<<<< Updated upstream
+=======
+      propertyPath: timeLeft
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506095813, guid: 4d4e0b9a392abba4a8aaa03d86b0af8e, type: 3}
+      propertyPath: MiniGame1
+      value: 
+      objectReference: {fileID: 836269906}
+    - target: {fileID: 1506095813, guid: 4d4e0b9a392abba4a8aaa03d86b0af8e, type: 3}
+>>>>>>> Stashed changes
       propertyPath: customer2
       value: 
       objectReference: {fileID: 0}
