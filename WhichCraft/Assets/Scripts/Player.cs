@@ -151,17 +151,26 @@ public class Player : MonoBehaviour
                     panelOn = true;
                     bottlePanel.SetActive(panelOn);
                 }
-                //Debug.Log("BottleStay");
+                /*else if (Input.GetKey("e"))
+                {
+                    panelOn = false;
+                    bottlePanel.SetActive(panelOn);
+                }*/
             }
         }
 
         if (collision.tag == "ingredient")
         {
-            if (Input.GetKey("e"))
+            if (Input.GetKeyDown("e"))
             {
                 panelOn = true;
                 ingredientPanel.SetActive(panelOn);
             }
+           /* if (Input.GetKey("e") && panelOn)
+            {
+                panelOn = false;
+                ingredientPanel.SetActive(panelOn);
+            }*/
 
             //Debug.Log("ingredientStay");
         }
