@@ -161,7 +161,7 @@ public class Player : MonoBehaviour
 
         if (collision.tag == "ingredient")
         {
-            if (Input.GetKeyDown("e"))
+            if (Input.GetKey("e"))
             {
                 panelOn = true;
                 ingredientPanel.SetActive(panelOn);
