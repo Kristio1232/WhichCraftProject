@@ -144,19 +144,19 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "bottle")
         {
-            if (collision.tag == "bottle")
+            
+            if (Input.GetKey("e"))
             {
-                if (Input.GetKey("e"))
-                {
-                    panelOn = true;
-                    bottlePanel.SetActive(panelOn);
-                }
-                /*else if (Input.GetKey("e"))
-                {
-                    panelOn = false;
-                    bottlePanel.SetActive(panelOn);
-                }*/
+                panelOn = true;
+                bottlePanel.SetActive(panelOn);
             }
+            
+            /*else if (Input.GetKey("e"))
+            {
+                panelOn = false;
+                bottlePanel.SetActive(panelOn);
+            }*/
+
         }
 
         if (collision.tag == "ingredient")
@@ -166,11 +166,11 @@ public class Player : MonoBehaviour
                 panelOn = true;
                 ingredientPanel.SetActive(panelOn);
             }
-           /* if (Input.GetKey("e") && panelOn)
-            {
-                panelOn = false;
-                ingredientPanel.SetActive(panelOn);
-            }*/
+            /* if (Input.GetKey("e") && panelOn)
+             {
+                 panelOn = false;
+                 ingredientPanel.SetActive(panelOn);
+             }*/
 
             //Debug.Log("ingredientStay");
         }
@@ -193,6 +193,7 @@ public class Player : MonoBehaviour
             //Debug.Log("ingredientLeave");
         }
     }
+
 
     public static void getBeaker()
     {  
