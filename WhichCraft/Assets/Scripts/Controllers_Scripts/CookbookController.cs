@@ -16,6 +16,10 @@ public class CookbookController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            CloseCookbook();
+        }
 
     }
 
@@ -25,5 +29,11 @@ public class CookbookController : MonoBehaviour
         Debug.Log("Open Cookbook menu.");
         cookBook.SetActive(true);
 
+    }
+    public void CloseCookbook()
+    {
+        isOpen = false;
+        Debug.Log("Closed Cookbook menu.");
+        cookBook.SetActive(false);
     }
 }

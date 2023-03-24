@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
 {
     public bool isInRange;
     public KeyCode interactKey;
+    public KeyCode closeKey;
     public UnityEvent interactAction;
     public GameObject autoCloseObject;
     public GameObject showNotification;
@@ -27,6 +28,12 @@ public class Interactable : MonoBehaviour
             {
                 interactAction.Invoke();
             }
+
+            if (Input.GetKeyDown(closeKey))
+            {
+                interactAction.Invoke();
+            }
+                
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -151,11 +151,11 @@ public class Player : MonoBehaviour
                 bottlePanel.SetActive(panelOn);
             }
             
-            /*else if (Input.GetKey("e"))
+            else if (Input.GetKey("e") && panelOn)
             {
                 panelOn = false;
                 bottlePanel.SetActive(panelOn);
-            }*/
+            }
 
         }
 
