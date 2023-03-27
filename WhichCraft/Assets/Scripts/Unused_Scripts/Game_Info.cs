@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Game_Info : MonoBehaviour
 {
-    private static List<Customer> customers = new List<Customer>();
+    private static List<CustomerTemp> customers = new List<CustomerTemp>();
     private int size = 0;
     public GameObject player;
     public GameObject ThoughtBubble_Smile;
@@ -18,7 +18,7 @@ public class Game_Info : MonoBehaviour
  
     public void addCustomer()
     {
-        customers.Add(new Customer());
+        customers.Add(new CustomerTemp());
         size++;
         Debug.Log("Adds Customer");
     }
@@ -60,11 +60,11 @@ public class Game_Info : MonoBehaviour
 
     
 }
-public class Customer
+public class CustomerTemp
     {
         public string potionCode;
         public int money;
-        public Customer()
+        public CustomerTemp()
         {
             int randint = Random.Range(1, 1);
             money = Random.Range(10, 100);
