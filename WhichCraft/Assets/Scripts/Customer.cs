@@ -32,12 +32,17 @@ public class Customer : MonoBehaviour
                 updateTimer(timeLeft);
                 MoveToWayPoint(waypoint);
             }
+            else
+            {
+                //Customer leaves.
+                MoveToWayPoint(waypoint);
+            }
         }
     }
     public void setPosition(Transform waitPoint)
     {
         this.waypoint = waitPoint;
-        //Debug.Log(this.waypoint);
+        Debug.Log(this.waypoint);
     }
     public void MoveToWayPoint(Transform waitPoint)
     {
