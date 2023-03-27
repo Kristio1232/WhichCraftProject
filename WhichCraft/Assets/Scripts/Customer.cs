@@ -5,8 +5,9 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     //Movement Variables
-    public int moveSpeed;
+    public float moveSpeed = 2f;
     private Transform waypoint;
+    public bool timerOn;
     public float timeLeft = 40f;
 
     //Selling Potion Info
@@ -23,7 +24,15 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (timerOn)
+        {
+            if (timeLeft > 0)
+            {
+                timeLeft -= Time.deltaTime;
+                updateTimer(timeLeft);
+                MoveToWayPoint(waypoint);
+            }
+        }
     }
     public void setPosition(Transform waitPoint)
     {
@@ -34,5 +43,11 @@ public class Customer : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position,
          waitPoint.transform.position, moveSpeed * Time.deltaTime);
+    }
+
+    public void updateTimer(float currentTime)
+    {
+        currentTime += 1;
+        float seconds = Mathf.FloorToInt(currentTime % 60);
     }
 }

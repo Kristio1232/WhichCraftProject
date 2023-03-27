@@ -82,7 +82,7 @@ public class Game_Controller : MonoBehaviour
                 switch (counter)
                 {
                     case 1:
-                        waitPoint = waitPoints[1];
+                        waitPoint = waitPoints[1]; //**In front of the counter**
                         break;
                     case 2:
                         waitPoint = waitPoints[2];
@@ -103,7 +103,7 @@ public class Game_Controller : MonoBehaviour
     {
         customers.Add(customer);
         size++;
-        //Debug.Log("Adds Customer");
+        Debug.Log("Adds Customer");
     }
 
     public void giveCustomerPotion()
