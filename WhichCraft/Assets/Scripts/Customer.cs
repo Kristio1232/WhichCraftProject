@@ -5,6 +5,8 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     //Movement Variables
+    public Animator anim;
+    public SpriteRenderer sprite;
     public float moveSpeed = 2f;
     private Transform waypoint;
     public bool timerOn;
@@ -31,11 +33,14 @@ public class Customer : MonoBehaviour
                 timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
                 MoveToWayPoint(waypoint);
+                
             }
             else
             {
                 //Customer Leaves
+                sprite.flipX = false;
                 MoveToWayPoint(waypoint);
+
             }
 
         }
@@ -43,7 +48,7 @@ public class Customer : MonoBehaviour
     public void setPosition(Transform waitPoint)
     {
         this.waypoint = waitPoint;
-        Debug.Log(this.waypoint);
+       // Debug.Log(this.waypoint);
     }
     public void MoveToWayPoint(Transform waitPoint)
     {
@@ -56,4 +61,33 @@ public class Customer : MonoBehaviour
         currentTime += 1;
         float seconds = Mathf.FloorToInt(currentTime % 60);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+/*        if (other.CompareTag("CustomerGoesIn"))
+        {
+            Debug.Log("Customer Comes In!");
+            anim.SetBool("WalkIn", true);
+            sprite.flipX = true;
+        }
+
+        if (other.CompareTag("CustomerStops"))
+        {
+            Debug.Log("Customer Stops Here");
+            anim.SetBool("Idle", true);
+            anim.SetBool("WalkIn", false);
+            sprite.flipX = true;
+        }
+
+        if (other.CompareTag("CustomerGoesOut"))
+        {
+            Debug.Log("Customer is Leaving");
+            anim.SetBool("Idle", false);
+            anim.SetBool("WalkOut", true);
+            sprite.flipX = false;
+
+        }*/
+    }
+
 }
