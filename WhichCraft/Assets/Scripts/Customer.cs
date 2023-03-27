@@ -38,9 +38,11 @@ public class Customer : MonoBehaviour
             else
             {
                 //Customer Leaves
-                sprite.flipX = false;
                 MoveToWayPoint(waypoint);
 
+                anim.SetBool("Idle", false);
+                anim.SetBool("WalkOut", true);
+                sprite.flipX = false;
             }
 
         }
@@ -65,7 +67,7 @@ public class Customer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-/*        if (other.CompareTag("CustomerGoesIn"))
+        if (other.CompareTag("CustomerGoesIn"))
         {
             Debug.Log("Customer Comes In!");
             anim.SetBool("WalkIn", true);
@@ -87,7 +89,7 @@ public class Customer : MonoBehaviour
             anim.SetBool("WalkOut", true);
             sprite.flipX = false;
 
-        }*/
+        }
     }
 
 }
