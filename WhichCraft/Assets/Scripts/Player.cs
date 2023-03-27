@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public GameObject MiniGame;
     public GameObject MiniGameWinMenu;
     public GameObject MiniGameLoseMenu;
+    public GameObject CookBookMenu;
 
     public GameObject bottleFrame;
     public GameObject ingredientFrame;
@@ -90,7 +91,7 @@ public class Player : MonoBehaviour
             bottleSprite.SetActive(false);
         }
 
-        if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf)
+        if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf || CookBookMenu.activeSelf)
         {
             movementSpeed = 0;
         }
@@ -98,6 +99,7 @@ public class Player : MonoBehaviour
         {
             movementSpeed = 5;
         }
+        
     }
 
     void FixedUpdate()
