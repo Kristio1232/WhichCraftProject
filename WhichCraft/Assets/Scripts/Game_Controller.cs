@@ -51,7 +51,6 @@ public class Game_Controller : MonoBehaviour
             timeBtwSpawns -= Time.deltaTime;
         }
 
-        
         //Debug.Log(size);
         if (size >= 1)
         {
@@ -63,6 +62,7 @@ public class Game_Controller : MonoBehaviour
     {
         //Customer Control code
         int counter = 0;
+
         foreach (var shopper in customers)
         {
             counter++;
@@ -86,6 +86,12 @@ public class Game_Controller : MonoBehaviour
                         break;
                     case 2:
                         waitPoint = waitPoints[2];
+                        break;
+                    case 3:
+                        waitPoint = waitPoints[3];
+                        break;
+                    case 4:
+                        waitPoint = waitPoints[4];
                         break;
                 }
                 shopper.GetComponent<Customer>().setPosition(waitPoint);
