@@ -67,37 +67,40 @@ public class Player : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
+        // --------------------------------- Start of spawning system --------------------------
         if (potionDone && potionMade == null)
         {
             Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
             potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+            // instantiate 2 ings and 1 bott
+            // use transform from an empty game obj to store pos of the ingredients and bottle
         }
 
         if (!r && potionMade == null)
         {
-            red.SetActive(true);
+            red.SetActive(true); // 
         }
         else
         {
-            red.SetActive(false);
+            red.SetActive(false); // 
         }
         if (!y && potionMade == null)
         {
-            yellow.SetActive(true);
+            yellow.SetActive(true); //
         }
         else
         {
-            yellow.SetActive(false);
+            yellow.SetActive(false); //
         }
         if (!f && potionMade == null)
         {
-            bottleSprite.SetActive(true);
+            bottleSprite.SetActive(true); // 
         }
         else
         {
-            bottleSprite.SetActive(false);
+            bottleSprite.SetActive(false); // 
         }
-
+        // ----------------------------------- end of ingr and bott spawn --------------------------------------------------
         if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf || CookBookMenu.activeSelf)
         {
             movementSpeed = 0;
@@ -106,7 +109,7 @@ public class Player : MonoBehaviour
         {
             movementSpeed = 5;
         }
-        
+
     }
 
     void FixedUpdate()
@@ -134,6 +137,7 @@ public class Player : MonoBehaviour
         potionDone = value;
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "bottle")
@@ -153,13 +157,13 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "bottle")
         {
-            
+
             if (Input.GetKey("e"))
             {
                 panelOn = true;
                 bottlePanel.SetActive(panelOn);
             }
-            
+
             else if (Input.GetKey("e") && panelOn)
             {
                 panelOn = false;
@@ -205,7 +209,7 @@ public class Player : MonoBehaviour
 
 
     public static void getBeaker()
-    {  
+    {
         //testtube.SetActive(true);
         if (f == true)
         {
@@ -257,39 +261,18 @@ public class Player : MonoBehaviour
         SelectedItems = "";
         numberOfIngredient = 0;
         potionDone = false;
-        
+
     }
 
     public void emptyInvetoryOut()
     {
         emptyInvetory();
-        if (potionMade != null){
+        if (potionMade != null)
+        {
             Destroy(potionMade);
         }
     }
     //need to reset all varaibles to true 
     //need to set the match system 
     //need to set the appear system
-    public static void CheckMatch(string customerOrder)
-    {
-        emptyInvetory();
-
-        Debug.Log("running check match");
-
-        for (int i = 0; i < SelectedItems.Length; i++)
-        {
-            char c = SelectedItems[i];
-            match = pcode.Contains(c);
-
-            if (match == true)
-            {
-                Debug.Log("It is a match");
-            }
-            else
-            {
-                Debug.Log("Not a match");
-            }
-
-        }
-    }
 }
