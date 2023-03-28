@@ -272,7 +272,7 @@ public class Player : MonoBehaviour
         Debug.Log("Yellow code" + SelectedItems);
     }
 
-    public void BlueIngridient()
+    public void BlueIngridient()   
     {
         if (b == true && numberOfIngredient < 3)
         {
@@ -285,7 +285,7 @@ public class Player : MonoBehaviour
         Debug.Log("Blue code" + SelectedItems);
     }
 
-    public static void emptyInvetory()
+    public static void emptyInvetory()     
     {
         f = true;
         r = true;
