@@ -5413,7 +5413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSize: 4
   customerPrefab:
-  - {fileID: 0}
+  - {fileID: 7852911305691896493, guid: ac0ef616cefa4104182d96babc7906f8, type: 3}
   waitPoints:
   - {fileID: 449717300}
   - {fileID: 821925823}
@@ -5422,10 +5422,8 @@ MonoBehaviour:
   - {fileID: 1786444573}
   player: {fileID: 831419167}
   points: 0
-  scoreDispaly: {fileID: 0}
+  scoreDispaly: {fileID: 219303276}
   spawnRate: 10
-  obstacleTemplate:
-  - {fileID: 7852911305691896493, guid: ac0ef616cefa4104182d96babc7906f8, type: 3}
   spawnPoint: {fileID: 1388807826}
 --- !u!4 &976147561
 Transform:
@@ -7986,9 +7984,9 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1894374844}
+      - m_Target: {fileID: 976147559}
         m_TargetAssemblyTypeName: Game_Info, Assembly-CSharp
-        m_MethodName: giveCustomerPotion
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9880,7 +9878,6 @@ GameObject:
   - component: {fileID: 1894374842}
   - component: {fileID: 1894374841}
   - component: {fileID: 1894374843}
-  - component: {fileID: 1894374844}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -9938,24 +9935,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!114 &1894374844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894374840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d0e08e95276e0408a0aea1cef1058d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 831419167}
-  ThoughtBubble_Smile: {fileID: 0}
-  ThoughtBubble_Angry: {fileID: 0}
-  thoughtBubble_HeatPotion: {fileID: 0}
-  points: 0
-  scoreDispaly: {fileID: 219303276}
 --- !u!1 &1897714732
 GameObject:
   m_ObjectHideFlags: 0
