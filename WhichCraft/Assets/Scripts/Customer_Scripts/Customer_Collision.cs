@@ -39,7 +39,7 @@ public class Customer_Collision : MonoBehaviour
     
 
     //Potion Code pattern 
-    // 2 beakers = code numbers 1, 2
+    // 2 beakers = code numbers 1, 2, 6
     // 3 ingredients = code numbers 3, 4, 5 
 
     public static int beakerCode;
@@ -163,8 +163,8 @@ public class Customer_Collision : MonoBehaviour
 
         if (other.CompareTag("CustomerStops"))
         {
-            beakerCode = Random.Range(1, 1);
-            ingrideient1Code = Random.Range(3, 3);
+            beakerCode = Random.Range(1, 1); //not using the randoms 
+            ingrideient1Code = Random.Range(3, 3); 
             ingrideient2Code = Random.Range(4, 4);
             code = beakerCode.ToString() + ingrideient1Code.ToString() + ingrideient2Code.ToString();
             potionCode = int.Parse(code);
@@ -179,17 +179,6 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
             StartCoroutine(WaitToDisplay(1f));
-
-            if (sat == 1) //just need to confirm the stat system adjust the stat number acordingly
-              {
-              //  thoughtBubble_HeatPotion.SetActive(false);
-              //  ThoughtBubble_Smile.SetActive(true);
-               }
-            else 
-            {
-            //   thoughtBubble_HeatPotion.SetActive(false);
-             //   ThoughtBubble_Angry.SetActive(true);
-           }
 
         }
 

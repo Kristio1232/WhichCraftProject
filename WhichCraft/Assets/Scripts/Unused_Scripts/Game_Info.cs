@@ -27,7 +27,7 @@ public class Game_Info : MonoBehaviour
     {
         if (size > 0 && player.GetComponent<Player>().getPotionDone() )
         {
-            
+            Debug.Log("Potion Code" + customers[0].potionCode);
             string playerCode = player.GetComponent<Player>().getSelectedItems();
             double satisfaction = 1;
             Destroy(player.GetComponent<Player>().potionMade, 3);
@@ -37,15 +37,14 @@ public class Game_Info : MonoBehaviour
                     satisfaction -= 0.3;
                 }
             }
+
             Customer_Collision.sat =  satisfaction;
             Debug.Log("printing satisfaction " + satisfaction);
             points += (int) (customers[0].money * satisfaction);
             scoreDispaly.text = points.ToString();
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
-
  
-        
         }
   
         
@@ -71,8 +70,26 @@ public class CustomerTemp
             switch (randint)
             {
                 case 1:
-                    potionCode = "134";
+                    potionCode = "145";
+                    break;
+                
+                case 2:
+                    potionCode = "256";
+                    break;
+                
+                case 3:
+                    potionCode = "346";
+                    break;
+
+                case 4:
+                    potionCode = "345";
+                   break;
+                
+                case 5:
+                    potionCode = "256";
                     break;
             }
+
+            
         }
     }

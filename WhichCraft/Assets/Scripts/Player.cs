@@ -202,12 +202,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Potion Code pattern 
+    // 2 beakers = code numbers 1, 2, 3
+    // 3 ingredients = code numbers 4, 5, 6 
 
+<<<<<<< Updated upstream
     public void getBeaker()
     {
         Debug.Log("Button Work");
         //testtube.SetActive(true);
         if (f && numberOfIngredient < 3)
+=======
+    public static void getBeakerOne()
+    {  
+        
+        if (f == true)
+>>>>>>> Stashed changes
         {
             SelectedItems = SelectedItems + 1;
             f = false;
@@ -215,15 +225,42 @@ public class Player : MonoBehaviour
             empBottle = Instantiate(bottlePref, position, Quaternion.identity);
             numberOfIngredient++;
         }
+<<<<<<< Updated upstream
         
         Debug.Log("beaker code " + SelectedItems);
+=======
+        Debug.Log("beaker one code " + SelectedItems);
+    }
+
+    public static void getBeakerTwo()
+    {  
+        
+        if (f == true)
+        {
+            SelectedItems = SelectedItems + 2;
+            f = false;
+        }
+        Debug.Log("beaker two code " + SelectedItems);
+    }
+
+
+        public static void getBeakerThree()
+    {  
+       
+        if (f == true)
+        {
+            SelectedItems = SelectedItems + 3;
+            f = false;
+        }
+        Debug.Log("beaker three code " + SelectedItems);
+>>>>>>> Stashed changes
     }
 
     public void RedIngredient()
     {
         if (r && numberOfIngredient < 3)
         {
-            SelectedItems = SelectedItems + 3;
+            SelectedItems = SelectedItems + 4;
             r = false;
             Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
             red = Instantiate(redPref, position, Quaternion.identity);
@@ -236,7 +273,7 @@ public class Player : MonoBehaviour
     {
         if (y == true && numberOfIngredient < 3)
         {
-            SelectedItems = SelectedItems + 4;
+            SelectedItems = SelectedItems + 5;
             y = false;
             Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
             yellow = Instantiate(yellowPref, position, Quaternion.identity);
@@ -249,7 +286,7 @@ public class Player : MonoBehaviour
     {
         if (b == true && numberOfIngredient < 3)
         {
-            SelectedItems = SelectedItems + 5;
+            SelectedItems = SelectedItems + 6;
             b = false;
             Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
             blue = Instantiate(bluePref, position, Quaternion.identity);

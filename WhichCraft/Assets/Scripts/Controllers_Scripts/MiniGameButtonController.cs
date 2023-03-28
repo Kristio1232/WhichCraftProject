@@ -9,6 +9,7 @@ public class MiniGameButtonController : MonoBehaviour
     public GameObject MiniGameLoseMenu;
     public GameObject player;
     public GameObject controller;
+    public bool notification_on;
     
     // Start is called before the first frame update
     void Start()
@@ -24,10 +25,12 @@ public class MiniGameButtonController : MonoBehaviour
 
     public void exitMiniGameWinMenu()
     {
-        MiniGameWinMenu.SetActive(false);
+        MiniGameWinMenu.SetActive(false); 
         player.GetComponent<Player>().setPotionDone(true);
         controller.GetComponent<Game_Controller>().setMiniGameActive(false);
+        notification_on = true;
     }
+    
     public void tryAgainMenu()
     {
         MiniGame.SetActive(true);
