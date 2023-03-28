@@ -15,13 +15,18 @@ public class Customer : MonoBehaviour
     //Selling Potion Info
     private int money;
     private string potionCode;
-    private double satisfaction;
+    //private double satisfaction;
     
     // Start is called before the first frame update
     // Random money and potionCode
     void Start()
     {
-        satisfaction = 1.00;
+        //satisfaction = 1.00;
+        
+        money  = Random.Range(15, 101);
+        if (Random.Range(1, 10000) == 1){
+            money  = Random.Range(1000, 10000);
+        }
     }
 
     // Update is called once per frame
