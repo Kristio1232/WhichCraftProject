@@ -206,29 +206,20 @@ public class Player : MonoBehaviour
     // 2 beakers = code numbers 1, 2, 3
     // 3 ingredients = code numbers 4, 5, 6 
 
-<<<<<<< Updated upstream
-    public void getBeaker()
+    public void getBeakerOne()
     {
         Debug.Log("Button Work");
         //testtube.SetActive(true);
         if (f && numberOfIngredient < 3)
-=======
-    public static void getBeakerOne()
-    {  
-        
-        if (f == true)
->>>>>>> Stashed changes
-        {
+           {
             SelectedItems = SelectedItems + 1;
             f = false;
             Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
             empBottle = Instantiate(bottlePref, position, Quaternion.identity);
             numberOfIngredient++;
         }
-<<<<<<< Updated upstream
         
-        Debug.Log("beaker code " + SelectedItems);
-=======
+        
         Debug.Log("beaker one code " + SelectedItems);
     }
 
@@ -253,7 +244,6 @@ public class Player : MonoBehaviour
             f = false;
         }
         Debug.Log("beaker three code " + SelectedItems);
->>>>>>> Stashed changes
     }
 
     public void RedIngredient()
@@ -310,8 +300,8 @@ public class Player : MonoBehaviour
     public void emptyInvetoryOut()
     {
         emptyInvetory();
-        if (potionMade != null)
-        {
+        if (potionMade != null){
+        
             Destroy(potionMade);
         }
     }
@@ -319,3 +309,4 @@ public class Player : MonoBehaviour
     //need to set the match system 
     //need to set the appear system
 }
+
