@@ -33,6 +33,12 @@ public class Player : MonoBehaviour
     public GameObject obstacleTemplate;
     public Transform spawnPoints;
     public GameObject potionMade;
+    // item spawn pos
+    public Transform[] itemSpawns;
+    public int itemPos = 0;
+
+    
+
 
     private bool panelOn = false;
 
@@ -78,6 +84,7 @@ public class Player : MonoBehaviour
 
         if (!r && potionMade == null)
         {
+
             red.SetActive(true); // 
         }
         else
