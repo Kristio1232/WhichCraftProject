@@ -16,6 +16,7 @@ public class Customer : MonoBehaviour
     private int money;
     private string potionCode;
     private double satisfaction;
+    
     // Start is called before the first frame update
     // Random money and potionCode
     void Start()

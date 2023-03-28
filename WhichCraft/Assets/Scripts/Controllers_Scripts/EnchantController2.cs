@@ -22,6 +22,8 @@ public class EnchantController2 : MonoBehaviour
     public GameObject MiniGameWinMenu;
     public GameObject MiniGameLoseMenu;
 
+    public GameObject controller;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,13 +35,17 @@ public class EnchantController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(timerOn);
+        //Debug.Log("Active Mini" + MiniGame.activeSelf);
         if (MiniGame.activeSelf)
         {
+            controller.GetComponent<Game_Controller>().setMiniGameActive(true);
             timerOn = true;
         }
         else
         {
             timerOn = false;
+            //controller.GetComponent<Game_Controller>().setMiniGameActive(false);
             resetTime();
         }
 

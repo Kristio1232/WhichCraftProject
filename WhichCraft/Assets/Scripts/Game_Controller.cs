@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class Game_Controller : MonoBehaviour
 {
     //Customer Array Info
-    private static List<GameObject> customers = new List<GameObject>();
+    private static List<GameObject> customers;
     private int size = 0;
+    public int maxSize;
     public GameObject[] customerPrefab;
     public Transform[] waitPoints;
     //Player Info
@@ -24,6 +25,8 @@ public class Game_Controller : MonoBehaviour
     public GameObject[] obstacleTemplate;
     public Transform spawnPoint;
 
+    //MiniGame Variables
+    private bool miniGameActive;
     //Unused
     /*
     public GameObject ThoughtBubble_Smile;
@@ -33,28 +36,47 @@ public class Game_Controller : MonoBehaviour
 
     void Start()
     {
+        miniGameActive = false;
         timeBtwSpawns = 0;
+        customers = new List<GameObject>();
     }
 
     void Update()
     {
-        if (timeBtwSpawns <= 0)
+        //Debug.Log(miniGameActive);
+        if (!miniGameActive)
         {
-            int randomObstacle = Random.Range(0, obstacleTemplate.Length);
+            if (timeBtwSpawns <= 0)
+            {
+                if (size < maxSize)
+                {
+                    int randomObstacle = Random.Range(0, obstacleTemplate.Length);
+                    Vector2 position = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
+                    addCustomer(Instantiate(obstacleTemplate[randomObstacle], position, Quaternion.identity)); ;
+                    timeBtwSpawns = spawnRate;
+                }
+                else
+                {
+                    timeBtwSpawns = 5;
+                }
+            }
+            else
+            {
+                timeBtwSpawns -= Time.deltaTime;
+            }
 
-            Vector2 position = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
-            addCustomer(Instantiate(obstacleTemplate[randomObstacle], position, Quaternion.identity)); ;
-            timeBtwSpawns = spawnRate;
+            //Debug.Log(size);
+            if (size >= 1)
+            {
+                customerUpdateFunction();
+            }
         }
         else
         {
-            timeBtwSpawns -= Time.deltaTime;
-        }
-
-        //Debug.Log(size);
-        if (size >= 1)
-        {
-            customerUpdateFunction();
+            foreach (var shopper in customers)
+            {
+                shopper.GetComponent<Customer>().timerOn = false;
+            }
         }
     }
 
@@ -68,12 +90,17 @@ public class Game_Controller : MonoBehaviour
             counter++;
 
             Transform waitPoint = null;
-
+            shopper.GetComponent<Customer>().timerOn = true;
             if (shopper.GetComponent<Customer>().timeLeft <= 0)
             {
                 waitPoint = waitPoints[0];
                 shopper.GetComponent<Customer>().setPosition(waitPoint);
+                GameObject temp = shopper;
                 customers.Remove(shopper);
+                if (!temp){
+                    Destroy(temp, 15f);
+                }
+                
                 size--;
                 break;
             }
@@ -120,6 +147,11 @@ public class Game_Controller : MonoBehaviour
     {
         customers.RemoveAt(0);
         size--;
+    }
+
+    public void setMiniGameActive(bool value)
+    {
+        miniGameActive = value;
     }
 
 }
