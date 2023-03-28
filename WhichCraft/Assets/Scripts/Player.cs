@@ -57,6 +57,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (panelOn && Input.GetKey("space"))
+        {
+            panelOn = false;
+            ingredientPanel.SetActive(panelOn);
+            bottlePanel.SetActive(panelOn);
+        }
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
