@@ -221,7 +221,7 @@ public class Player : MonoBehaviour
 
     public static void RedIngredient()
     {
-        if (r == true && numberOfIngredient < 2 && !f)
+        if (r == true && numberOfIngredient < 2)
         {
             SelectedItems = SelectedItems + 3;
             r = false;
@@ -232,7 +232,7 @@ public class Player : MonoBehaviour
 
     public static void YellowIngredient()
     {
-        if (y == true && numberOfIngredient < 2 && !f)
+        if (y == true && numberOfIngredient < 2)
         {
             SelectedItems = SelectedItems + 4;
             y = false;
@@ -243,7 +243,7 @@ public class Player : MonoBehaviour
 
     public static void BlueIngridient()
     {
-        if (b == true && numberOfIngredient < 2 && !f)
+        if (b == true && numberOfIngredient < 2)
         {
             SelectedItems = SelectedItems + 5;
             b = false;

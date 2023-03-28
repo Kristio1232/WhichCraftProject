@@ -2019,6 +2019,7 @@ MonoBehaviour:
   MiniGame: {fileID: 836269906}
   MiniGameLoseMenu: {fileID: 687597097}
   player: {fileID: 831419167}
+  controller: {fileID: 976147559}
 --- !u!1 &317320601
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,6 +5488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103b242166ba49a40b079ddce416372c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSize: 4
   customerPrefab:
   - {fileID: 0}
   waitPoints:
@@ -5498,7 +5500,7 @@ MonoBehaviour:
   player: {fileID: 831419167}
   points: 0
   scoreDispaly: {fileID: 0}
-  spawnRate: 30
+  spawnRate: 10
   obstacleTemplate:
   - {fileID: 7852911305691896493, guid: ac0ef616cefa4104182d96babc7906f8, type: 3}
   spawnPoint: {fileID: 1388807826}
@@ -7904,6 +7906,7 @@ MonoBehaviour:
   MiniGame: {fileID: 836269906}
   MiniGameLoseMenu: {fileID: 687597097}
   player: {fileID: 831419167}
+  controller: {fileID: 976147559}
 --- !u!1 &1512155637
 GameObject:
   m_ObjectHideFlags: 0
@@ -11706,6 +11709,7 @@ MonoBehaviour:
   MiniGame: {fileID: 836269906}
   MiniGameWinMenu: {fileID: 1221290474}
   MiniGameLoseMenu: {fileID: 687597097}
+  controller: {fileID: 976147559}
 --- !u!1001 &8045019499200399360
 PrefabInstance:
   m_ObjectHideFlags: 0

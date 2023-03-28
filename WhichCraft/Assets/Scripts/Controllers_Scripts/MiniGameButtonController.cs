@@ -8,6 +8,7 @@ public class MiniGameButtonController : MonoBehaviour
     public GameObject MiniGame;
     public GameObject MiniGameLoseMenu;
     public GameObject player;
+    public GameObject controller;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class MiniGameButtonController : MonoBehaviour
     {
         MiniGameWinMenu.SetActive(false);
         player.GetComponent<Player>().setPotionDone(true);
+        controller.GetComponent<Game_Controller>().setMiniGameActive(false);
     }
     public void tryAgainMenu()
     {
@@ -37,5 +39,6 @@ public class MiniGameButtonController : MonoBehaviour
         MiniGameLoseMenu.SetActive(false);
         player.GetComponent<Player>().setPotionDone(false);
         player.GetComponent<Player>().emptyInvetoryOut();
+        controller.GetComponent<Game_Controller>().setMiniGameActive(false);
     }
 }
