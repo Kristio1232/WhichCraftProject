@@ -21,7 +21,7 @@ public class CauldronController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<Player>().getNumberOfIngredient() == 2 && EmptyVial.activeSelf && !player.GetComponent<Player>().getPotionDone())
+        if (player.GetComponent<Player>().getNumberOfIngredient() == 3 && !player.GetComponent<Player>().getPotionDone())
         {
             cauldronFull.SetActive(true);
         }

@@ -25,17 +25,22 @@ public class Player : MonoBehaviour
     public GameObject bottleFrame;
     public GameObject ingredientFrame;
     //inventory  Objects
-    public GameObject red;
-    public GameObject yellow;
-    public GameObject blue;
-    public GameObject bottleSprite;
+    public GameObject redPref;
+    public GameObject yellowPref;
+    public GameObject bluePref;
+    public GameObject bottlePref;
+
+    private GameObject red;
+    private GameObject yellow;
+    private GameObject blue;
+    private GameObject empBottle;
 
     public GameObject obstacleTemplate;
     public Transform spawnPoints;
     public GameObject potionMade;
     // item spawn pos
     public Transform[] itemSpawns;
-    public int itemPos = 0;
+    
 
     
 
@@ -81,32 +86,15 @@ public class Player : MonoBehaviour
             // instantiate 2 ings and 1 bott
             // use transform from an empty game obj to store pos of the ingredients and bottle
         }
-
-        if (!r && potionMade == null)
+        /*
+        if (!r && potionMade == null && !red)
         {
 
-            red.SetActive(true); // 
-        }
-        else
-        {
-            red.SetActive(false); // 
-        }
-        if (!y && potionMade == null)
-        {
-            yellow.SetActive(true); //
-        }
-        else
-        {
-            yellow.SetActive(false); //
-        }
-        if (!f && potionMade == null)
-        {
-            bottleSprite.SetActive(true); // 
-        }
-        else
-        {
-            bottleSprite.SetActive(false); // 
-        }
+            
+            Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
+            red = Instantiate(redPref, position, Quaternion.identity);
+        }*/
+       
         // ----------------------------------- end of ingr and bott spawn --------------------------------------------------
         if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf || CookBookMenu.activeSelf)
         {
@@ -215,45 +203,56 @@ public class Player : MonoBehaviour
     }
 
 
-    public static void getBeaker()
+    public void getBeaker()
     {
+        Debug.Log("Button Work");
         //testtube.SetActive(true);
-        if (f == true)
+        if (f && numberOfIngredient < 3)
         {
             SelectedItems = SelectedItems + 1;
             f = false;
+            Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
+            empBottle = Instantiate(bottlePref, position, Quaternion.identity);
+            numberOfIngredient++;
         }
+        
         Debug.Log("beaker code " + SelectedItems);
     }
 
-    public static void RedIngredient()
+    public void RedIngredient()
     {
-        if (r == true && numberOfIngredient < 2)
+        if (r && numberOfIngredient < 3)
         {
             SelectedItems = SelectedItems + 3;
             r = false;
+            Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
+            red = Instantiate(redPref, position, Quaternion.identity);
             numberOfIngredient++;
         }
         Debug.Log("Red code" + SelectedItems);
     }
 
-    public static void YellowIngredient()
+    public void YellowIngredient()
     {
-        if (y == true && numberOfIngredient < 2)
+        if (y == true && numberOfIngredient < 3)
         {
             SelectedItems = SelectedItems + 4;
             y = false;
+            Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
+            yellow = Instantiate(yellowPref, position, Quaternion.identity);
             numberOfIngredient++;
         }
         Debug.Log("Yellow code" + SelectedItems);
     }
 
-    public static void BlueIngridient()
+    public void BlueIngridient()
     {
-        if (b == true && numberOfIngredient < 2)
+        if (b == true && numberOfIngredient < 3)
         {
             SelectedItems = SelectedItems + 5;
             b = false;
+            Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
+            blue = Instantiate(bluePref, position, Quaternion.identity);
             numberOfIngredient++;
         }
         Debug.Log("Blue code" + SelectedItems);
