@@ -14,7 +14,7 @@ public class Customer : MonoBehaviour
 
     //Selling Potion Info
     private int money;
-    private string potionCode;
+    public string potionCode;
     private double satisfaction;
     
     // Start is called before the first frame update
