@@ -5441,7 +5441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSize: 4
   customerPrefab:
-  - {fileID: 7852911305691896493, guid: ac0ef616cefa4104182d96babc7906f8, type: 3}
+  - {fileID: 0}
   waitPoints:
   - {fileID: 449717300}
   - {fileID: 821925823}
@@ -5450,8 +5450,10 @@ MonoBehaviour:
   - {fileID: 1786444573}
   player: {fileID: 831419167}
   points: 0
-  scoreDispaly: {fileID: 219303276}
+  scoreDispaly: {fileID: 0}
   spawnRate: 10
+  obstacleTemplate:
+  - {fileID: 7852911305691896493, guid: ac0ef616cefa4104182d96babc7906f8, type: 3}
   spawnPoint: {fileID: 1388807826}
 --- !u!4 &976147561
 Transform:
@@ -8044,9 +8046,9 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 976147559}
+      - m_Target: {fileID: 1894374844}
         m_TargetAssemblyTypeName: Game_Info, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: giveCustomerPotion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9961,6 +9963,7 @@ GameObject:
   - component: {fileID: 1894374842}
   - component: {fileID: 1894374841}
   - component: {fileID: 1894374843}
+  - component: {fileID: 1894374844}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged

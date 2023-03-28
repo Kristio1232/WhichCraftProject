@@ -22,7 +22,7 @@ public class Game_Controller : MonoBehaviour
     //Spawn Variables
     private float timeBtwSpawns;
     public float spawnRate;
-    //public GameObject[] obstacleTemplate;
+    public GameObject[] obstacleTemplate;
     public Transform spawnPoint;
 
     //MiniGame Variables
@@ -50,9 +50,9 @@ public class Game_Controller : MonoBehaviour
             {
                 if (size < maxSize)
                 {
-                    int randomObstacle = Random.Range(0, customerPrefab.Length);
+                    int randomObstacle = Random.Range(0, obstacleTemplate.Length);
                     Vector2 position = new Vector2(spawnPoint.position.x, spawnPoint.position.y);
-                    addCustomer(Instantiate(customerPrefab[randomObstacle], position, Quaternion.identity)); ;
+                    addCustomer(Instantiate(obstacleTemplate[randomObstacle], position, Quaternion.identity)); ;
                     timeBtwSpawns = spawnRate;
                 }
                 else
@@ -97,11 +97,10 @@ public class Game_Controller : MonoBehaviour
                 shopper.GetComponent<Customer>().setPosition(waitPoint);
                 GameObject temp = shopper;
                 customers.Remove(shopper);
-                if (!temp)
-                {
+                if (!temp){
                     Destroy(temp, 15f);
                 }
-
+                
                 size--;
                 break;
             }
@@ -138,12 +137,6 @@ public class Game_Controller : MonoBehaviour
     {
         if (size > 0 && player.GetComponent<Player>().getPotionDone())
         {
-            //customers.First();
-            string playerCode = player.GetComponent<Player>().getSelectedItems();
-            string customerCode = customers[0].GetComponent<Customer>().potionCode;
-            if (!playerCode[0].Equals(customerCode[0])){
-                
-            }
             scoreDispaly.text = points.ToString();
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
