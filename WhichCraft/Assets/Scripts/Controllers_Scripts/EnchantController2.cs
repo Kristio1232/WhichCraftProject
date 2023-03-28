@@ -99,8 +99,9 @@ public class EnchantController2 : MonoBehaviour
 
     public void changePosition(Button buttonToMove)
     {
-        posX = Random.Range(25,300);
-        posY = Random.Range(65 , 210);
+        posX = Random.Range(100,500); //100 min, 500 max
+        
+        posY = Random.Range(250,250); //70 min, 250 max
         buttonToMove.transform.position = new Vector2(posX, posY);
     }
 

@@ -82,14 +82,7 @@ public class Customer : MonoBehaviour
             sprite.flipX = true;
         }
 
-        if (other.CompareTag("CustomerGoesOut"))
-        {
-            Debug.Log("Customer is Leaving");
-            anim.SetBool("Idle", false);
-            anim.SetBool("WalkOut", true);
-            sprite.flipX = false;
-
-        }
     }
+
 
 }
