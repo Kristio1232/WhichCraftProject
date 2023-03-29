@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject MiniGameWinMenu;
     public GameObject MiniGameLoseMenu;
     public GameObject AreYouSureMenu;
+    public GameObject ControlMenu;
 
     void Start()
     {
@@ -30,6 +31,13 @@ public class PauseMenu : MonoBehaviour
                 AreYouSureMenu.SetActive(false);
                // pauseMenuUI.SetActive(true);
             }
+
+            if (ControlMenu.activeSelf)
+            {
+                ControlMenu.SetActive(false);
+            }
+
+
 
             if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf)
             {
@@ -78,7 +86,17 @@ public class PauseMenu : MonoBehaviour
 
     public void ClickedControl()
     {
-
+        pauseMenuUI.SetActive(false);
+        ControlMenu.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
+    public void GoBackToMenu()
+    {
+        pauseMenuUI.SetActive(true);
+        ControlMenu.SetActive(false);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
     }
 
     public void QuitGame()
