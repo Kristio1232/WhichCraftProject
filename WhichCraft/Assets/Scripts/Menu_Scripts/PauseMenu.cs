@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject MiniGame;
     public GameObject MiniGameWinMenu;
     public GameObject MiniGameLoseMenu;
+    public GameObject AreYouSureMenu;
 
     void Start()
     {
@@ -57,10 +58,20 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
+    public void ClickedYes()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ClickedNo()
+    {
+        AreYouSureMenu.SetActive(false);
+        pauseMenuUI.SetActive(true);
+    }
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("MainMenu");
-
+        AreYouSureMenu.SetActive(true);
+        pauseMenuUI.SetActive(false);
     }
 }
