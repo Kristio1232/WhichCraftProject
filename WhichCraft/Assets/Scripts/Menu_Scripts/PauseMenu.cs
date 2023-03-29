@@ -24,6 +24,13 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+
+            if (AreYouSureMenu.activeSelf)
+            {
+                AreYouSureMenu.SetActive(false);
+               // pauseMenuUI.SetActive(true);
+            }
+
             if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf)
             {
                 MiniGame.SetActive(false);
