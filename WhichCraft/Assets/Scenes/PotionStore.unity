@@ -4751,14 +4751,17 @@ MonoBehaviour:
   CookBookMenu: {fileID: 837286554}
   bottleFrame: {fileID: 823277887}
   ingredientFrame: {fileID: 1654861708}
-  redPref: {fileID: 0}
-  yellowPref: {fileID: 0}
-  bluePref: {fileID: 0}
-  bottlePref: {fileID: 0}
+  redPref: {fileID: 2948246765389830224, guid: 1a59bc9dd42e5864ba5c4a1c9625b517, type: 3}
+  yellowPref: {fileID: 6332158080533743370, guid: afa2879e75e474244a04703c59b07042, type: 3}
+  bluePref: {fileID: 363995712223425, guid: 92a7836f1400d7e448c48baf0b4970e0, type: 3}
+  bottlePref: {fileID: 9159600754241174631, guid: c81032b9378e209428b2d11ecb50745a, type: 3}
   obstacleTemplate: {fileID: 5275493274894372982, guid: 40bb5477b092a0645814656ffb2db0d4, type: 3}
   spawnPoints: {fileID: 1519208986}
   potionMade: {fileID: 0}
-  itemSpawns: []
+  itemSpawns:
+  - {fileID: 437261567}
+  - {fileID: 1863850182}
+  - {fileID: 1307494302}
 --- !u!61 &831419172
 BoxCollider2D:
   m_ObjectHideFlags: 0
