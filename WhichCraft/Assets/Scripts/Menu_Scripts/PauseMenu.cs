@@ -76,6 +76,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
     }
 
+    public void ClickedControl()
+    {
+
+    }
+
     public void QuitGame()
     {
         AreYouSureMenu.SetActive(true);
