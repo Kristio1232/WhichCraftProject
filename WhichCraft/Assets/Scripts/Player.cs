@@ -261,7 +261,7 @@ public class Player : MonoBehaviour
 
     public void YellowIngredient()
     {
-        if (y == true && numberOfIngredient < 3)
+        if (y && numberOfIngredient < 3)
         {
             SelectedItems = SelectedItems + 5;
             y = false;
@@ -274,7 +274,7 @@ public class Player : MonoBehaviour
 
     public void BlueIngridient()   
     {
-        if (b == true && numberOfIngredient < 3)
+        if (b && numberOfIngredient < 3)
         {
             SelectedItems = SelectedItems + 6;
             b = false;
