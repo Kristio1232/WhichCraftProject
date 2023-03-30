@@ -206,6 +206,8 @@ public class Player : MonoBehaviour
     // 2 beakers = code numbers 1, 2, 3
     // 3 ingredients = code numbers 4, 5, 6 
 
+    bool isBeaker = false; // false is default variable
+
     public void getBeakerOne()
     {
         Debug.Log("Button Work");
@@ -216,6 +218,7 @@ public class Player : MonoBehaviour
             f = false;
             Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
             empBottle = Instantiate(bottlePref, position, Quaternion.identity);
+            isBeaker = true; // sets to true
             numberOfIngredient++;
         }
         
@@ -248,7 +251,7 @@ public class Player : MonoBehaviour
 
     public void RedIngredient()
     {
-        if (r && numberOfIngredient < 3)
+        if (r && numberOfIngredient < 3 && ( numberOfIngredient < 2 || isBeaker ))
         {
             SelectedItems = SelectedItems + 4;
             r = false;
@@ -261,7 +264,7 @@ public class Player : MonoBehaviour
 
     public void YellowIngredient()
     {
-        if (y && numberOfIngredient < 3)
+        if (y && numberOfIngredient < 3 && (numberOfIngredient < 2 || isBeaker))
         {
             SelectedItems = SelectedItems + 5;
             y = false;
@@ -274,7 +277,7 @@ public class Player : MonoBehaviour
 
     public void BlueIngridient()   
     {
-        if (b && numberOfIngredient < 3)
+        if (b && numberOfIngredient < 3 && (numberOfIngredient < 2 || isBeaker))
         {
             SelectedItems = SelectedItems + 6;
             b = false;
