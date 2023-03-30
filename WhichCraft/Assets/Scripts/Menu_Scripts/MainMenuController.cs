@@ -26,6 +26,12 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame()
     {
+        SceneManager.LoadScene("InstructionScene");
+    }
+
+    public void ClickedReadyToPlay()
+    {
         SceneManager.LoadScene("PotionStore");
     }
+
 }
