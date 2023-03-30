@@ -59,13 +59,14 @@ public class Game_Info : MonoBehaviour
 
     
 }
+
 public class CustomerTemp
     {
         public string potionCode;
         public int money;
         public CustomerTemp()
         {
-            int randint = Random.Range(1, 1);
+            int randint = Random.Range(1, 5);
             money = Random.Range(10, 100);
             switch (randint)
             {
