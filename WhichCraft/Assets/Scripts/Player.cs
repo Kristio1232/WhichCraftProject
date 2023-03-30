@@ -210,8 +210,7 @@ public class Player : MonoBehaviour
 
     public void getBeakerOne()
     {
-        Debug.Log("Button Work");
-        //testtube.SetActive(true);
+        
         if (f && numberOfIngredient < 3)
            {
             SelectedItems = SelectedItems + 1;
@@ -308,8 +307,6 @@ public class Player : MonoBehaviour
             Destroy(potionMade);
         }
     }
-    //need to reset all varaibles to true 
-    //need to set the match system 
-    //need to set the appear system
+
 }
 
