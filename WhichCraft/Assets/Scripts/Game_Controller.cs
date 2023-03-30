@@ -17,7 +17,7 @@ public class Game_Controller : MonoBehaviour
     public GameObject player;
 
     //Points
-    public int points = 0;
+    public int points;
     public TMP_Text scoreDispaly;
 
     //Spawn Variables
@@ -39,12 +39,14 @@ public class Game_Controller : MonoBehaviour
     {
         miniGameActive = false;
         timeBtwSpawns = 0;
+        points = 0;
         customers = new List<GameObject>();
     }
 
     void Update()
     {
         //Debug.Log(miniGameActive);
+        
         if (!miniGameActive)
         {
             if (timeBtwSpawns <= 0)
@@ -136,8 +138,25 @@ public class Game_Controller : MonoBehaviour
 
     public void giveCustomerPotion()
     {
+        Debug.Log("Size " + size + " Potion Done " + player.GetComponent<Player>().getPotionDone());
         if (size > 0 && player.GetComponent<Player>().getPotionDone())
         {
+            int satisfaction = 100;
+            string playerCode = player.GetComponent<Player>().getSelectedItems();
+            string customerCode = customers[0].GetComponent<Customer>().potionCode;
+            Debug.Log("Codes: " + playerCode + " and " + customerCode);
+            if (!playerCode[0].Equals(customerCode[0])){
+                satisfaction -= 10;
+            }
+            if (!playerCode.Contains(customerCode[1])){
+                satisfaction -= 20;
+            }
+            if (!playerCode.Contains(customerCode[2])){
+                satisfaction -= 20;
+            }
+            Debug.Log(customers[0].GetComponent<Customer>().money);
+            points += (int) (customers[0].GetComponent<Customer>().money * (satisfaction/100.0));
+            Debug.Log(points);
             scoreDispaly.text = points.ToString();
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
@@ -146,7 +165,9 @@ public class Game_Controller : MonoBehaviour
 
     public void removeFirst()
     {
-        customers.RemoveAt(0);
+        GameObject cus = customers[0];
+        cus.GetComponent<Customer>().setPosition(waitPoints[0]);
+        customers.Remove(cus);
         size--;
     }
 

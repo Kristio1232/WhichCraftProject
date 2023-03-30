@@ -8,11 +8,13 @@ public class CauldronController : MonoBehaviour
     public bool isOpen;
     public GameObject player;
     public GameObject miniGame;
+    
+    public GameObject cauldronFull;
+    /*
     public GameObject RedIngredient;
     public GameObject YellowIngredient;
     public GameObject EmptyVial;
-    public GameObject cauldronFull;
-
+    */
     void Start()
     {
 
@@ -35,7 +37,7 @@ public class CauldronController : MonoBehaviour
     public void OpenCauldron()
     {
         int num = player.GetComponent<Player>().getNumberOfIngredient();
-        if (num == 2 && !player.GetComponent<Player>().getPotionDone())
+        if (num == 3 && !player.GetComponent<Player>().getPotionDone())
         {
             isOpen = true;
             Debug.Log("Open Caukdron menu.");
