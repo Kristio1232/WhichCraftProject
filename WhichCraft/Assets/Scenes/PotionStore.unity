@@ -10240,7 +10240,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8937464128281835802, guid: 800802dcdc0c48c46bd48afc56382936, type: 3}
   m_PrefabInstance: {fileID: 902911015}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1519208984
+--- !u!4 &1519208986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8937464128281835800, guid: 800802dcdc0c48c46bd48afc56382936, type: 3}
+  m_PrefabInstance: {fileID: 902911015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1519208988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10249,32 +10254,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1519208983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9400ad6dfe4c54bb8c13776a43b9d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f5c1a1f75c35364da7e9dbed901c9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isInRange: 0
   interactKey: 101
   interactAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 976147560}
-        m_TargetAssemblyTypeName: Game_Controller, Assembly-CSharp
-        m_MethodName: giveCustomerPotion
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  autoCloseObject: {fileID: 0}
   showNotification: {fileID: 1760754538}
---- !u!4 &1519208986 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8937464128281835800, guid: 800802dcdc0c48c46bd48afc56382936, type: 3}
-  m_PrefabInstance: {fileID: 902911015}
-  m_PrefabAsset: {fileID: 0}
+  MiniGameWinMenu: {fileID: 307780594}
 --- !u!1 &1523433217
 GameObject:
   m_ObjectHideFlags: 0
