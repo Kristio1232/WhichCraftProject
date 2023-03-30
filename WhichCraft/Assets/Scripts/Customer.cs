@@ -25,16 +25,25 @@ public class Customer : MonoBehaviour
         if (Random.Range(1, 10000) == 1){
             money  = Random.Range(1000, 10000);
         }
+        
         int ran = Random.Range(1, 4);
-        potionCode += ran;
-        ran = Random.Range(4, 7);
-        potionCode += ran;
-        int temp = ran;
-        while (ran == temp){
-            ran = Random.Range(4, 7);
-        }
-        potionCode += ran;
-        //Debug.Log(potionCode);
+        switch (ran)
+            {
+                case 1:
+                    potionCode = "145"; //might need to change the codes based on art
+                    break;
+                
+                case 2:
+                    potionCode = "256";
+                    break;
+                
+                case 3:
+                    potionCode = "346";
+                    break;
+
+            }
+
+       Debug.Log("Customer potionCode" + potionCode);
     }
 
     // Update is called once per frame

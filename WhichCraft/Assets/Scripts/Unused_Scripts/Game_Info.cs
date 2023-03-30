@@ -66,12 +66,12 @@ public class CustomerTemp
         public int money;
         public CustomerTemp()
         {
-            int randint = Random.Range(1, 5);
+            int randint = Random.Range(1, 3);
             money = Random.Range(10, 100);
             switch (randint)
             {
                 case 1:
-                    potionCode = "145";
+                    potionCode = "145"; //might need to change the codes based on art
                     break;
                 
                 case 2:
@@ -82,13 +82,6 @@ public class CustomerTemp
                     potionCode = "346";
                     break;
 
-                case 4:
-                    potionCode = "345";
-                   break;
-                
-                case 5:
-                    potionCode = "256";
-                    break;
             }
 
             

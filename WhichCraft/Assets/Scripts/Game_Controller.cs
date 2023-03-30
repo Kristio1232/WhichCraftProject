@@ -128,6 +128,7 @@ public class Game_Controller : MonoBehaviour
             }
         }
     }
+    
     //public static bool match = false;
     public void addCustomer(GameObject customer)
     {
