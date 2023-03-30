@@ -2142,9 +2142,6 @@ MonoBehaviour:
   isOpen: 0
   player: {fileID: 831419167}
   miniGame: {fileID: 836269906}
-  RedIngredient: {fileID: 0}
-  YellowIngredient: {fileID: 0}
-  EmptyVial: {fileID: 0}
   cauldronFull: {fileID: 1825505310}
 --- !u!1 &286673258
 GameObject:
@@ -6837,7 +6834,7 @@ MonoBehaviour:
   - {fileID: 1786444573}
   player: {fileID: 831419167}
   points: 0
-  scoreDispaly: {fileID: 0}
+  scoreDispaly: {fileID: 219303276}
   spawnRate: 10
   obstacleTemplate:
   - {fileID: 7852911305691896493, guid: ac0ef616cefa4104182d96babc7906f8, type: 3}
@@ -10257,8 +10254,8 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1894374844}
-        m_TargetAssemblyTypeName: Game_Info, Assembly-CSharp
+      - m_Target: {fileID: 976147560}
+        m_TargetAssemblyTypeName: Game_Controller, Assembly-CSharp
         m_MethodName: giveCustomerPotion
         m_Mode: 1
         m_Arguments:
