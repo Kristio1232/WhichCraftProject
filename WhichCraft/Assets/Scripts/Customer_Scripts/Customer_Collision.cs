@@ -12,12 +12,13 @@ public class Customer_Collision : MonoBehaviour
     public GameObject customerStopsHere;
     public GameObject customerLeavesHere;
     public GameObject customerEnteringHere;
-    public GameObject thoughtBubble_HeatPotion;
-    public GameObject thoughtBubble_Smile;
-    public GameObject ThoughtBubble_Angry;
     public GameObject EventSystem;
     public SpriteRenderer sprite;
     
+    //thought bubbles
+    public GameObject thoughtBubble_HeatPotion;
+    public GameObject thoughtBubble_Smile;
+    public GameObject ThoughtBubble_Angry;
 
     [SerializeField]
     private Transform[] exitWayPoints;
@@ -158,6 +159,7 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("WalkIn", true);
             sprite.flipX = true;
             EventSystem.GetComponent<Game_Info>().addCustomer();
+            thoughtBubble_HeatPotion.SetActive(true);
             //bubble = false;
         }
 

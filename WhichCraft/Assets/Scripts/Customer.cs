@@ -17,14 +17,16 @@ public class Customer : MonoBehaviour
     public string potionCode;
     private double satisfaction;
     
-    // Start is called before the first frame update
-    // Random money and potionCode
+  //  public GameObject thoughtBubble;
+ //   public GameObject thoughtBubble_HeatPotion;
 
     
     //Potion Code pattern 
     // 2 beakers = code numbers 1, 2, 3
     // 3 ingredients = code numbers 4, 5, 6 
-    
+
+
+    // Random money and potionCode
     void Start()
     {
         money = Random.Range(15, 101);
@@ -37,6 +39,7 @@ public class Customer : MonoBehaviour
             {
                 case 1:
                     potionCode = "145"; //might need to change the codes based on art
+                  //  thoughtBubble.SetActive(true);
                     break;
                 
                 case 2:

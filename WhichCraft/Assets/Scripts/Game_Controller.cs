@@ -12,6 +12,7 @@ public class Game_Controller : MonoBehaviour
     public int maxSize;
     public GameObject[] customerPrefab;
     public Transform[] waitPoints;
+
     
     //Player Info
     public GameObject player;
