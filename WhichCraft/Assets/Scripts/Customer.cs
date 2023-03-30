@@ -19,6 +19,12 @@ public class Customer : MonoBehaviour
     
     // Start is called before the first frame update
     // Random money and potionCode
+
+    
+    //Potion Code pattern 
+    // 2 beakers = code numbers 1, 2, 3
+    // 3 ingredients = code numbers 4, 5, 6 
+    
     void Start()
     {
         money = Random.Range(15, 101);
