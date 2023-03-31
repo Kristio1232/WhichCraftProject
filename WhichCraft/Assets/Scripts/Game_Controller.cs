@@ -13,7 +13,6 @@ public class Game_Controller : MonoBehaviour
     public GameObject[] customerPrefab;
     public Transform[] waitPoints;
     public int satisfaction = 100;
-    public bool setNotification = true;
 
     
     //Player Info
@@ -164,7 +163,6 @@ public class Game_Controller : MonoBehaviour
             Debug.Log(points);
             scoreDispaly.text = points.ToString();
             player.GetComponent<Player>().emptyInvetoryOut();
-            setNotification = false;
             removeFirst();
         }
     }
