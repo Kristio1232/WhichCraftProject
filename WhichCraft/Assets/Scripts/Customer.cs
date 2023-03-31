@@ -25,7 +25,16 @@ public class Customer : MonoBehaviour
     public GameObject order345;
     public GameObject order246;
 
-    
+    //instances of thought bubble order "_ _ _"
+    private GameObject instance_145;
+    private GameObject instance_256;
+    private GameObject instance_346;
+    private GameObject instance_156;
+    private GameObject instance_345;
+    private GameObject instance_246;
+
+
+
     //Potion Code pattern 
     // 2 beakers = code numbers 1, 2, 3
     // 3 ingredients = code numbers 4, 5, 6 
@@ -130,35 +139,45 @@ public class Customer : MonoBehaviour
             anim.SetBool("WalkIn", false);
             sprite.flipX = true;
 
-            if (potionCode == "145")
-            {
-                order145.SetActive(true);
-            }
-            else if (potionCode == "256")
-            {
-                order256.SetActive(true);
-            }
-            else if (potionCode == "346")
-            {
-                order346.SetActive(true);
-            }
-            else if (potionCode == "156")
-            {
-                order156.SetActive(true);
-            }
-            else if (potionCode == "345")
-            {
-                order345.SetActive(true);
-            }
-            else if(potionCode == "246")
-            {
-                order246.SetActive(true);
-            }
-                   
-            
+            StartCoroutine(DisplayPotionCode(1f));
         }
 
     }
+
+    IEnumerator DisplayPotionCode(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        if (potionCode == "145")
+        {
+            instance_145 = Instantiate(order145);
+        }
+        else if (potionCode == "256")
+        {
+            instance_256 = Instantiate(order256);
+        }
+        else if (potionCode == "346")
+        {
+            instance_346 = Instantiate(order346);
+        }
+        else if (potionCode == "156")
+        {
+            instance_156 = Instantiate(order156);
+ 
+        }
+        else if (potionCode == "345")
+        {
+            instance_345 = Instantiate(order345);
+
+        }
+        else if (potionCode == "246")
+        {
+            instance_246 = Instantiate(order246);
+        }
+    }
+
+
+
 
 
 }
