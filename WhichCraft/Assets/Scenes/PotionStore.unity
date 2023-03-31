@@ -5055,7 +5055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1728cf86f3f26d841a3cfe005701e800, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc84c01b86dde15428b6d525937b2249, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7075,6 +7075,7 @@ MonoBehaviour:
   - {fileID: 882233918}
   - {fileID: 1786444573}
   satisfaction: 100
+  setNotification: 1
   player: {fileID: 831419167}
   points: 0
   scoreDispaly: {fileID: 219303276}
@@ -10812,7 +10813,6 @@ MonoBehaviour:
   autoCloseObject: {fileID: 0}
   showNotification: {fileID: 1760754538}
   MiniGameWinMenu: {fileID: 307780594}
-  thoughtBubble: {fileID: 193723506}
   smile: {fileID: 1331277711}
   sad: {fileID: 595448684}
   gameController: {fileID: 976147559}
