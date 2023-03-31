@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3767341041243264179}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.11, y: -2.6199272, z: 0}
   m_LocalScale: {x: 0.45027494, y: 0.45027494, z: 0.45027494}
   m_ConstrainProportionsScale: 0
@@ -174,3 +174,9 @@ MonoBehaviour:
   timeLeft: 40
   money: 0
   potionCode: 
+  order145: {fileID: 613519769938945658, guid: 26021b1f7a165ef46bf7d5d7655dd3b1, type: 3}
+  order256: {fileID: 3127427228083920390, guid: 32b77ac8b34f98a41852e74e7b4dd358, type: 3}
+  order346: {fileID: 341596059470498591, guid: 0b7fb20d3dd713c45a1d56ea851b7e94, type: 3}
+  order156: {fileID: 2833786847672925364, guid: eff6ee18405fbe94b9b5f445860444df, type: 3}
+  order345: {fileID: 5891687392363233582, guid: 8e77cd319de21c64ebb3e43e5bd82c49, type: 3}
+  order246: {fileID: 4324207320527217245, guid: 9aa27e84901094b4a93d5f09d0cc2381, type: 3}
