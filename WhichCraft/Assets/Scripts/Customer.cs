@@ -102,32 +102,6 @@ public class Customer : MonoBehaviour
                 anim.SetBool("WalkOut", true);
                 sprite.flipX = false;
 
-                if (potionCode == "145")
-                {
-                    Destroy(instance_145);
-                }
-                else if (potionCode == "256")
-                {
-                    Destroy(instance_256);
-                }
-                else if (potionCode == "346")
-                {
-                    Destroy(instance_346);
-                }
-                else if (potionCode == "156")
-                {
-                    Destroy(instance_156);
-
-                }
-                else if (potionCode == "345")
-                {
-                    Destroy(instance_345);
-
-                }
-                else if (potionCode == "246")
-                {
-                    Destroy(instance_246);
-                }
             }
 
         }
