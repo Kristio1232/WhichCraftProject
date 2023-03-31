@@ -12,7 +12,7 @@ public class Game_Controller : MonoBehaviour
     public int maxSize;
     public GameObject[] customerPrefab;
     public Transform[] waitPoints;
-    public int satisfaction = 100;
+    public int satisfaction;
 
     
     //Player Info

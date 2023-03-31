@@ -17,8 +17,9 @@ public class Customer_Collision : MonoBehaviour
     
     //thought bubbles
   //  public GameObject thoughtBubble;
- //   public GameObject thoughtBubble_Smile;
- //  public GameObject ThoughtBubble_Angry;
+
+    public GameObject smile;
+    public GameObject sad;
 
     [SerializeField]
     private Transform[] exitWayPoints;
@@ -89,25 +90,6 @@ public class Customer_Collision : MonoBehaviour
             }
         }
         
-     //   if ( Input.GetKeyDown("space") )
-     //      {
-        
-     //       if (bubble == true) 
-    //         { 
-           
-    //            thoughtBubble.SetActive(true);
-    //            Player.pcode = code; 
-    //            Debug.Log("PLAYER CODE" + Player.pcode);
-                
-    //       }
-    //    }
-    //    else if (bubble == false)
-    //    {
-    //        thoughtBubble.SetActive(false);
-            
-     //   }
-      
-
     }
 
     private void MoveToShopCounter()
@@ -191,8 +173,10 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("Idle", false);
             anim.SetBool("WalkOut", true);
             sprite.flipX = false;
-           // bubble = false;
-      //      thoughtBubble.SetActive(false); 
+            
+            //Thought bubble turns off when customer leaves
+            smile.SetActive(false);
+            sad.SetActive(false);
          
         }
 
@@ -211,12 +195,5 @@ public class Customer_Collision : MonoBehaviour
     //    thoughtBubble.SetActive(true);  
 
     }
-
-//need to pass off the customer potion code
-
- //   public void displayPotion()
- //   {
-
- //   }
 
 }

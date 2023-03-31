@@ -17,8 +17,13 @@ public class Customer : MonoBehaviour
     public string potionCode;
     private double satisfaction;
     
-  //  public GameObject thoughtBubble;
- //   public GameObject thoughtBubble_HeatPotion;
+    //order thought bubbles
+    public GameObject order145;
+    public GameObject order256;
+    public GameObject order346;
+    public GameObject order156;
+    public GameObject order345;
+    public GameObject order246;
 
     
     //Potion Code pattern 
@@ -34,7 +39,7 @@ public class Customer : MonoBehaviour
             money  = Random.Range(1000, 10000);
         }
         
-        int ran = Random.Range(1, 1);
+        int ran = Random.Range(1, 7);
         switch (ran)
             {
                 case 1:
@@ -124,6 +129,33 @@ public class Customer : MonoBehaviour
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
             sprite.flipX = true;
+
+            if (potionCode == "145")
+            {
+                order145.SetActive(true);
+            }
+            else if (potionCode == "256")
+            {
+                order256.SetActive(true);
+            }
+            else if (potionCode == "346")
+            {
+                order346.SetActive(true);
+            }
+            else if (potionCode == "156")
+            {
+                order156.SetActive(true);
+            }
+            else if (potionCode == "345")
+            {
+                order345.SetActive(true);
+            }
+            else if(potionCode == "246")
+            {
+                order246.SetActive(true);
+            }
+                   
+            
         }
 
     }

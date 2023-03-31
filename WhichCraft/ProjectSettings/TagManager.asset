@@ -16,6 +16,13 @@ TagManager:
   - cauldron
   - Smile
   - Sad
+  - Order
+  - order145
+  - order256
+  - order346
+  - order156
+  - order345
+  - order246
   layers:
   - Default
   - TransparentFX
