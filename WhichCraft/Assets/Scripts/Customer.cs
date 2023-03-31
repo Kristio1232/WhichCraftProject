@@ -16,7 +16,7 @@ public class Customer : MonoBehaviour
     public int money;
     public string potionCode;
     private double satisfaction;
-    
+
     //order thought bubbles
     public GameObject order145;
     public GameObject order256;
