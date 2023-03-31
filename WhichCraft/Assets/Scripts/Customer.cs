@@ -101,6 +101,33 @@ public class Customer : MonoBehaviour
                 anim.SetBool("Idle", false);
                 anim.SetBool("WalkOut", true);
                 sprite.flipX = false;
+
+                if (potionCode == "145")
+                {
+                    Destroy(instance_145);
+                }
+                else if (potionCode == "256")
+                {
+                    Destroy(instance_256);
+                }
+                else if (potionCode == "346")
+                {
+                    Destroy(instance_346);
+                }
+                else if (potionCode == "156")
+                {
+                    Destroy(instance_156);
+
+                }
+                else if (potionCode == "345")
+                {
+                    Destroy(instance_345);
+
+                }
+                else if (potionCode == "246")
+                {
+                    Destroy(instance_246);
+                }
             }
 
         }
@@ -144,35 +171,46 @@ public class Customer : MonoBehaviour
 
     }
 
-    IEnumerator DisplayPotionCode(float seconds)
+    private IEnumerator DisplayPotionCode(float seconds)
     {
         yield return new WaitForSeconds(seconds);
 
         if (potionCode == "145")
         {
             instance_145 = Instantiate(order145);
+            Debug.Log("Created Thought Bubble instance_145");
+            Destroy(instance_145, timeLeft);
         }
         else if (potionCode == "256")
         {
             instance_256 = Instantiate(order256);
+            Debug.Log("Created Thought Bubble instance_256");
+            Destroy(instance_256, timeLeft);
         }
         else if (potionCode == "346")
         {
             instance_346 = Instantiate(order346);
+            Debug.Log("Created Thought Bubble instance_346");
+            Destroy(instance_346, timeLeft);
         }
         else if (potionCode == "156")
         {
             instance_156 = Instantiate(order156);
- 
+            Debug.Log("Created Thought Bubble instance_156");
+            Destroy(instance_156, timeLeft);
         }
         else if (potionCode == "345")
         {
             instance_345 = Instantiate(order345);
+            Debug.Log("Created Thought Bubble instance_345");
+            Destroy(instance_345, timeLeft);
 
         }
         else if (potionCode == "246")
         {
             instance_246 = Instantiate(order246);
+            Debug.Log("Created Thought Bubble instance_246");
+            Destroy(instance_246, timeLeft);
         }
     }
 
