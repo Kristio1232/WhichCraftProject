@@ -12,6 +12,15 @@ public class Potion_Interactable : MonoBehaviour
     public GameObject showNotification;
     public GameObject MiniGameWinMenu;
 
+    //Customer thought bubble reviews
+    public GameObject smile;
+    public GameObject sad;
+
+    //getting info from gamecontroller
+    public GameObject gameController;
+
+  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +54,18 @@ public class Potion_Interactable : MonoBehaviour
     {
         isInRange = false;
         showNotification.SetActive(false);
+    }
+
+    public void review()
+    {
+        showNotification.SetActive(false);
+        if ( gameController.GetComponent<Game_Controller>().satisfaction > 50 )
+        {
+            smile.SetActive(true);
+        }
+        else{
+            sad.SetActive(true);
+        }
     }
     
 }

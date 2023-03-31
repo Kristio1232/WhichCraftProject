@@ -12,6 +12,8 @@ public class Game_Controller : MonoBehaviour
     public int maxSize;
     public GameObject[] customerPrefab;
     public Transform[] waitPoints;
+    public int satisfaction = 100;
+    public bool setNotification = true;
 
     
     //Player Info
@@ -143,7 +145,7 @@ public class Game_Controller : MonoBehaviour
         Debug.Log("Size " + size + " Potion Done " + player.GetComponent<Player>().getPotionDone());
         if (size > 0 && player.GetComponent<Player>().getPotionDone())
         {
-            int satisfaction = 100;
+            satisfaction = 100;
             string playerCode = player.GetComponent<Player>().getSelectedItems();
             string customerCode = customers[0].GetComponent<Customer>().potionCode;
             Debug.Log("Codes: " + playerCode + " and " + customerCode);
@@ -156,11 +158,13 @@ public class Game_Controller : MonoBehaviour
             if (!playerCode.Contains(customerCode[2])){
                 satisfaction -= 20;
             }
+            Debug.Log("Satisfaction" + satisfaction);
             Debug.Log(customers[0].GetComponent<Customer>().money);
             points += (int) (customers[0].GetComponent<Customer>().money * (satisfaction/100.0));
             Debug.Log(points);
             scoreDispaly.text = points.ToString();
             player.GetComponent<Player>().emptyInvetoryOut();
+            setNotification = false;
             removeFirst();
         }
     }

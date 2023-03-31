@@ -34,7 +34,7 @@ public class Customer : MonoBehaviour
             money  = Random.Range(1000, 10000);
         }
         
-        int ran = Random.Range(1, 4);
+        int ran = Random.Range(1, 1);
         switch (ran)
             {
                 case 1:
@@ -48,6 +48,18 @@ public class Customer : MonoBehaviour
                 
                 case 3:
                     potionCode = "346";
+                    break;
+                
+                case 4:
+                    potionCode = "156";
+                    break;
+                
+                case 5:
+                    potionCode = "345";
+                    break;
+                
+                case 6:
+                    potionCode = "246";
                     break;
 
             }

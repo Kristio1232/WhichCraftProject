@@ -16,9 +16,9 @@ public class Customer_Collision : MonoBehaviour
     public SpriteRenderer sprite;
     
     //thought bubbles
-    public GameObject thoughtBubble_HeatPotion;
-    public GameObject thoughtBubble_Smile;
-    public GameObject ThoughtBubble_Angry;
+  //  public GameObject thoughtBubble;
+ //   public GameObject thoughtBubble_Smile;
+ //  public GameObject ThoughtBubble_Angry;
 
     [SerializeField]
     private Transform[] exitWayPoints;
@@ -95,7 +95,7 @@ public class Customer_Collision : MonoBehaviour
      //       if (bubble == true) 
     //         { 
            
-    //            thoughtBubble_HeatPotion.SetActive(true);
+    //            thoughtBubble.SetActive(true);
     //            Player.pcode = code; 
     //            Debug.Log("PLAYER CODE" + Player.pcode);
                 
@@ -103,7 +103,7 @@ public class Customer_Collision : MonoBehaviour
     //    }
     //    else if (bubble == false)
     //    {
-    //        thoughtBubble_HeatPotion.SetActive(false);
+    //        thoughtBubble.SetActive(false);
             
      //   }
       
@@ -159,7 +159,7 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("WalkIn", true);
             sprite.flipX = true;
             EventSystem.GetComponent<Game_Info>().addCustomer();
-            thoughtBubble_HeatPotion.SetActive(true);
+           
             //bubble = false;
         }
 
@@ -176,10 +176,11 @@ public class Customer_Collision : MonoBehaviour
             Debug.Log("Customer Stops Here");
             Debug.Log("CODE IN INT "  + potionCode);
 
-            // bubble = true; //thought bubble will only pop up when the customer is waiting
+            // bubble = true; 
 
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
+      //      thoughtBubble.SetActive(true);
             StartCoroutine(WaitToDisplay(1f));
 
         }
@@ -191,8 +192,8 @@ public class Customer_Collision : MonoBehaviour
             anim.SetBool("WalkOut", true);
             sprite.flipX = false;
            // bubble = false;
-            thoughtBubble_HeatPotion.SetActive(false);
-         //   thoughtBubble_Smile.SetActive(true);
+      //      thoughtBubble.SetActive(false); 
+         
         }
 
     }
@@ -207,7 +208,15 @@ public class Customer_Collision : MonoBehaviour
     IEnumerator WaitToDisplay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        thoughtBubble_HeatPotion.SetActive(true);
+    //    thoughtBubble.SetActive(true);  
 
     }
+
+//need to pass off the customer potion code
+
+ //   public void displayPotion()
+ //   {
+
+ //   }
+
 }
