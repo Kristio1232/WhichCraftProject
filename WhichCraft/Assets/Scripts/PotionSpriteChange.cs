@@ -22,14 +22,15 @@ public class PotionSpriteChange : MonoBehaviour
     void Start()
     {
         potionCode = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        pc = potionCode.getSelectedItems();
         potionShown = this.GetComponent<Image>();
+        Debug.Log(pc);
     }
 
     // Update is called once per frame
     void Update()
     {
-        pc = potionCode.getSelectedItems();
-        if (pc == "154" || pc == "145" || pc == "415" || pc == "451" || pc == "514" || pc == "541")
+        if(pc == "154" || pc == "145" || pc == "415" || pc == "451" || pc == "514" || pc == "541")
         {
             potionShown.sprite = sprite_potion145;
         }
@@ -53,5 +54,6 @@ public class PotionSpriteChange : MonoBehaviour
         {
             potionShown.sprite = sprite_potion246;
         }
+
     }
 }
