@@ -16,19 +16,23 @@ public class PotionSpriteChange : MonoBehaviour
     public Sprite sprite_potion345;
     public Sprite sprite_potion246;
     public Player potionCode;
+    private string pc;
 
     // Start is called before the first frame update
     void Start()
     {
         potionShown = this.GetComponent<Image>();
-        potionShown.sprite = sprite_potion145;
-        
+        pc = potionCode.getSelectedItems();
+        Debug.Log(pc);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(pc == "154" || pc == "145")
+        {
+            potionShown.sprite = sprite_potion145;
+        }
     }
 
     void changeImage()

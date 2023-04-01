@@ -40,10 +40,6 @@ public class Player : MonoBehaviour
     public GameObject potionMade;
     // item spawn pos
     public Transform[] itemSpawns;
-    
-
-    
-
 
     private bool panelOn = false;
 
