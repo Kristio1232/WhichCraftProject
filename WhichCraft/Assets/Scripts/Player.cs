@@ -221,25 +221,29 @@ public class Player : MonoBehaviour
         Debug.Log("beaker one code " + SelectedItems);
     }
 
-    public static void getBeakerTwo()
+    public void getBeakerTwo()
     {  
         
-        if (f == true)
+        if (f && numberOfIngredient < 3)
         {
             SelectedItems = SelectedItems + 2;
             f = false;
+            isBeaker = true;
+            numberOfIngredient++;
         }
         Debug.Log("beaker two code " + SelectedItems);
     }
 
 
-        public static void getBeakerThree()
+        public void getBeakerThree()
     {  
        
-        if (f == true)
+        if (f && numberOfIngredient < 3)
         {
             SelectedItems = SelectedItems + 3;
             f = false;
+            isBeaker = true;
+            numberOfIngredient++;
         }
         Debug.Log("beaker three code " + SelectedItems);
     }
