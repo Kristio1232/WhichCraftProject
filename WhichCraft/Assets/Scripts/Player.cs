@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
 
     public static string pcode;
     private static string SelectedItems;
+    //public static string SelectedItems;
 
     private static bool f = true;
     private static bool r = true;
@@ -104,7 +105,6 @@ public class Player : MonoBehaviour
         {
             movementSpeed = 5;
         }
-
     }
 
     void FixedUpdate()
@@ -307,6 +307,8 @@ public class Player : MonoBehaviour
             Destroy(potionMade);
         }
     }
+
+
 
 }
 

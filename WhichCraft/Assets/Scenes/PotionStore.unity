@@ -6070,6 +6070,7 @@ GameObject:
   - component: {fileID: 880448168}
   - component: {fileID: 880448170}
   - component: {fileID: 880448169}
+  - component: {fileID: 880448171}
   m_Layer: 5
   m_Name: PotionImage
   m_TagString: Untagged
@@ -6094,7 +6095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.9974682, y: 5}
+  m_AnchoredPosition: {x: -3.9974766, y: 5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880448169
@@ -6117,7 +6118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a77756c4ac798b419704f0d959f9dbb, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6135,6 +6136,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880448167}
   m_CullTransparentMesh: 1
+--- !u!114 &880448171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880448167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb39d0a36e87ac44aefc18dde3e0bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MiniGameWinMenu: {fileID: 1221290474}
+  potionShown: {fileID: 880448169}
+  sprite_potion145: {fileID: 21300000, guid: b7808a1928893064c9679a4e32cbb213, type: 3}
+  sprite_potion256: {fileID: 21300000, guid: a9f517fbed6384045af43d4ad0c3cdc1, type: 3}
+  sprite_potion346: {fileID: 21300000, guid: 5d33e81e70783d945bdaa8cdeede423b, type: 3}
+  sprite_potion156: {fileID: 21300000, guid: 7b1d36963bb8934499670d68c07d7cac, type: 3}
+  sprite_potion345: {fileID: 21300000, guid: 2e6ca8b4b73be3543b1b1eb3a33731a0, type: 3}
+  sprite_potion246: {fileID: 21300000, guid: 7b1d36963bb8934499670d68c07d7cac, type: 3}
+  potionCode: {fileID: 0}
 --- !u!1 &882233917
 GameObject:
   m_ObjectHideFlags: 0
@@ -7081,6 +7103,9 @@ MonoBehaviour:
   spawnRate: 10
   obstacleTemplate:
   - {fileID: 1505958946637515129, guid: 3bce633484c1b734a99ff081d08998a8, type: 3}
+  - {fileID: 175942791831086945, guid: 8a3c01d0e90c8254badd805ec80f1931, type: 3}
+  - {fileID: 1191048733759676017, guid: 9b22ceedd9b2dfe4c8634bb847ae6826, type: 3}
+  - {fileID: 3767341041243264179, guid: daf0a547b8531564c81280e05e8175a6, type: 3}
   spawnPoint: {fileID: 1388807826}
 --- !u!4 &976147561
 Transform:
@@ -8702,7 +8727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1221290475
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9883,7 +9908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You created a yellow Potion!
+  m_text: You created a potion!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9395106b1ce8e6e4694384224e3ee780, type: 2}
   m_sharedMaterial: {fileID: -1906812886427162293, guid: 9395106b1ce8e6e4694384224e3ee780, type: 2}
