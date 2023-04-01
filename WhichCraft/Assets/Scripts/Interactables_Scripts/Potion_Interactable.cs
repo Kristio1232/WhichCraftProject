@@ -19,6 +19,11 @@ public class Potion_Interactable : MonoBehaviour
     //getting info from gamecontroller
     public GameObject gameController;
 
+    //customer collision bool
+    public bool customer_Present;
+    public bool key_pressed;
+
+
   
 
     // Start is called before the first frame update
@@ -35,8 +40,10 @@ public class Potion_Interactable : MonoBehaviour
             if (Input.GetKeyDown(interactKey))
             {
                 interactAction.Invoke();
+                key_pressed = true;
             }
         }
+      
     }
 
        private void OnTriggerEnter2D(Collider2D collision)
@@ -47,6 +54,12 @@ public class Potion_Interactable : MonoBehaviour
             showNotification.SetActive(true);
             Debug.Log("Player in Potion is Active");
         }
+        if (collision.gameObject.CompareTag("Customer")) //change to customer tag
+        {
+            customer_Present = true;
+        //    isInRange = true;
+            Debug.Log("Customer_Present BOOL in the collision" + customer_Present);
+        }
         
     }
 
@@ -54,18 +67,29 @@ public class Potion_Interactable : MonoBehaviour
     {
         isInRange = false;
         showNotification.SetActive(false);
+        customer_Present = false;
+        smile.SetActive(false);
+        sad.SetActive(false);
+        key_pressed = false;
     }
 
     public void review()
     {
+        Debug.Log("Customer_Present BOOL in review" + customer_Present);
         showNotification.SetActive(false);
-        if ( gameController.GetComponent<Game_Controller>().satisfaction > 50 )
+             
+        if (gameController.GetComponent<Game_Controller>().satisfaction >= 50 && isInRange == true)
         {
             smile.SetActive(true);
+            key_pressed = false;
         }
-        else{
+        else if(gameController.GetComponent<Game_Controller>().satisfaction < 50 && isInRange == true){
             sad.SetActive(true);
+            key_pressed = false;
         }
+
+        
+  
     }
     
 }

@@ -6413,7 +6413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8937464128281835800, guid: 800802dcdc0c48c46bd48afc56382936, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.37912482
+      value: 1.8651562
       objectReference: {fileID: 0}
     - target: {fileID: 8937464128281835800, guid: 800802dcdc0c48c46bd48afc56382936, type: 3}
       propertyPath: m_LocalScale.y
@@ -6425,7 +6425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8937464128281835800, guid: 800802dcdc0c48c46bd48afc56382936, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.18
+      value: -3.05
       objectReference: {fileID: 0}
     - target: {fileID: 8937464128281835800, guid: 800802dcdc0c48c46bd48afc56382936, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10837,6 +10837,8 @@ MonoBehaviour:
   smile: {fileID: 1331277711}
   sad: {fileID: 595448684}
   gameController: {fileID: 976147559}
+  customer_Present: 0
+  key_pressed: 0
 --- !u!1 &1523433217
 GameObject:
   m_ObjectHideFlags: 0

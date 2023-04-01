@@ -26,7 +26,7 @@ public class Customer : MonoBehaviour
     public GameObject order246;
 
     //instances of thought bubble order "_ _ _"
-    private GameObject instance_145;
+    public GameObject instance_145;
     private GameObject instance_256;
     private GameObject instance_346;
     private GameObject instance_156;
@@ -48,7 +48,7 @@ public class Customer : MonoBehaviour
             money  = Random.Range(1000, 10000);
         }
         
-        int ran = Random.Range(1, 7);
+        int ran = Random.Range(1, 1);
         switch (ran)
             {
                 case 1:
@@ -188,7 +188,17 @@ public class Customer : MonoBehaviour
         }
     }
 
+    public void destroyAll()
+    {
+        Destroy(instance_145);
+        Destroy(instance_256);
+        Destroy(instance_346);
+        Destroy(instance_156);
+        Destroy(instance_345);
+        Destroy(instance_246);
+      
 
+    }
 
 
 
