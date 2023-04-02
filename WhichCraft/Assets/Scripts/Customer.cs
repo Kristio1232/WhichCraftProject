@@ -27,11 +27,11 @@ public class Customer : MonoBehaviour
 
     //instances of thought bubble order "_ _ _"
     public GameObject instance_145;
-    private GameObject instance_256;
-    private GameObject instance_346;
-    private GameObject instance_156;
-    private GameObject instance_345;
-    private GameObject instance_246;
+    public GameObject instance_256;
+    public GameObject instance_346;
+    public GameObject instance_156;
+    public GameObject instance_345;
+    public GameObject instance_246;
 
 
 
@@ -188,17 +188,6 @@ public class Customer : MonoBehaviour
         }
     }
 
-    public void destroyAll()
-    {
-        Destroy(instance_145);
-        Destroy(instance_256);
-        Destroy(instance_346);
-        Destroy(instance_156);
-        Destroy(instance_345);
-        Destroy(instance_246);
-      
-
-    }
 
 
 
