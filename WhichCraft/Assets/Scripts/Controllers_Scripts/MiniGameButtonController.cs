@@ -27,6 +27,7 @@ public class MiniGameButtonController : MonoBehaviour
     {
         MiniGameWinMenu.SetActive(false); 
         player.GetComponent<Player>().setPotionDone(true);
+        player.GetComponent<Player>().emptyTable();
         controller.GetComponent<Game_Controller>().setMiniGameActive(false);
         notification_on = true;
     }

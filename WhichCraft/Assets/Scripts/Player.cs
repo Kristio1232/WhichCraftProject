@@ -28,14 +28,31 @@ public class Player : MonoBehaviour
     public GameObject redPref;
     public GameObject yellowPref;
     public GameObject bluePref;
-    public GameObject bottlePref;
+    public GameObject bottlePref1;
+    public GameObject bottlePref2;
+    public GameObject bottlePref3;
 
     private GameObject red;
     private GameObject yellow;
     private GameObject blue;
-    private GameObject empBottle;
+    private GameObject empBottle1;
+    private GameObject empBottle2;
+    private GameObject empBottle3;
 
     public GameObject obstacleTemplate;
+    public GameObject greenPotion1;
+    public GameObject greenPotion2;
+    public GameObject greenPotion3;
+
+    public GameObject orangePotion1;
+    public GameObject orangePotion2;
+    public GameObject orangePotion3;
+
+    public GameObject purplePotion1;
+    public GameObject purplePotion2;
+    public GameObject purplePotion3;
+
+
     public Transform spawnPoints;
     public GameObject potionMade;
     // item spawn pos
@@ -63,6 +80,7 @@ public class Player : MonoBehaviour
         emptyInvetory();
     }
     // Update is called once per frame
+
     void Update()
     {
         if (panelOn && Input.GetKey("space"))
@@ -78,19 +96,12 @@ public class Player : MonoBehaviour
         // --------------------------------- Start of spawning system --------------------------
         if (potionDone && potionMade == null)
         {
+            //if (SelectedItems ) add an if statement to check ingredients to display potion
+
             Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
             potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
-            // instantiate 2 ings and 1 bott
-            // use transform from an empty game obj to store pos of the ingredients and bottle
-        }
-        /*
-        if (!r && potionMade == null && !red)
-        {
-
             
-            Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
-            red = Instantiate(redPref, position, Quaternion.identity);
-        }*/
+        }
        
         // ----------------------------------- end of ingr and bott spawn --------------------------------------------------
         if (MiniGame.activeSelf || MiniGameLoseMenu.activeSelf || MiniGameWinMenu.activeSelf || CookBookMenu.activeSelf)
@@ -212,7 +223,7 @@ public class Player : MonoBehaviour
             SelectedItems = SelectedItems + 1;
             f = false;
             Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
-            empBottle = Instantiate(bottlePref, position, Quaternion.identity);
+            empBottle1 = Instantiate(bottlePref1, position, Quaternion.identity);
             isBeaker = true; // sets to true
             numberOfIngredient++;
         }
@@ -228,7 +239,9 @@ public class Player : MonoBehaviour
         {
             SelectedItems = SelectedItems + 2;
             f = false;
-            isBeaker = true;
+            Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
+            empBottle2 = Instantiate(bottlePref2, position, Quaternion.identity);
+            isBeaker = true; // sets to true
             numberOfIngredient++;
         }
         Debug.Log("beaker two code " + SelectedItems);
@@ -242,7 +255,9 @@ public class Player : MonoBehaviour
         {
             SelectedItems = SelectedItems + 3;
             f = false;
-            isBeaker = true;
+            Vector2 position = new Vector2(itemSpawns[numberOfIngredient].position.x, itemSpawns[numberOfIngredient].position.y);
+            empBottle3 = Instantiate(bottlePref3, position, Quaternion.identity);
+            isBeaker = true; // sets to true
             numberOfIngredient++;
         }
         Debug.Log("beaker three code " + SelectedItems);
@@ -287,7 +302,7 @@ public class Player : MonoBehaviour
         Debug.Log("Blue code" + SelectedItems);
     }
 
-    public static void emptyInvetory()     
+    public void emptyInvetory()     
     {
         f = true;
         r = true;
@@ -296,6 +311,12 @@ public class Player : MonoBehaviour
         SelectedItems = "";
         numberOfIngredient = 0;
         potionDone = false;
+        Destroy(blue);
+        Destroy(red);
+        Destroy(yellow);
+        Destroy(empBottle1);
+        Destroy(empBottle2);
+        Destroy(empBottle3);
 
     }
 
@@ -305,7 +326,17 @@ public class Player : MonoBehaviour
         if (potionMade != null){
         
             Destroy(potionMade);
+            
         }
+    }
+    public void emptyTable()
+    {
+        Destroy(blue);
+        Destroy(red);
+        Destroy(yellow);
+        Destroy(empBottle1);
+        Destroy(empBottle2);
+        Destroy(empBottle3);
     }
 
 
