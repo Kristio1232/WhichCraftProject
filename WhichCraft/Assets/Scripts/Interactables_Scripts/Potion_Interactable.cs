@@ -23,6 +23,8 @@ public class Potion_Interactable : MonoBehaviour
     public bool customer_Present;
     public bool key_pressed;
 
+    public bool customerGotPotion;
+
    
     Customer cust;
 
@@ -44,12 +46,14 @@ public class Potion_Interactable : MonoBehaviour
             {
                 interactAction.Invoke();
                 key_pressed = true;
+                cust = GameObject.FindGameObjectWithTag("Customer").GetComponent<Customer>();
+                cust.setTimerToZero();
             }
-        }
-      
+        }    
     }
 
-       private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") &&  MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on == true)
         {
@@ -73,7 +77,8 @@ public class Potion_Interactable : MonoBehaviour
         customer_Present = false;
         smile.SetActive(false);
         sad.SetActive(false);
-       
+
+
     }
 
         

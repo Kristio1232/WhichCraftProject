@@ -88,26 +88,34 @@ public class Customer : MonoBehaviour
     {
         if (timerOn)
         {
-            if (timeLeft > 0)
+            if (this.timeLeft > 0)
             {
-                timeLeft -= Time.deltaTime;
+                this.timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
                 MoveToWayPoint(waypoint);
                 
             }
             else
             {
-                //Customer Leaves
                 MoveToWayPoint(waypoint);
-
                 anim.SetBool("Idle", false);
                 anim.SetBool("WalkOut", true);
                 sprite.flipX = false;
-
             }
 
         }
     }
+
+    public float customerTimer()
+    {
+        return this.timeLeft;
+    }
+
+    public void setTimerToZero()
+    {
+        this.timeLeft = -1;
+    }
+
     public void setPosition(Transform waitPoint)
     {
         this.waypoint = waitPoint;
@@ -127,7 +135,6 @@ public class Customer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.CompareTag("CustomerGoesIn"))
         {
             Debug.Log("Customer Comes In!");
@@ -141,7 +148,6 @@ public class Customer : MonoBehaviour
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
             sprite.flipX = true;
-
             StartCoroutine(DisplayPotionCode(1f));
         }
 
@@ -156,35 +162,35 @@ public class Customer : MonoBehaviour
             instance_145 = Instantiate(order145);
             Debug.Log("Created Thought Bubble instance_145");
             display = true;
-            Destroy(instance_145, timeLeft);
+            Destroy(instance_145, this.timeLeft);
         }
         else if (potionCode == "256" && display == false)
         {
             instance_256 = Instantiate(order256);
             Debug.Log("Created Thought Bubble instance_256");
             display = true;
-            Destroy(instance_256, timeLeft);
+            Destroy(instance_256, this.timeLeft);
         }
         else if (potionCode == "346" && display == false)
         {
             instance_346 = Instantiate(order346);
             Debug.Log("Created Thought Bubble instance_346");
             display = true;
-            Destroy(instance_346, timeLeft);
+            Destroy(instance_346, this.timeLeft);
         }
         else if (potionCode == "156" && display == false)
         {
             instance_156 = Instantiate(order156);
             Debug.Log("Created Thought Bubble instance_156");
             display = true;
-            Destroy(instance_156, timeLeft);
+            Destroy(instance_156, this.timeLeft);
         }
         else if (potionCode == "345" && display == false)
         {
             instance_345 = Instantiate(order345);
             Debug.Log("Created Thought Bubble instance_345");
             display = true;
-            Destroy(instance_345, timeLeft);
+            Destroy(instance_345, this.timeLeft);
 
         }
         else if (potionCode == "246" && display == false)
@@ -230,15 +236,6 @@ public class Customer : MonoBehaviour
             Destroy(instance_246);
             display = false;
         }
-        
-        
-        
-        
-        
-        
-        
-        
     }
-
 
 }

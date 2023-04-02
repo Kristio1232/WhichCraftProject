@@ -43,12 +43,13 @@ public class Game_Controller : MonoBehaviour
         timeBtwSpawns = 0;
         points = 0;
         customers = new List<GameObject>();
+
     }
 
     void Update()
     {
         //Debug.Log(miniGameActive);
-        
+
         if (!miniGameActive)
         {
             if (timeBtwSpawns <= 0)
@@ -83,6 +84,7 @@ public class Game_Controller : MonoBehaviour
                 shopper.GetComponent<Customer>().timerOn = false;
             }
         }
+
     }
 
     private void customerUpdateFunction()
