@@ -2553,7 +2553,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.051183
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5490,8 +5490,19 @@ MonoBehaviour:
   redPref: {fileID: 2948246765389830224, guid: 1a59bc9dd42e5864ba5c4a1c9625b517, type: 3}
   yellowPref: {fileID: 6332158080533743370, guid: afa2879e75e474244a04703c59b07042, type: 3}
   bluePref: {fileID: 363995712223425, guid: 92a7836f1400d7e448c48baf0b4970e0, type: 3}
-  bottlePref: {fileID: 9159600754241174631, guid: c81032b9378e209428b2d11ecb50745a, type: 3}
+  bottlePref1: {fileID: 8816513610289662200, guid: 310022ab5c15f8a43906f50ae6ac2c01, type: 3}
+  bottlePref2: {fileID: 1754450861376391641, guid: 919add8bbd4964145a815590a591ca96, type: 3}
+  bottlePref3: {fileID: 290392804348635045, guid: 7e5d5129073e81a42a6540c1f454bafd, type: 3}
   obstacleTemplate: {fileID: 5275493274894372982, guid: 40bb5477b092a0645814656ffb2db0d4, type: 3}
+  greenPotion1: {fileID: 2217174330228248164, guid: 779fb2237d4f3934d804896c8c5f9bcc, type: 3}
+  greenPotion2: {fileID: 2869097239690023615, guid: 8a27cc53296c5954d9b6c9e5791967fe, type: 3}
+  greenPotion3: {fileID: 1791196873945080085, guid: c67c1140578e4ef448d589bdfa60228b, type: 3}
+  orangePotion1: {fileID: 8818197781427833905, guid: 56c525eae8c5eb74da33037ccf1cc20a, type: 3}
+  orangePotion2: {fileID: 7478638165081012143, guid: a6572ebaa3cdf9a4ca0ac04b23d676e3, type: 3}
+  orangePotion3: {fileID: 6143877301939735931, guid: 4e078b85851bb364ab5eb34822703487, type: 3}
+  purplePotion1: {fileID: 1876993791385605611, guid: 0485e2e0d4aaf3f4cac727b333127035, type: 3}
+  purplePotion2: {fileID: 723233194692822868, guid: 746ad7b966987a94e97050bd82699abd, type: 3}
+  purplePotion3: {fileID: 1646662161254646309, guid: ca9a66bf3e9642644baf84a529fea96a, type: 3}
   spawnPoints: {fileID: 1519208986}
   potionMade: {fileID: 0}
   itemSpawns:
