@@ -26,12 +26,14 @@ public class Customer : MonoBehaviour
     public GameObject order246;
 
     //instances of thought bubble order "_ _ _"
-    public GameObject instance_145;
-    public GameObject instance_256;
-    public GameObject instance_346;
-    public GameObject instance_156;
-    public GameObject instance_345;
-    public GameObject instance_246;
+    private GameObject instance_145;
+    private GameObject instance_256;
+    private GameObject instance_346;
+    private GameObject instance_156;
+    private GameObject instance_345;
+    private GameObject instance_246;
+
+    public bool display;
 
 
 
@@ -149,46 +151,94 @@ public class Customer : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
-        if (potionCode == "145")
+        if (potionCode == "145" && display == false)
         {
             instance_145 = Instantiate(order145);
             Debug.Log("Created Thought Bubble instance_145");
+            display = true;
             Destroy(instance_145, timeLeft);
         }
-        else if (potionCode == "256")
+        else if (potionCode == "256" && display == false)
         {
             instance_256 = Instantiate(order256);
             Debug.Log("Created Thought Bubble instance_256");
+            display = true;
             Destroy(instance_256, timeLeft);
         }
-        else if (potionCode == "346")
+        else if (potionCode == "346" && display == false)
         {
             instance_346 = Instantiate(order346);
             Debug.Log("Created Thought Bubble instance_346");
+            display = true;
             Destroy(instance_346, timeLeft);
         }
-        else if (potionCode == "156")
+        else if (potionCode == "156" && display == false)
         {
             instance_156 = Instantiate(order156);
             Debug.Log("Created Thought Bubble instance_156");
+            display = true;
             Destroy(instance_156, timeLeft);
         }
-        else if (potionCode == "345")
+        else if (potionCode == "345" && display == false)
         {
             instance_345 = Instantiate(order345);
             Debug.Log("Created Thought Bubble instance_345");
+            display = true;
             Destroy(instance_345, timeLeft);
 
         }
-        else if (potionCode == "246")
+        else if (potionCode == "246" && display == false)
         {
             instance_246 = Instantiate(order246);
             Debug.Log("Created Thought Bubble instance_246");
+            display = true;
             Destroy(instance_246, timeLeft);
         }
     }
 
-
+    public void DestroyAllPre()
+    {
+        Debug.Log("Destroying method running");
+        
+        if(potionCode == "145")
+        {
+            Destroy(instance_145);
+            display = false;
+        }
+          if(potionCode == "256")
+        {
+            Destroy(instance_256);
+            display = false;
+        }
+          if(potionCode == "346")
+        {
+            Destroy(instance_346);
+            display = false;
+        }
+          if(potionCode == "156")
+        {
+            Destroy(instance_156);
+            display = false;
+        }
+          if(potionCode == "345")
+        {
+            Destroy(instance_345);
+            display = false;
+        }
+           if(potionCode == "245")
+        {
+            Destroy(instance_246);
+            display = false;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+    }
 
 
 }

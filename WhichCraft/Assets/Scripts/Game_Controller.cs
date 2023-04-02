@@ -165,6 +165,7 @@ public class Game_Controller : MonoBehaviour
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
         }
+
     }
 
     public void removeFirst()
@@ -172,16 +173,6 @@ public class Game_Controller : MonoBehaviour
         GameObject cus = customers[0];
         cus.GetComponent<Customer>().setPosition(waitPoints[0]);
         customers.Remove(cus);
-
-        Debug.Log("CUSTOMER LEAVING");
-
-        Destroy(cus.GetComponent<Customer>().instance_145);
-        Destroy(cus.GetComponent<Customer>().instance_256);
-        Destroy(cus.GetComponent<Customer>().instance_346);
-        Destroy(cus.GetComponent<Customer>().instance_156);
-        Destroy(cus.GetComponent<Customer>().instance_345);
-        Destroy(cus.GetComponent<Customer>().instance_246);
-
         size--;
     }
 

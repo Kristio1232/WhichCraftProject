@@ -23,6 +23,9 @@ public class Potion_Interactable : MonoBehaviour
     public bool customer_Present;
     public bool key_pressed;
 
+   
+    Customer cust;
+
 
   
 
@@ -70,26 +73,36 @@ public class Potion_Interactable : MonoBehaviour
         customer_Present = false;
         smile.SetActive(false);
         sad.SetActive(false);
-        key_pressed = false;
+       
+    }
+
+        
+    public  void DestroyAll()
+    {
+        Debug.Log("DALL METHOD RUNNING");
+        
     }
 
     public void review()
     {
         Debug.Log("Customer_Present BOOL in review" + customer_Present);
         showNotification.SetActive(false);
-             
-        if (gameController.GetComponent<Game_Controller>().satisfaction >= 50 && isInRange == true)
+        cust = GameObject.FindGameObjectWithTag("Customer").GetComponent<Customer>();
+        cust.DestroyAllPre();
+
+        if (gameController.GetComponent<Game_Controller>().points >= 50 && isInRange == true)
         {
             smile.SetActive(true);
-            key_pressed = false;
+            sad.SetActive(false);
+           
         }
-        else if(gameController.GetComponent<Game_Controller>().satisfaction < 50 && isInRange == true){
+        else if(gameController.GetComponent<Game_Controller>().points < 50 && isInRange == true){
             sad.SetActive(true);
-            key_pressed = false;
+            smile.SetActive(false);
+           
         }
-
         
   
     }
-    
+
 }
