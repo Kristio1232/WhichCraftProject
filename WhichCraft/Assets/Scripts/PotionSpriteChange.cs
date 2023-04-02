@@ -15,6 +15,13 @@ public class PotionSpriteChange : MonoBehaviour
     public Sprite sprite_potion156;
     public Sprite sprite_potion345;
     public Sprite sprite_potion246;
+
+    public Sprite sprite_potion356; //missing
+    public Sprite sprite_potion146; //missing
+    public Sprite sprite_potion245; //missing
+
+
+
     public Player potionCode;
     private string pc;
 
@@ -54,6 +61,19 @@ public class PotionSpriteChange : MonoBehaviour
         {
             potionShown.sprite = sprite_potion246;
         }
+        else if(pc == "356" || pc == "365" || pc == "536" || pc == "563" || pc == "635" || pc == "653")
+        {
+            potionShown.sprite = sprite_potion356;
+        }
+        else if (pc == "146" || pc == "164" || pc == "416" || pc == "461" || pc == "614" || pc == "641")
+        {
+            potionShown.sprite = sprite_potion146;
+        }
+        else if (pc == "245" || pc == "254" || pc == "425" || pc == "452" || pc == "524" || pc == "542")
+        {
+            potionShown.sprite = sprite_potion245;
+        }
+
 
     }
 }

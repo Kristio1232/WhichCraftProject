@@ -25,6 +25,10 @@ public class Customer : MonoBehaviour
     public GameObject order345;
     public GameObject order246;
 
+    public GameObject order356; //missing
+    public GameObject order146; //missing
+    public GameObject order245; //missing
+
     //instances of thought bubble order "_ _ _"
     private GameObject instance_145;
     private GameObject instance_256;
@@ -32,6 +36,10 @@ public class Customer : MonoBehaviour
     private GameObject instance_156;
     private GameObject instance_345;
     private GameObject instance_246;
+
+    private GameObject instance_356; //missing
+    private GameObject instance_146; //missing
+    private GameObject instance_245; //missing
 
     public bool display;
 
@@ -200,6 +208,29 @@ public class Customer : MonoBehaviour
             display = true;
             Destroy(instance_246, timeLeft);
         }
+
+        //**NEW ADDITION**
+        else if (potionCode == "356" && display == false)
+        {
+            instance_356 = Instantiate(order356);
+            Debug.Log("Created Thought Bubble instance_356");
+            display = true;
+            Destroy(instance_356, timeLeft);
+        }
+        else if (potionCode == "146" && display == false)
+        {
+            instance_146 = Instantiate(order146);
+            Debug.Log("Created Thought Bubble instance_146");
+            display = true;
+            Destroy(instance_146, timeLeft);
+        }
+        else if (potionCode == "245" && display == false)
+        {
+            instance_245 = Instantiate(order245);
+            Debug.Log("Created Thought Bubble instance_245");
+            display = true;
+            Destroy(instance_245, timeLeft);
+        }
     }
 
     public void DestroyAllPre()
@@ -231,11 +262,28 @@ public class Customer : MonoBehaviour
             Destroy(instance_345);
             display = false;
         }
-           if(potionCode == "245")
+          if(potionCode == "246")
         {
             Destroy(instance_246);
             display = false;
         }
+          //**NEW ADDITION
+          if(potionCode == "356")
+        {
+            Destroy(instance_356);
+            display = false;
+        }
+        if (potionCode == "146")
+        {
+            Destroy(instance_146);
+            display = false;
+        }
+        if (potionCode == "245")
+        {
+            Destroy(instance_245);
+            display = false;
+        }
+        //**
     }
 
 }
