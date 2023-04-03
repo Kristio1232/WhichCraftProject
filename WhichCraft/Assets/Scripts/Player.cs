@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+
         moveDirection = new Vector2(moveX, moveY).normalized;
         // --------------------------------- Start of spawning system --------------------------
         if (potionDone && potionMade == null)
