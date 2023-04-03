@@ -62,8 +62,7 @@ public class Customer : MonoBehaviour
         switch (ran)
             {
                 case 1:
-                    potionCode = "145"; //might need to change the codes based on art
-                  //  thoughtBubble.SetActive(true);
+                    potionCode = "145"; 
                     break;
                 
                 case 2:
@@ -84,6 +83,18 @@ public class Customer : MonoBehaviour
                 
                 case 6:
                     potionCode = "246";
+                    break;
+                
+                case 7:
+                    potionCode = "356";
+                    break;
+                
+                case 8:
+                    potionCode = "146";
+                    break;
+                
+                case 9:
+                    potionCode = "245";
                     break;
 
             }

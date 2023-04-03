@@ -24,6 +24,7 @@ public class Potion_Interactable : MonoBehaviour
     public bool key_pressed;
 
     public bool customerGotPotion;
+    public bool notification = true;
 
    
     Customer cust;
@@ -47,7 +48,7 @@ public class Potion_Interactable : MonoBehaviour
                 interactAction.Invoke();
                 key_pressed = true;
                 cust = GameObject.FindGameObjectWithTag("Customer").GetComponent<Customer>();
-                cust.setTimerToZero();
+                cust.DestroyAllPre();
             }
         }    
     }
@@ -59,6 +60,7 @@ public class Potion_Interactable : MonoBehaviour
         {
             isInRange = true;
             showNotification.SetActive(true);
+            MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on = false;
             Debug.Log("Player in Potion is Active");
         }
         if (collision.gameObject.CompareTag("Customer")) //change to customer tag
