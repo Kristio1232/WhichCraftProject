@@ -58,7 +58,7 @@ public class Customer : MonoBehaviour
             money  = Random.Range(1000, 10000);
         }
         
-        int ran = Random.Range(1, 7);
+        int ran = Random.Range(1, 10);
         switch (ran)
             {
                 case 1:

@@ -175,6 +175,7 @@ public class Game_Controller : MonoBehaviour
         GameObject cus = customers[0];
         cus.GetComponent<Customer>().setPosition(waitPoints[0]);
         customers.Remove(cus);
+        cus.GetComponent<Customer>().DestroyAllPre();
         size--;
     }
 
