@@ -47,8 +47,6 @@ public class Potion_Interactable : MonoBehaviour
             {
                 interactAction.Invoke();
                 key_pressed = true;
-                cust = GameObject.FindGameObjectWithTag("Customer").GetComponent<Customer>();
-                cust.DestroyAllPre();
             }
         }    
     }
@@ -110,6 +108,6 @@ public class Potion_Interactable : MonoBehaviour
         }
         
   
-    }
+    }                  
 
 }
