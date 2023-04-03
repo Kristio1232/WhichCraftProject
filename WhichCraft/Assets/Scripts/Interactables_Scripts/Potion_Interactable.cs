@@ -21,13 +21,9 @@ public class Potion_Interactable : MonoBehaviour
 
     //customer collision bool
     public bool customer_Present;
-    public bool key_pressed;
 
     public bool customerGotPotion;
     public bool notification = true;
-
-   
-    Customer cust;
 
 
   
@@ -46,7 +42,6 @@ public class Potion_Interactable : MonoBehaviour
             if (Input.GetKeyDown(interactKey))
             {
                 interactAction.Invoke();
-                key_pressed = true;
             }
         }    
     }
@@ -61,10 +56,9 @@ public class Potion_Interactable : MonoBehaviour
             MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on = false;
             Debug.Log("Player in Potion is Active");
         }
-        if (collision.gameObject.CompareTag("Customer")) //change to customer tag
+        if (collision.gameObject.CompareTag("Customer"))
         {
             customer_Present = true;
-        //    isInRange = true;
             Debug.Log("Customer_Present BOOL in the collision" + customer_Present);
         }
         
@@ -81,19 +75,10 @@ public class Potion_Interactable : MonoBehaviour
 
     }
 
-        
-    public  void DestroyAll()
-    {
-        Debug.Log("DALL METHOD RUNNING");
-        
-    }
-
     public void review()
     {
         Debug.Log("Customer_Present BOOL in review" + customer_Present);
         showNotification.SetActive(false);
-        cust = GameObject.FindGameObjectWithTag("Customer").GetComponent<Customer>();
-        cust.DestroyAllPre();
 
         if (gameController.GetComponent<Game_Controller>().points >= 50 && isInRange == true)
         {
