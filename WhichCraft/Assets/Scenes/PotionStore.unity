@@ -4547,7 +4547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.99997, y: 0}
+  m_AnchoredPosition: {x: 20.00003, y: 0}
   m_SizeDelta: {x: 242.76752, y: 102.93921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &678901970
@@ -8152,6 +8152,7 @@ MonoBehaviour:
   player: {fileID: 831419167}
   points: 0
   scoreDispaly: {fileID: 219303276}
+  satisfactionDispaly: {fileID: 918340272}
   spawnRate: 10
   obstacleTemplate:
   - {fileID: 1505958946637515129, guid: 3bce633484c1b734a99ff081d08998a8, type: 3}
@@ -12081,7 +12082,6 @@ MonoBehaviour:
   sad: {fileID: 595448684}
   gameController: {fileID: 976147559}
   customer_Present: 0
-  key_pressed: 0
   customerGotPotion: 0
   notification: 1
 --- !u!1 &1523433217

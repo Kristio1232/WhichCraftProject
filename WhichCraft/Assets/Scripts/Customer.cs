@@ -44,7 +44,6 @@ public class Customer : MonoBehaviour
     public bool display;
 
 
-
     //Potion Code pattern 
     // 2 beakers = code numbers 1, 2, 3
     // 3 ingredients = code numbers 4, 5, 6 
@@ -102,6 +101,7 @@ public class Customer : MonoBehaviour
        Debug.Log("Customer potionCode" + potionCode);
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -111,8 +111,10 @@ public class Customer : MonoBehaviour
             {
                 this.timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
-                MoveToWayPoint(waypoint);
+
                 
+                MoveToWayPoint(waypoint);
+
             }
             else
             {

@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public int movementSpeed = 5;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
+    public Animator anim_mc;
+    public SpriteRenderer sprite_mc;
     public GameObject bottleSelect;
     public GameObject ingredientSelect;
     public GameObject ingredientPanel;
@@ -93,6 +95,36 @@ public class Player : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
+        if(moveX > 0f)
+        {
+            sprite_mc.flipX = false;
+            anim_mc.SetBool("WalkingSide", true);
+            anim_mc.SetBool("WalkingUp", false);
+            anim_mc.SetBool("WalkingDown", false);
+        }
+        else if(moveX < 0f)
+        {
+            sprite_mc.flipX = true;
+            anim_mc.SetBool("WalkingSide", true);
+            anim_mc.SetBool("WalkingUp", false);
+            anim_mc.SetBool("WalkingDown", false);
+        }
+
+        if(moveY > 0f)
+        {
+            //move up animation
+            anim_mc.SetBool("WalkingSide", false);
+            anim_mc.SetBool("WalkingUp", true);
+            anim_mc.SetBool("WalkingDown", false);
+        }
+        else if(moveY < 0f)
+        {
+            //move down animation
+            anim_mc.SetBool("WalkingSide", false);
+            anim_mc.SetBool("WalkingDown", true);
+            anim_mc.SetBool("WalkingUp", false);
+        }
+
         moveDirection = new Vector2(moveX, moveY).normalized;
         // --------------------------------- Start of spawning system --------------------------
         if (potionDone && potionMade == null)
@@ -160,7 +192,6 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "bottle")
         {
-
             if (Input.GetKey("e"))
             {
                 panelOn = true;
@@ -172,7 +203,6 @@ public class Player : MonoBehaviour
                 panelOn = false;
                 bottlePanel.SetActive(panelOn);
             }
-
         }
 
         if (collision.tag == "ingredient")

@@ -13,7 +13,6 @@ public class Game_Controller : MonoBehaviour
     public GameObject[] customerPrefab;
     public Transform[] waitPoints;
     public int satisfaction;
-
     
     //Player Info
     public GameObject player;
