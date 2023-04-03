@@ -21,6 +21,7 @@ public class Game_Controller : MonoBehaviour
     //Points
     public int points;
     public TMP_Text scoreDispaly;
+    public TMP_Text satisfactionDispaly;
 
     //Spawn Variables
     private float timeBtwSpawns;
@@ -164,6 +165,7 @@ public class Game_Controller : MonoBehaviour
             points += (int) (customers[0].GetComponent<Customer>().money * (satisfaction/100.0));
             Debug.Log(points);
             scoreDispaly.text = points.ToString();
+            satisfactionDispaly.text = satisfaction.ToString();
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
         }
