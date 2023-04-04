@@ -452,7 +452,17 @@ public class Player : MonoBehaviour
         Destroy(empBottle2);
         Destroy(empBottle3);
 
-    }
+        b145.SetActive(false);
+        b256.SetActive(false);
+        b346.SetActive(false);
+        b156.SetActive(false);
+        b345.SetActive(false);
+        b246.SetActive(false);
+        b356.SetActive(false);
+        b146.SetActive(false);
+        b245.SetActive(false);
+
+}
 
     public void emptyInvetoryOut()
     {
