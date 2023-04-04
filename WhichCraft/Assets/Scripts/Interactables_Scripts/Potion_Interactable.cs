@@ -27,6 +27,7 @@ public class Potion_Interactable : MonoBehaviour
     public GameObject player;
 
     //potion types
+    /*
     public GameObject b145;
     public GameObject b256;
     public GameObject b346;
@@ -36,7 +37,7 @@ public class Potion_Interactable : MonoBehaviour
     public GameObject b356;
     public GameObject b146;
     public GameObject b245;
-
+*/
 
   
 
@@ -61,12 +62,12 @@ public class Potion_Interactable : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") &&  MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on == true)
+    {//&&  MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on == true
+        if (collision.gameObject.CompareTag("Player") )
         {
             isInRange = true;
             showNotification.SetActive(true);
-            MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on = false;
+            //MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on = false;
             Debug.Log("Player in Potion is Active");
         }
         if (collision.gameObject.CompareTag("Customer"))
@@ -80,20 +81,27 @@ public class Potion_Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Player")){
         isInRange = false;
         showNotification.SetActive(false);
-        customer_Present = false;
-        smile.SetActive(false);
-        sad.SetActive(false);
-
+        //customer_Present = false;
+        
+        }
+        if (collision.gameObject.CompareTag("Customer"))
+        {
+            customer_Present = false;
+            //smile.SetActive(false);
+            //sad.SetActive(false);
+        }
     }
-
+/*
     public void review()
     {
         Debug.Log("Customer_Present BOOL in review" + customer_Present);
         showNotification.SetActive(false);
 
      //   player.GetComponent<Player>().
+     /*
         b145.SetActive(false);
         b256.SetActive(false);
         b346.SetActive(false);
@@ -104,13 +112,13 @@ public class Potion_Interactable : MonoBehaviour
         b146.SetActive(false);
         b245.SetActive(false);
 
-        if (gameController.GetComponent<Game_Controller>().points >= 50 && isInRange == true)
+        if (gameController.GetComponent<Game_Controller>().points >= 50 && isInRange == true && customer_Present)
         {
             smile.SetActive(true);
             sad.SetActive(false);
            
         }
-        else if(gameController.GetComponent<Game_Controller>().points < 50 && isInRange == true){
+        else if(gameController.GetComponent<Game_Controller>().points < 50 && isInRange == true && customer_Present){
             sad.SetActive(true);
             smile.SetActive(false);
            
@@ -118,5 +126,5 @@ public class Potion_Interactable : MonoBehaviour
         
   
     }                  
-
+*/
 }

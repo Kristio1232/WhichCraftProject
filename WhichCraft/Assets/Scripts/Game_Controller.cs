@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class Game_Controller : MonoBehaviour
 {
     // Objectives
+    public GameObject smile;
+    public GameObject sad;
+    public Transform bubbleSpawn;
     public int potionsMade = 0; // needs to be 2
     public int happyCustomers = 0; // needs to be 2
     ///public int numberCustomers = 0;
@@ -15,15 +18,15 @@ public class Game_Controller : MonoBehaviour
     public TMP_Text moneyEarned;
 
     public Button endDayButton;
-    
+
     //Customer Array Info
     private static List<GameObject> customers;
     private int size = 0;
     public int maxSize;
-    public GameObject[] customerPrefab;
+    //public GameObject[] customerPrefab;
     public Transform[] waitPoints;
     public int satisfaction;
-    
+
     //Player Info
     public GameObject player;
 
@@ -54,7 +57,6 @@ public class Game_Controller : MonoBehaviour
         timeBtwSpawns = 0;
         points = 0;
         customers = new List<GameObject>();
-
     }
 
     void Update()
@@ -98,7 +100,6 @@ public class Game_Controller : MonoBehaviour
 
         if (potionsMade >= 2 && points >= 100 && happyCustomers >= 2 && endDayButton.interactable == false)
             endDayButton.interactable = true;
-
     }
 
     private void customerUpdateFunction()
@@ -118,10 +119,11 @@ public class Game_Controller : MonoBehaviour
                 shopper.GetComponent<Customer>().setPosition(waitPoint);
                 GameObject temp = shopper;
                 customers.Remove(shopper);
-                if (!temp){
+                if (!temp)
+                {
                     Destroy(temp, 15f);
                 }
-                
+
                 size--;
                 break;
             }
@@ -146,7 +148,7 @@ public class Game_Controller : MonoBehaviour
             }
         }
     }
-    
+
     //public static bool match = false;
     public void addCustomer(GameObject customer)
     {
@@ -160,22 +162,25 @@ public class Game_Controller : MonoBehaviour
         Debug.Log("Size " + size + " Potion Done " + player.GetComponent<Player>().getPotionDone());
         if (size > 0 && player.GetComponent<Player>().getPotionDone())
         {
-
             potionsMade++; // adds 1 to the potions made
             if (potionsMade <= 2)
                 potionsCounter.text = potionsMade.ToString() + "/2";
 
             satisfaction = 100;
+
             string playerCode = player.GetComponent<Player>().getSelectedItems();
             string customerCode = customers[0].GetComponent<Customer>().potionCode;
             Debug.Log("Codes: " + playerCode + " and " + customerCode);
-            if (!playerCode[0].Equals(customerCode[0])){
+            if (!playerCode[0].Equals(customerCode[0]))
+            {
                 satisfaction -= 10;
             }
-            if (!playerCode.Contains(customerCode[1])){
+            if (!playerCode.Contains(customerCode[1]))
+            {
                 satisfaction -= 20;
             }
-            if (!playerCode.Contains(customerCode[2])){
+            if (!playerCode.Contains(customerCode[2]))
+            {
                 satisfaction -= 20;
             }
             Debug.Log("Satisfaction" + satisfaction);
@@ -184,8 +189,8 @@ public class Game_Controller : MonoBehaviour
             if (happyCustomers <= 2)
                 satisfiedCusts.text = happyCustomers.ToString() + "/2";
             Debug.Log(customers[0].GetComponent<Customer>().money);
-            points += (int) (customers[0].GetComponent<Customer>().money * (satisfaction/100.0));
-            
+            points += (int)(customers[0].GetComponent<Customer>().money * (satisfaction / 100.0));
+
             Debug.Log(points);
             scoreDispaly.text = points.ToString();
             if (points >= 100)
@@ -193,14 +198,24 @@ public class Game_Controller : MonoBehaviour
             else if (points <= 100)
                 moneyEarned.text = points.ToString() + "/100";
             Debug.Log(happyCustomers + " " + potionsMade);
-            satisfactionDispaly.text = ((int) ((happyCustomers * 1.0/potionsMade)*100)).ToString();
-
-
-
+            satisfactionDispaly.text = ((int)((happyCustomers * 1.0 / potionsMade) * 100)).ToString();
+            GameObject thoughtBubble = null;
+            if (satisfaction >= 80 )
+            {
+                Vector2 position = new Vector2(bubbleSpawn.position.x, bubbleSpawn.position.y);
+                thoughtBubble = Instantiate(smile, position, Quaternion.identity);
+            }
+            else 
+            {
+                Vector2 position = new Vector2(bubbleSpawn.position.x, bubbleSpawn.position.y);
+                thoughtBubble = Instantiate(sad, position, Quaternion.identity);
+            }
+            if (thoughtBubble != null){
+                Destroy(thoughtBubble, 2);
+            }
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
         }
-
     }
 
     public void removeFirst()
@@ -216,7 +231,5 @@ public class Game_Controller : MonoBehaviour
     {
         miniGameActive = value;
     }
-
-    
 
 }
