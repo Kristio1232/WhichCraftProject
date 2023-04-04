@@ -6,6 +6,15 @@ using UnityEngine.UI;
 
 public class Game_Controller : MonoBehaviour
 {
+    // Objectives
+    public int potionsMade = 0; // needs to be 2
+    public int happyCustomers = 0; // needs to be 2
+    public TMP_Text potionsCounter;
+    public TMP_Text satisfiedCusts;
+    public TMP_Text moneyEarned;
+
+    public Button endDayButton;
+    
     //Customer Array Info
     private static List<GameObject> customers;
     private int size = 0;
@@ -85,6 +94,9 @@ public class Game_Controller : MonoBehaviour
             }
         }
 
+        if (potionsMade >= 2 && points >= 100 && happyCustomers >= 2 && endDayButton.interactable == false)
+            endDayButton.interactable = true;
+
     }
 
     private void customerUpdateFunction()
@@ -146,6 +158,10 @@ public class Game_Controller : MonoBehaviour
         Debug.Log("Size " + size + " Potion Done " + player.GetComponent<Player>().getPotionDone());
         if (size > 0 && player.GetComponent<Player>().getPotionDone())
         {
+            potionsMade++; // adds 1 to the potions made
+            if (potionsMade <= 2)
+                potionsCounter.text = potionsMade.ToString() + "/2";
+
             satisfaction = 100;
             string playerCode = player.GetComponent<Player>().getSelectedItems();
             string customerCode = customers[0].GetComponent<Customer>().potionCode;
@@ -160,11 +176,21 @@ public class Game_Controller : MonoBehaviour
                 satisfaction -= 20;
             }
             Debug.Log("Satisfaction" + satisfaction);
+            if (satisfaction >= 80)
+                happyCustomers++; // adds 1 to the happy customers
+            if (happyCustomers <= 2)
+                satisfiedCusts.text = happyCustomers.ToString() + "/2";
             Debug.Log(customers[0].GetComponent<Customer>().money);
             points += (int) (customers[0].GetComponent<Customer>().money * (satisfaction/100.0));
+            
             Debug.Log(points);
             scoreDispaly.text = points.ToString();
+            if (points <= 100)
+                moneyEarned.text = points.ToString() + "/100";
             satisfactionDispaly.text = satisfaction.ToString();
+
+
+
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
         }
@@ -185,5 +211,6 @@ public class Game_Controller : MonoBehaviour
         miniGameActive = value;
     }
 
+    
 
 }

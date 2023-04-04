@@ -6390,7 +6390,7 @@ GameObject:
   - component: {fileID: 828779242}
   - component: {fileID: 828779241}
   m_Layer: 5
-  m_Name: Button
+  m_Name: endDay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8412,6 +8412,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103b242166ba49a40b079ddce416372c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionsMade: 0
+  happyCustomers: 0
+  potionsCounter: {fileID: 84721712}
+  satisfiedCusts: {fileID: 715332811}
+  moneyEarned: {fileID: 675428801}
+  endDayButton: {fileID: 828779241}
   maxSize: 4
   customerPrefab:
   - {fileID: 0}
