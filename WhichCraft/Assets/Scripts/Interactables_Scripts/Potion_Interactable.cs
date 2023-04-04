@@ -22,7 +22,6 @@ public class Potion_Interactable : MonoBehaviour
     //customer collision bool
     public bool customer_Present;
 
-    public bool customerGotPotion;
     public bool notification = true;
 
     public GameObject player;
@@ -50,6 +49,7 @@ public class Potion_Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (isInRange)
         {
             if (Input.GetKeyDown(interactKey))
@@ -73,6 +73,7 @@ public class Potion_Interactable : MonoBehaviour
         {
             customer_Present = true;
             Debug.Log("Customer_Present BOOL in the collision" + customer_Present);
+
         }
         
     }
@@ -84,7 +85,6 @@ public class Potion_Interactable : MonoBehaviour
         customer_Present = false;
         smile.SetActive(false);
         sad.SetActive(false);
-
 
     }
 
