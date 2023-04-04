@@ -185,7 +185,9 @@ public class Game_Controller : MonoBehaviour
             
             Debug.Log(points);
             scoreDispaly.text = points.ToString();
-            if (points <= 100)
+            if (points >= 100)
+                moneyEarned.text = "100/100";
+            else if (points <= 100)
                 moneyEarned.text = points.ToString() + "/100";
             satisfactionDispaly.text = satisfaction.ToString();
 
