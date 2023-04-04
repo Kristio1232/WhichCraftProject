@@ -9,6 +9,7 @@ public class Game_Controller : MonoBehaviour
     // Objectives
     public int potionsMade = 0; // needs to be 2
     public int happyCustomers = 0; // needs to be 2
+    ///public int numberCustomers = 0;
     public TMP_Text potionsCounter;
     public TMP_Text satisfiedCusts;
     public TMP_Text moneyEarned;
@@ -28,6 +29,7 @@ public class Game_Controller : MonoBehaviour
 
     //Points
     public int points;
+    //public int storeSatisfaction;
     public TMP_Text scoreDispaly;
     public TMP_Text satisfactionDispaly;
 
@@ -158,6 +160,7 @@ public class Game_Controller : MonoBehaviour
         Debug.Log("Size " + size + " Potion Done " + player.GetComponent<Player>().getPotionDone());
         if (size > 0 && player.GetComponent<Player>().getPotionDone())
         {
+
             potionsMade++; // adds 1 to the potions made
             if (potionsMade <= 2)
                 potionsCounter.text = potionsMade.ToString() + "/2";
@@ -189,7 +192,8 @@ public class Game_Controller : MonoBehaviour
                 moneyEarned.text = "100/100";
             else if (points <= 100)
                 moneyEarned.text = points.ToString() + "/100";
-            satisfactionDispaly.text = satisfaction.ToString();
+            Debug.Log(happyCustomers + " " + potionsMade);
+            satisfactionDispaly.text = ((int) ((happyCustomers * 1.0/potionsMade)*100)).ToString();
 
 
 
