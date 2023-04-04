@@ -25,6 +25,19 @@ public class Potion_Interactable : MonoBehaviour
     public bool customerGotPotion;
     public bool notification = true;
 
+    public GameObject player;
+
+    //potion types
+    public GameObject b145;
+    public GameObject b256;
+    public GameObject b346;
+    public GameObject b156;
+    public GameObject b345;
+    public GameObject b246;
+    public GameObject b356;
+    public GameObject b146;
+    public GameObject b245;
+
 
   
 
@@ -79,6 +92,17 @@ public class Potion_Interactable : MonoBehaviour
     {
         Debug.Log("Customer_Present BOOL in review" + customer_Present);
         showNotification.SetActive(false);
+
+     //   player.GetComponent<Player>().
+        b145.SetActive(false);
+        b256.SetActive(false);
+        b346.SetActive(false);
+        b156.SetActive(false);
+        b345.SetActive(false);
+        b246.SetActive(false);
+        b356.SetActive(false);
+        b146.SetActive(false);
+        b245.SetActive(false);
 
         if (gameController.GetComponent<Game_Controller>().points >= 50 && isInRange == true)
         {

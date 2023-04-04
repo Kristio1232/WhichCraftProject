@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     public GameObject bottleFrame;
     public GameObject ingredientFrame;
+
     //inventory  Objects
     public GameObject redPref;
     public GameObject yellowPref;
@@ -55,6 +56,8 @@ public class Player : MonoBehaviour
 
     public Transform spawnPoints;
     public GameObject potionMade;
+
+
     // item spawn pos
     public Transform[] itemSpawns;
 
@@ -74,13 +77,31 @@ public class Player : MonoBehaviour
     public static bool match = true;
     public static string Items = "";
 
+
+
+    ///temps
+    public GameObject potionSprites;
+    public GameObject b145;
+    public GameObject b256;
+    public GameObject b346;
+    public GameObject b156;
+    public GameObject b345;
+    public GameObject b246;
+    public GameObject b356;
+    public GameObject b146;
+    public GameObject b245;
+
+
+
+    //
+
     // Start is called before the first frame update
     void Start()
     {
         emptyInvetory();
     }
-    // Update is called once per frame
 
+    // Update is called once per frame
     void Update()
     {
         if (panelOn && Input.GetKey("space"))
@@ -99,8 +120,90 @@ public class Player : MonoBehaviour
         {
             //if (SelectedItems ) add an if statement to check ingredients to display potion
 
-            Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
-            potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+            if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_145 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b145.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_145 = false;
+                
+            }
+             if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_256 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b256.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_256 = false;
+                
+            }
+             if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_346 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b346.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_346 = false;
+                
+            }
+             if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_156 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b156.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_156 = false;
+                
+            }
+             if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_345 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b345.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_345 = false;
+                
+            }
+             if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_246 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b246.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_246 = false;
+                
+            }
+             if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_356 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b356.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_356 = false;
+                
+            }
+             if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_146 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b146.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_146 = false;
+                
+            }
+             if (potionSprites.GetComponent<PotionSpriteChange>().onDisplay_245 == true)
+            {
+               // Vector2 position = new Vector2(spawnPoints.position.x, spawnPoints.position.y);
+             //   potionMade = Instantiate(obstacleTemplate, position, Quaternion.identity);
+                b245.SetActive(true);
+                Debug.Log("b145 should be active");
+                potionSprites.GetComponent<PotionSpriteChange>().onDisplay_245 = false;
+                
+            }
+            
+            
+           
             
         }
        
@@ -330,6 +433,7 @@ public class Player : MonoBehaviour
             
         }
     }
+
     public void emptyTable()
     {
         Destroy(blue);
