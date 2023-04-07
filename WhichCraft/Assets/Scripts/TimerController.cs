@@ -25,7 +25,7 @@ public class TimerController : MonoBehaviour
             timeLeft -= Time.deltaTime;
             updateTimer(timeLeft);
         }
-        else
+        if(timeLeft <= 0)
         {
             timeLeft = 0;
             timerOn = false;

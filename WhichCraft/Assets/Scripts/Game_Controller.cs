@@ -12,6 +12,9 @@ public class Game_Controller : MonoBehaviour
     public Transform bubbleSpawn;
     public int potionsMade = 0; // needs to be 2
     public int happyCustomers = 0; // needs to be 2
+
+    public static int custServed;
+    public static int satis;
     ///public int numberCustomers = 0;
     public TMP_Text potionsCounter;
     public TMP_Text satisfiedCusts;
@@ -163,6 +166,7 @@ public class Game_Controller : MonoBehaviour
         if (size > 0 && player.GetComponent<Player>().getPotionDone())
         {
             potionsMade++; // adds 1 to the potions made
+            custServed = potionsMade;
             if (potionsMade <= 2)
                 potionsCounter.text = potionsMade.ToString() + "/2";
 
@@ -213,6 +217,7 @@ public class Game_Controller : MonoBehaviour
             if (thoughtBubble != null){
                 Destroy(thoughtBubble, 2);
             }
+            satis = ((int)((happyCustomers * 1.0 / potionsMade) * 100));
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
         }
