@@ -57,6 +57,7 @@ public class Game_Controller : MonoBehaviour
     void Start()
     {
         miniGameActive = false;
+        potionsMade = 0;
         timeBtwSpawns = 0;
         points = 0;
         customers = new List<GameObject>();
@@ -120,10 +121,15 @@ public class Game_Controller : MonoBehaviour
             {
                 waitPoint = waitPoints[0];
                 shopper.GetComponent<Customer>().setPosition(waitPoint);
+                shopper.GetComponent<Customer>().DestroyAllPre();
+                shopper.GetComponent<Customer>().BubbleSet(sad);
+                float number = (float)0.45;
+                shopper.transform.localScale = new Vector3(-number, number, number);
                 GameObject temp = shopper;
                 customers.Remove(shopper);
                 if (!temp)
                 {
+                    Destroy(temp.GetComponent<Customer>().bubble, 15f);
                     Destroy(temp, 15f);
                 }
 
@@ -204,19 +210,33 @@ public class Game_Controller : MonoBehaviour
             Debug.Log(happyCustomers + " " + potionsMade);
             satisfactionDispaly.text = ((int)((happyCustomers * 1.0 / potionsMade) * 100)).ToString();
             GameObject thoughtBubble = null;
-            if (satisfaction >= 80 )
+
+            if (satisfaction >= 80)
             {
+                /*
                 Vector2 position = new Vector2(bubbleSpawn.position.x, bubbleSpawn.position.y);
                 thoughtBubble = Instantiate(smile, position, Quaternion.identity);
+                */
+                //thoughtBubble = Instantiate(smile);
+                customers[0].GetComponent<Customer>().DestroyAllPre();
+                //Destroy(customers[0].GetComponent<Customer>().bubble);
+                customers[0].GetComponent<Customer>().BubbleSet(smile);
             }
-            else 
+            else
             {
+                /*
                 Vector2 position = new Vector2(bubbleSpawn.position.x, bubbleSpawn.position.y);
                 thoughtBubble = Instantiate(sad, position, Quaternion.identity);
+                */
+                //thoughtBubble = Instantiate(sad);
+                //Destroy(customers[0].GetComponent<Customer>().bubble);
+                customers[0].GetComponent<Customer>().DestroyAllPre();
+                customers[0].GetComponent<Customer>().BubbleSet(sad);
             }
+            /*
             if (thoughtBubble != null){
                 Destroy(thoughtBubble, 2);
-            }
+            }*/
             satis = ((int)((happyCustomers * 1.0 / potionsMade) * 100));
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
@@ -227,8 +247,12 @@ public class Game_Controller : MonoBehaviour
     {
         GameObject cus = customers[0];
         cus.GetComponent<Customer>().setPosition(waitPoints[0]);
+        float number = (float)0.45;
+        cus.transform.localScale = new Vector3(-number, number, number);
+        Destroy(cus.GetComponent<Customer>().bubble, 15f);
+        Destroy(cus, 15f);
         customers.Remove(cus);
-        cus.GetComponent<Customer>().DestroyAllPre();
+        //cus.GetComponent<Customer>().DestroyAllPre();
         size--;
     }
 

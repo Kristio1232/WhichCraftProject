@@ -24,13 +24,14 @@ public class EndDay : MonoBehaviour
     void Start()
     {
         //Customer served
-        customer_Served = Game_Controller.custServed;
+        /*
+        customer_Served = Game_Controller.potionsMade;
         Display_customerServed.text = customer_Served.ToString(); 
 
         //Satisfaction
         avgSatisfaction = Game_Controller.satis / customer_Served;
         Display_avgSatissfaction.text = avgSatisfaction.ToString();
-
+    */
 
 
     }

@@ -28,8 +28,11 @@ public class Customer : MonoBehaviour
     public GameObject order356; //missing
     public GameObject order146; //missing
     public GameObject order245; //missing
-
+    public GameObject smile;
+    public GameObject sad;
+    public GameObject bubble;
     //instances of thought bubble order "_ _ _"
+    /*
     private GameObject instance_145;
     private GameObject instance_256;
     private GameObject instance_346;
@@ -40,7 +43,7 @@ public class Customer : MonoBehaviour
     private GameObject instance_356; //missing
     private GameObject instance_146; //missing
     private GameObject instance_245; //missing
-
+*/
     public bool display;
 
 
@@ -52,6 +55,7 @@ public class Customer : MonoBehaviour
     // Random money and potionCode
     void Start()
     {
+        anim.SetBool("WalkOut", true);
         money = Random.Range(15, 101);
         if (Random.Range(1, 10000) == 1){
             money  = Random.Range(1000, 10000);
@@ -111,7 +115,8 @@ public class Customer : MonoBehaviour
             {
                 this.timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
-
+                anim.SetBool("Idle", false);
+                anim.SetBool("WalkOut", true);
                 
                 MoveToWayPoint(waypoint);
 
@@ -119,11 +124,15 @@ public class Customer : MonoBehaviour
             else
             {
                 MoveToWayPoint(waypoint);
-                anim.SetBool("Idle", false);
-                anim.SetBool("WalkOut", true);
+                //anim.SetBool("Idle", false);
+                //anim.SetBool("WalkOut", true);
                 sprite.flipX = false;
             }
-
+            if (bubble){
+                //Debug.Log(transform.position.x);
+                Vector2 position = new Vector2(transform.position.x +1, transform.position.y +1);
+                bubble.transform.position = position;
+            }
         }
     }
 
@@ -156,38 +165,105 @@ public class Customer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        /*
         if (other.CompareTag("CustomerGoesIn"))
         {
             Debug.Log("Customer Comes In!");
             anim.SetBool("WalkIn", true);
             sprite.flipX = true;
         }
-
+    */
         if (other.CompareTag("CustomerStops"))
         {
             Debug.Log("Customer Stops Here");
             anim.SetBool("Idle", true);
             anim.SetBool("WalkIn", false);
             sprite.flipX = true;
-            StartCoroutine(DisplayPotionCode(1f));
+            if (!bubble){
+                BubbleSet();
+            }
         }
 
     }
+    public void BubbleSet(GameObject newBubble){
+        Debug.Log("Runs " +newBubble);
+        bubble = Instantiate(newBubble);
+        Vector2 position = new Vector2(transform.position.x +1, transform.position.y +1);
+        bubble.transform.position = position;
+        Debug.Log("New bubble " + bubble);
+    }
+    private void BubbleSet(){
+        if (potionCode == "145")
+        {
+            bubble = Instantiate(order145);
+            //Destroy(bubble, this.timeLeft);
+        }
+        else if (potionCode == "256")
+        {
+            bubble = Instantiate(order256);
+            //Destroy(instance_256, this.timeLeft);
+        }
+        else if (potionCode == "346")
+        {
+            bubble = Instantiate(order346);
+            
+            //Destroy(instance_346, this.timeLeft);
+        }
+        else if (potionCode == "156" )
+        {
+            bubble = Instantiate(order156);
+            
+            //Destroy(instance_156, this.timeLeft);
+        }
+        else if (potionCode == "345" )
+        {
+            bubble = Instantiate(order345);
+          
+            //Destroy(instance_345, this.timeLeft);
 
+        }
+        else if (potionCode == "246" )
+        {
+            bubble = Instantiate(order246);
+          
+            //Destroy(instance_246, timeLeft);
+        }
+
+        //**NEW ADDITION**
+        else if (potionCode == "356" )
+        {
+            bubble = Instantiate(order356);
+          
+            //Destroy(instance_356, timeLeft);
+        }
+        else if (potionCode == "146" )
+        {
+            bubble = Instantiate(order146);
+           
+            //Destroy(instance_146, timeLeft);
+        }
+        else if (potionCode == "245" )
+        {
+            bubble = Instantiate(order245);
+            
+            //Destroy(instance_245, timeLeft);
+        }
+    }
+    /*
     private IEnumerator DisplayPotionCode(float seconds)
     {
         yield return new WaitForSeconds(seconds);
 
         if (potionCode == "145" && display == false)
         {
-            instance_145 = Instantiate(order145);
+            bubble = Instantiate(order145);
             Debug.Log("Created Thought Bubble instance_145");
             display = true;
-            Destroy(instance_145, this.timeLeft);
+            Destroy(bubble, this.timeLeft);
         }
         else if (potionCode == "256" && display == false)
         {
-            instance_256 = Instantiate(order256);
+            bubble = Instantiate(order256);
             Debug.Log("Created Thought Bubble instance_256");
             display = true;
             Destroy(instance_256, this.timeLeft);
@@ -245,11 +321,14 @@ public class Customer : MonoBehaviour
             Destroy(instance_245, timeLeft);
         }
     }
-
+*/
     public void DestroyAllPre()
     {
         Debug.Log("Destroying method running");
-        
+        if (bubble){
+            Destroy(bubble);
+        }
+        /*
         if(potionCode == "145")
         {
             Destroy(instance_145);
@@ -295,7 +374,7 @@ public class Customer : MonoBehaviour
         {
             Destroy(instance_245);
             display = false;
-        }
+        }*/
         //**
     }
 
