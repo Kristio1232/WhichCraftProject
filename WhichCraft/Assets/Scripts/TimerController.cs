@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class TimerController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class TimerController : MonoBehaviour
         {
             timeLeft = 0;
             timerOn = false;
+            SceneManager.LoadScene("EndDay");
         }
     }
 
