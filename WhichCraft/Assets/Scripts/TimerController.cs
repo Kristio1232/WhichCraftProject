@@ -9,6 +9,7 @@ public class TimerController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float timeLeft;
+    public static float timeTransfer;
     public bool timerOn = false;
     public TMP_Text timerText;
 
@@ -23,8 +24,10 @@ public class TimerController : MonoBehaviour
         if (timerOn)
         {
             timeLeft -= Time.deltaTime;
+            timeTransfer = timeLeft;
             updateTimer(timeLeft);
         }
+        
         if(timeLeft <= 0)
         {
             timeLeft = 0;

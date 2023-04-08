@@ -21,6 +21,10 @@ public class Game_Controller : MonoBehaviour
     public TMP_Text moneyEarned;
 
     public Button endDayButton;
+    public static bool goalsPass;
+    public static bool potionPass;
+    public static bool moneyPass;
+    public static bool happyPass;
 
     //Customer Array Info
     private static List<GameObject> customers;
@@ -103,7 +107,11 @@ public class Game_Controller : MonoBehaviour
         }
 
         if (potionsMade >= 2 && points >= 100 && happyCustomers >= 2 && endDayButton.interactable == false)
+        {
+            goalsPass = true;
             endDayButton.interactable = true;
+        }
+            
     }
 
     private void customerUpdateFunction()
@@ -175,6 +183,11 @@ public class Game_Controller : MonoBehaviour
             custServed = potionsMade;
             if (potionsMade <= 2)
                 potionsCounter.text = potionsMade.ToString() + "/2";
+            
+            if(potionsMade >= 2)
+            {
+                potionPass = true;
+            }
 
             satisfaction = 100;
 
@@ -197,14 +210,24 @@ public class Game_Controller : MonoBehaviour
             if (satisfaction >= 80)
                 happyCustomers++; // adds 1 to the happy customers
             if (happyCustomers <= 2)
-                satisfiedCusts.text = happyCustomers.ToString() + "/2";
+                {satisfiedCusts.text = happyCustomers.ToString() + "/2";}
+            if (happyCustomers >= 2)
+            {
+                happyPass = true;
+            }
+
+
             Debug.Log(customers[0].GetComponent<Customer>().money);
             points += (int)(customers[0].GetComponent<Customer>().money * (satisfaction / 100.0));
 
             Debug.Log(points);
             scoreDispaly.text = points.ToString();
             if (points >= 100)
-                moneyEarned.text = "100/100";
+              {
+                    moneyEarned.text = "100/100";
+                    moneyPass = true;
+              }  
+
             else if (points <= 100)
                 moneyEarned.text = points.ToString() + "/100";
             Debug.Log(happyCustomers + " " + potionsMade);
@@ -237,7 +260,7 @@ public class Game_Controller : MonoBehaviour
             if (thoughtBubble != null){
                 Destroy(thoughtBubble, 2);
             }*/
-            satis = ((int)((happyCustomers * 1.0 / potionsMade) * 100));
+            satis = satis + ((int)((happyCustomers * 1.0 / potionsMade) * 100));
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
         }
