@@ -62,8 +62,8 @@ public class Potion_Interactable : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {//&&  MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on == true
-        if (collision.gameObject.CompareTag("Player") )
+    {//
+        if (collision.gameObject.CompareTag("Player") &&  MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on == true)
         {
             isInRange = true;
             showNotification.SetActive(true);

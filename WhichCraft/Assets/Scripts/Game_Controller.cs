@@ -9,6 +9,7 @@ public class Game_Controller : MonoBehaviour
     // Objectives
     public GameObject smile;
     public GameObject sad;
+    public GameObject MiniGameWinMenu;
     public Transform bubbleSpawn;
     public int potionsMade = 0; // needs to be 2
     public int happyCustomers = 0; // needs to be 2
@@ -131,6 +132,9 @@ public class Game_Controller : MonoBehaviour
                 shopper.GetComponent<Customer>().setPosition(waitPoint);
                 shopper.GetComponent<Customer>().DestroyAllPre();
                 shopper.GetComponent<Customer>().BubbleSet(sad);
+             //   satisfaction -=50;                               
+             //   satisfactionDispaly.text = ((int)((happyCustomers * 1.0 / potionsMade) * 100)).ToString();
+
                 float number = (float)0.45;
                 shopper.transform.localScale = new Vector3(-number, number, number);
                 GameObject temp = shopper;
@@ -260,6 +264,7 @@ public class Game_Controller : MonoBehaviour
             if (thoughtBubble != null){
                 Destroy(thoughtBubble, 2);
             }*/
+            MiniGameWinMenu.GetComponent<MiniGameButtonController>().notification_on = false;
             satis = satis + ((int)((happyCustomers * 1.0 / potionsMade) * 100));
             player.GetComponent<Player>().emptyInvetoryOut();
             removeFirst();
