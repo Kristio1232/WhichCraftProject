@@ -171,9 +171,10 @@ MonoBehaviour:
   sprite: {fileID: 4839772769566322493}
   moveSpeed: 2
   timerOn: 1
-  timeLeft: 40
+  timeLeft: 50
   money: 0
   potionCode: 
+  MiniGame1: {fileID: 4213796677854637515, guid: 72e88e9aa4a10d942ab7350c909e8a8c, type: 3}
   order145: {fileID: 613519769938945658, guid: 26021b1f7a165ef46bf7d5d7655dd3b1, type: 3}
   order256: {fileID: 3127427228083920390, guid: 32b77ac8b34f98a41852e74e7b4dd358, type: 3}
   order346: {fileID: 341596059470498591, guid: 0b7fb20d3dd713c45a1d56ea851b7e94, type: 3}
@@ -183,4 +184,7 @@ MonoBehaviour:
   order356: {fileID: 687447012062212667, guid: c771596c89957fe46b1227287cbdb351, type: 3}
   order146: {fileID: 9195873387982767820, guid: 376f49bce0b6bb046b4274aafb23abea, type: 3}
   order245: {fileID: 1621684898306933100, guid: ff781e42dcababf40ae25e14d3132f07, type: 3}
+  smile: {fileID: 0}
+  sad: {fileID: 0}
+  bubble: {fileID: 0}
   display: 0
