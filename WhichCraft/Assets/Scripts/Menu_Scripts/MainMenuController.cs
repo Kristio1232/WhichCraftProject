@@ -34,4 +34,9 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("PotionStore");
     }
 
+    public void Credits()
+    {
+        Application.OpenURL("https://docs.google.com/document/d/1_ZVIny0h1pJLApjDsKZOYXlzGbiVuDbrvTBMu4V1fjs/edit");
+    }
+
 }

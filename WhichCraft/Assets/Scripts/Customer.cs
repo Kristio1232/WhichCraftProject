@@ -10,7 +10,7 @@ public class Customer : MonoBehaviour
     public float moveSpeed = 2f;
     private Transform waypoint;
     public bool timerOn;
-    public float timeLeft = 40f;
+    public float timeLeft = 60f;
 
     //Selling Potion Info
     public int money;
@@ -115,6 +115,7 @@ public class Customer : MonoBehaviour
             {
                 this.timeLeft -= Time.deltaTime;
                 updateTimer(timeLeft);
+
                 anim.SetBool("Idle", false);
                 anim.SetBool("WalkOut", true);
                 
