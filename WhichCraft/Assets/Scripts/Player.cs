@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -486,6 +487,10 @@ public class Player : MonoBehaviour
         Destroy(empBottle3);
     }
 
+    public void openEndDay()
+    {
+        SceneManager.LoadScene("EndDay");
+    }
 
 
 }

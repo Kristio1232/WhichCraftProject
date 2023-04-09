@@ -24,17 +24,31 @@ public class EndDay : MonoBehaviour
     public TMP_Text Display_timeLeft;
     public TMP_Text Display_bonusCoins;
 
+    //timer
+  //  public float timer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //Customer served
-        customer_Served = Game_Controller.custServed;
+        customer_Served = Game_Controller.custServed;  
         Display_customerServed.text = customer_Served.ToString(); 
+       
 
         //Satisfaction
-        avgSatisfaction = Game_Controller.satis / customer_Served;
-        Display_avgSatissfaction.text = avgSatisfaction.ToString();
+        if (customer_Served == 0)
+        {
+            customer_Served = 1;
+            avgSatisfaction = Game_Controller.satis / customer_Served;
+            Display_avgSatissfaction.text = avgSatisfaction.ToString();
+        }
+        else 
+        {
+             avgSatisfaction = Game_Controller.satis / customer_Served;
+             Display_avgSatissfaction.text = avgSatisfaction.ToString();
+        }
+
 
         //timeLeft
         timeLeft = TimerController.timeTransfer;
@@ -45,6 +59,7 @@ public class EndDay : MonoBehaviour
 
         Display_timeLeft.text = string.Format("{0:00} : {1:00}", minutes, seconds);
         
+        //bonus coin system 
         if(minutes >= 3 && customer_Served >= 4 && avgSatisfaction >=60 && Game_Controller.potionPass == true && Game_Controller.moneyPass == true && Game_Controller.happyPass == true)
         {
             bonusCoins = 70;
@@ -65,6 +80,9 @@ public class EndDay : MonoBehaviour
             Display_bonusCoins.text = bonusCoins.ToString();
         }
 
+
+        //Daily goals
+    
         if(Game_Controller.potionPass == true)
         {
             Vector2 position = new Vector2(-2.41f, 1.31f);
@@ -97,13 +115,13 @@ public class EndDay : MonoBehaviour
         }
 
 
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
+
     }
 
     public void openEndDay()
@@ -113,11 +131,13 @@ public class EndDay : MonoBehaviour
 
     public void replay()
     {
+    //    timer = 0;
         SceneManager.LoadScene("PotionStore");
     }
 
     public void quit (string Quit)
     {
+     //   timer = 0;
         Application.Quit();
     }
 }
