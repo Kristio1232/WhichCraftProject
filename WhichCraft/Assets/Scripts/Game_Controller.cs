@@ -133,12 +133,14 @@ public class Game_Controller : MonoBehaviour
                 shopper.GetComponent<Customer>().setPosition(waitPoint);
                 shopper.GetComponent<Customer>().DestroyAllPre();
                 shopper.GetComponent<Customer>().BubbleSet(sad);
-                float number = (float)0.45;
-                shopper.transform.localScale = new Vector3(-number, number, number);
                 GameObject temp = shopper;
+                
+                
                 customers.Remove(shopper);
                 if (!temp)
                 {
+                    float number = (float)0.45;
+                temp.transform.localScale = new Vector3(-number, number, number);
                     Destroy(temp.GetComponent<Customer>().bubble, 15f);
                     Destroy(temp, 15f);
                 }
@@ -234,7 +236,7 @@ public class Game_Controller : MonoBehaviour
                 moneyEarned.text = points.ToString() + "/100";
             Debug.Log(happyCustomers + " " + potionsMade);
             satisfactionDispaly.text = ((int)((happyCustomers * 1.0 / potionsMade) * 100)).ToString();
-            GameObject thoughtBubble = null;
+            //GameObject thoughtBubble = null;
 
             if (satisfaction >= 80)
             {
