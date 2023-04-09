@@ -29,14 +29,53 @@ public class EndDay : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+         //Daily goals
+        yield return new WaitForSeconds(0.5f);
+        if(Game_Controller.potionPass == true)
+        {
+            Vector2 position = new Vector2(-2.41f, 1.31f);
+            Instantiate(check, position, Quaternion.identity);
+        }
+        else if (Game_Controller.potionPass == false)
+        {
+            Vector2 position = new Vector2(-2.41f, 1.31f);
+            Instantiate(cross, position, Quaternion.identity);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        if(Game_Controller.moneyPass == true)
+        {
+            Vector2 position = new Vector2(-3.41f, 0.37f);
+            Instantiate(check, position, Quaternion.identity);
+        }
+        else if (Game_Controller.moneyPass == false)
+        {
+            Vector2 position = new Vector2(-3.41f, 0.37f);
+            Instantiate(cross, position, Quaternion.identity);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        if(Game_Controller.happyPass == true)
+        {
+            Vector2 position = new Vector2(-2.08f, -0.4f);
+            Instantiate(check, position, Quaternion.identity);
+        }
+        else if (Game_Controller.happyPass == false)
+        {
+            Vector2 position = new Vector2(-2.08f, -0.4f);
+            Instantiate(cross, position, Quaternion.identity);
+        }
+
+        yield return new WaitForSeconds(0.5f);
         //Customer served
         customer_Served = Game_Controller.custServed;  
         Display_customerServed.text = customer_Served.ToString(); 
        
 
         //Satisfaction
+        yield return new WaitForSeconds(0.5f);
         if (customer_Served == 0)
         {
             customer_Served = 1;
@@ -51,6 +90,7 @@ public class EndDay : MonoBehaviour
 
 
         //timeLeft
+        yield return new WaitForSeconds(0.5f);
         timeLeft = TimerController.timeTransfer;
 
         timeLeft += 1;
@@ -60,6 +100,7 @@ public class EndDay : MonoBehaviour
         Display_timeLeft.text = string.Format("{0:00} : {1:00}", minutes, seconds);
         
         //bonus coin system 
+        yield return new WaitForSeconds(1);
         if(minutes >= 3 && customer_Served >= 4 && avgSatisfaction >=60 && Game_Controller.potionPass == true && Game_Controller.moneyPass == true && Game_Controller.happyPass == true)
         {
             bonusCoins = 70;
@@ -81,38 +122,7 @@ public class EndDay : MonoBehaviour
         }
 
 
-        //Daily goals
-    
-        if(Game_Controller.potionPass == true)
-        {
-            Vector2 position = new Vector2(-2.41f, 1.31f);
-            Instantiate(check, position, Quaternion.identity);
-        }
-        else if (Game_Controller.potionPass == false)
-        {
-            Vector2 position = new Vector2(-2.41f, 1.31f);
-            Instantiate(cross, position, Quaternion.identity);
-        }
-        if(Game_Controller.moneyPass == true)
-        {
-            Vector2 position = new Vector2(-3.41f, 0.37f);
-            Instantiate(check, position, Quaternion.identity);
-        }
-        else if (Game_Controller.moneyPass == false)
-        {
-            Vector2 position = new Vector2(-3.41f, 0.37f);
-            Instantiate(cross, position, Quaternion.identity);
-        }
-        if(Game_Controller.happyPass == true)
-        {
-            Vector2 position = new Vector2(-2.08f, -0.4f);
-            Instantiate(check, position, Quaternion.identity);
-        }
-        else if (Game_Controller.happyPass == false)
-        {
-            Vector2 position = new Vector2(-2.08f, -0.4f);
-            Instantiate(cross, position, Quaternion.identity);
-        }
+       
 
 
     }
