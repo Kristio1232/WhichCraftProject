@@ -150,5 +150,10 @@ public class EndDay : MonoBehaviour
      //   timer = 0;
         Application.Quit();
     }
+
+    public void goToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
 
