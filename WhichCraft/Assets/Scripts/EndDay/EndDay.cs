@@ -31,41 +31,40 @@ public class EndDay : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-         //Daily goals
+        Vector2 position1 = new Vector2(174.68f, 216.88f);
+        Vector2 position2 = new Vector2(173.65f, 216.15f);
+        Vector2 position3 = new Vector2(175f, 215.36f);
+
+        //Daily goals
         yield return new WaitForSeconds(0.5f);
         if(Game_Controller.potionPass == true)
         {
-            Vector2 position = new Vector2(-2.41f, 1.31f);
-            Instantiate(check, position, Quaternion.identity);
+            
+            Instantiate(check, position1, Quaternion.identity);
         }
         else if (Game_Controller.potionPass == false)
         {
-            Vector2 position = new Vector2(-2.41f, 1.31f);
-            Instantiate(cross, position, Quaternion.identity);
+            Instantiate(cross, position1, Quaternion.identity);
         }
 
         yield return new WaitForSeconds(0.5f);
         if(Game_Controller.moneyPass == true)
         {
-            Vector2 position = new Vector2(-3.41f, 0.37f);
-            Instantiate(check, position, Quaternion.identity);
+            Instantiate(check, position2, Quaternion.identity);
         }
         else if (Game_Controller.moneyPass == false)
         {
-            Vector2 position = new Vector2(-3.41f, 0.37f);
-            Instantiate(cross, position, Quaternion.identity);
+            Instantiate(cross, position2, Quaternion.identity);
         }
 
         yield return new WaitForSeconds(0.5f);
         if(Game_Controller.happyPass == true)
         {
-            Vector2 position = new Vector2(-2.08f, -0.4f);
-            Instantiate(check, position, Quaternion.identity);
+            Instantiate(check, position3, Quaternion.identity);
         }
         else if (Game_Controller.happyPass == false)
         {
-            Vector2 position = new Vector2(-2.08f, -0.4f);
-            Instantiate(cross, position, Quaternion.identity);
+            Instantiate(cross, position3, Quaternion.identity);
         }
 
         yield return new WaitForSeconds(0.5f);
