@@ -16,7 +16,7 @@ public class EnchantController2 : MonoBehaviour
     public AudioSource buttonSound;
     public TMP_Text timeText;
 
-    public int posX , posY;
+    public float posX, posY = 0;
     public Button potionButton;
     public GameObject MiniGame;
     public GameObject MiniGameWinMenu;
@@ -109,9 +109,9 @@ public class EnchantController2 : MonoBehaviour
 
         //   posY = Random.Range(400,800); //70 min, 250 max
 
-        posX = Random.Range(600,1100); //100 min, 500 max
+        posX = Random.Range(200f,500f); //100 min, 500 max
 
-        posY = Random.Range(400,800); //70 min, 250 max
+        posY = Random.Range(100f,250f); //70 min, 250 max
         buttonToMove.transform.position = new Vector2(posX, posY);
     }
 
