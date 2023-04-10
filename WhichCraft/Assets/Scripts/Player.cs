@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (panelOn && Input.GetKey("space"))
         {
             panelOn = false;
@@ -121,10 +122,12 @@ public class Player : MonoBehaviour
 
         if(moveX > 0f)
         {
+            
             sprite_mc.flipX = false;
             anim_mc.SetBool("WalkingSide", true);
             anim_mc.SetBool("WalkingUp", false);
             anim_mc.SetBool("WalkingDown", false);
+       
         }
         else if(moveX < 0f)
         {
@@ -133,6 +136,7 @@ public class Player : MonoBehaviour
             anim_mc.SetBool("WalkingUp", false);
             anim_mc.SetBool("WalkingDown", false);
         }
+
 
         if(moveY > 0f)
         {
